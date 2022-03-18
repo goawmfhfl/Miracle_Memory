@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ onCreate }) => {
   const authorInput = useRef();
   const contentInput = useRef();
-  // 돔에 접근할 수 있는 범위를 준다
+  console.log("authorInput", authorInput);
   const [state, setState] = useState({
     author: "",
     content: "",
@@ -15,6 +15,7 @@ const DiaryEditor = () => {
 
   const handleSubmit = () => {
     if (state.author.length < 1) {
+      alert("한 글자라도 입력해주세요");
       authorInput.current.focus();
       return;
     }
@@ -23,7 +24,12 @@ const DiaryEditor = () => {
       contentInput.current.focus();
       return;
     }
-
+    onCreate(state.author, state.content, state.emotion);
+    setState({
+      author: "",
+      content: "",
+      emotion: 1,
+    });
     alert("저장 성공");
   };
 
