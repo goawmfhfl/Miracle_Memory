@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 
-const DiaryEditor = () => {
+const DiaryEditor = ({ onCreate }) => {
+  console.log(onCreate);
   const authorInput = useRef();
   const contentInput = useRef();
   // 돔에 접근할 수 있는 범위를 준다
@@ -23,7 +24,7 @@ const DiaryEditor = () => {
       contentInput.current.focus();
       return;
     }
-
+    onCreate(state.author, state.content, state.emotion);
     alert("저장 성공");
   };
 
