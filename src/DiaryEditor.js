@@ -3,7 +3,6 @@ import React, { useRef, useState } from "react";
 const DiaryEditor = ({ onCreate }) => {
   const authorInput = useRef();
   const contentInput = useRef();
-  console.log("authorInput", authorInput);
   const [state, setState] = useState({
     author: "",
     content: "",
