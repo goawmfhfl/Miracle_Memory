@@ -9,8 +9,14 @@ const DiaryEditor = () => {
 
   const handleChangeState = (e) =>
     setState({ ...state, [e.target.name]: e.target.value });
+
   const handleSubmit = () => {
-    console.log(state);
+    if (state.author.length < 1)
+      return alert("작성자는 최소 1글자 이상 입력해주세요");
+
+    if (state.content.length < 5)
+      return alert("일기 본문은 최소 5글자 이상 입력해주세요");
+
     alert("저장 성공");
   };
 
