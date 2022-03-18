@@ -5,8 +5,6 @@ import DiaryList from "./DiaryList";
 
 function App() {
   const [data, setDate] = useState([]);
-  // useRef로 설정한 이유는 고유 변수를 둘 경우가 문제이기 때문이다
-  // 고유로 설정하게 된다면
   const dataId = useRef(0);
 
   const onCreate = (author, content, emotion) => {
