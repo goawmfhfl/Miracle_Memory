@@ -73,4 +73,4 @@ const DiaryItem = ({
     </div>
   );
 };
-export default DiaryItem;
+export default React.memo(DiaryItem);
