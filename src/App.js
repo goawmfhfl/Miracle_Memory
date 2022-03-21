@@ -10,6 +10,7 @@ const App = () => {
     <BrowserRouter>
       <div className="App">
         <h2>App.js</h2>
+        {/* <img src={process.env.PUBLIC_URL + `/assets/emotion5.png`} /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<New />} />
