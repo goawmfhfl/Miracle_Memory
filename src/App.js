@@ -1,112 +1,51 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-} from "react";
-import DiaryEditor from "./DiaryEditor";
-import DiaryList from "./DiaryList";
+import Home from "./pages/Home";
+import New from "./pages/New";
+import Edit from "./pages/Edit";
+import Diary from "./pages/Diary";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "INIT": {
-      return action.data;
-    }
-    case "CREATE": {
-      const created_date = new Date().getTime();
-      const newItem = {
-        ...action.data,
-        created_date,
-      };
-      return [newItem, ...state];
-    }
-    case "REMOVE": {
-      return state.filter((it) => it.id !== action.targetId);
-    }
-    case "EDIT": {
-      return state.map((it) =>
-        it.id === action.targetId ? { ...it, content: action.newContent } : it
-      );
-    }
-    default:
-      return state;
-  }
-};
-
-export const DiaryStateContext = React.createContext();
-export const DiaryDispatchContext = React.createContext();
-
-function App() {
-  const [data, dispatch] = useReducer(reducer, []);
-
-  const dataId = useRef(0);
-
-  const getData = async () => {
-    const res = await fetch(
-      "https://jsonplaceholder.typicode.com/comments"
-    ).then((res) => res.json());
-
-    const initData = res.slice(0, 20).map((it) => {
-      return {
-        author: it.email,
-        content: it.body,
-        emotion: Math.floor(Math.random() * 5) + 1,
-        created_date: new Date().getTime(),
-        id: dataId.current++,
-      };
-    });
-    dispatch({ type: "INIT", data: initData });
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const onCreate = useCallback((author, content, emotion) => {
-    dispatch({
-      type: "CREATE",
-      data: { author, content, emotion, id: dataId.current },
-    });
-    dataId.current += 1;
-  }, []);
-
-  const onRemove = useCallback((targetId) => {
-    dispatch({ type: "REMOVE", targetId });
-  }, []);
-
-  const onEdit = useCallback((targetId, newContent) => {
-    dispatch({ type: "EDIT", targetId, newContent });
-  }, []);
-
-  const memoizedDispatches = useMemo(() => {
-    return { onCreate, onRemove, onEdit };
-  }, []);
-
-  const getDiaryAnalysis = useMemo(() => {
-    const goodCount = data.filter((it) => it.emotion >= 3).length;
-    const badCount = data.length - goodCount;
-    const goodRatio = (goodCount / data.length) * 100;
-    return { goodCount, badCount, goodRatio };
-  }, [data.length]);
-
-  const { goodCount, badCount, goodRatio } = getDiaryAnalysis;
-
+//COMPONENTS
+import Mybutton from "./components/Mybutton";
+import MyHeader from "./components/MyHeader";
+const App = () => {
   return (
-    <DiaryStateContext.Provider value={data}>
-      <DiaryDispatchContext.Provider value={memoizedDispatches}>
-        <div className="App">
-          <DiaryEditor />
-          <div>전체 일기:{data.length}</div>
-          <div>좋은 일기의 비율:{goodRatio}</div>
-          <div>나쁜 일기:{badCount}</div>
-          <div>좋은 일기:{goodCount}</div>
-          <DiaryList />
-        </div>
-      </DiaryDispatchContext.Provider>
-    </DiaryStateContext.Provider>
+    <BrowserRouter>
+      <div className="App">
+        <MyHeader
+          headText={"App"}
+          leftChild={
+            <Mybutton text={"왼쪽 버튼"} onClick={() => alert("왼쪽 클릭")} />
+          }
+          rightChild={
+            <Mybutton
+              text={"오른쪽 버튼"}
+              onClick={() => alert("오른쪽 클릭")}
+            />
+          }
+        />
+        <h2>App.js</h2>
+        {/* <img src={process.env.PUBLIC_URL + `/assets/emotion5.png`} /> */}
+        <Mybutton
+          text={"버튼"}
+          type={"positive"}
+          onClick={() => alert("버튼 클릭")}
+        />
+        <Mybutton text={"버튼"} onClick={() => alert("버튼 클릭")} />
+        <Mybutton
+          text={"버튼"}
+          type={"negative"}
+          onClick={() => alert("버튼 클릭")}
+        />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/new" element={<New />} />
+          <Route path="/edit" element={<Edit />} />
+          <Route path="/diary/:id" element={<Diary />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-}
-
+};
 export default App;
