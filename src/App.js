@@ -13,7 +13,7 @@ const reducer = (state, action) => {
       return action.data;
     }
     case "CREATE": {
-      newState = [...action.data, ...state];
+      newState = [action.data, ...state];
       break;
     }
     case "REMOVE": {
@@ -85,12 +85,12 @@ const App = () => {
   const dataId = useRef(0);
 
   // CREATE
-  const onCreate = (data, content, emotion) => {
+  const onCreate = (date, content, emotion) => {
     dispatch({
       type: "CREATE",
       data: {
         id: dataId.current,
-        data: new Date(data).getTime(),
+        date: new Date(date).getTime(),
         content,
         emotion,
       },

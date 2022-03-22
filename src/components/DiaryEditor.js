@@ -1,5 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DiaryDispatchContext } from "../App";
+
 import MyHeader from "./MyHeader";
 import MyButton from "./Mybutton";
 import EmotionItem from "./EmotionItem";
@@ -39,14 +41,26 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 const DiaryEditor = () => {
-  const navigate = useNavigate();
-  const [date, setDate] = useState(getStringDate(new Date()));
+  const contentRef = useRef();
+  const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
+  const [date, setDate] = useState(getStringDate(new Date()));
+
+  const { onCreate } = useContext(DiaryDispatchContext);
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
   };
-  const contentRef = useRef();
-  const [content, setContent] = useState("");
+  const navigate = useNavigate();
+  const handleSubmit = () => {
+    if (content.length < 1) {
+      contentRef.current.focus();
+      return;
+    }
+
+    onCreate(date, content, emotion);
+    navigate("/", { replace: true });
+  };
+  // https://velog.io/@jungyh0528/React-Router-%EC%82%AC%EC%9A%A9-%EB%B0%8F-State-%EC%A0%84%EC%86%A1-%EC%A0%95%EB%A6%AC
 
   return (
     <div className="DiaryEditor">
@@ -89,6 +103,16 @@ const DiaryEditor = () => {
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
+          </div>
+        </section>
+        <section>
+          <div className="control_box">
+            <MyButton text={"취소하기"} onClick={() => navigate(-1)}></MyButton>
+            <MyButton
+              text={"작성완료"}
+              type={"positive"}
+              onClick={handleSubmit}
+            ></MyButton>
           </div>
         </section>
       </div>
