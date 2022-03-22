@@ -75,7 +75,7 @@ const dummyData = [
   {
     id: 7,
     emotion: 2,
-    content: "오늘의 일기 5번",
+    content: "오늘의 일기 7번",
     date: 1647915056820,
   },
 ];
