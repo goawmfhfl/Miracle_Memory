@@ -20,7 +20,7 @@ body {
 
 @media (max-width: 650px) {
   .App {
-    width: 90nw;
+    width: 90vw;
   }
 }
 
