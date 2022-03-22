@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function MyHeader({ headText, leftChild, rightChild }) {
+const MyHeader = ({ headText, leftChild, rightChild }) => {
   return (
     <header>
       <div className="head_btn_left">{leftChild}</div>
@@ -8,4 +8,5 @@ export default function MyHeader({ headText, leftChild, rightChild }) {
       <div className="head_btn_right">{rightChild}</div>
     </header>
   );
-}
+};
+export default MyHeader;
