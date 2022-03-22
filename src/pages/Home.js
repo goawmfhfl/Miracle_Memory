@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { DiaryStateContext } from "../App";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/Mybutton";
+import DiaryList from "../components/DiaryList";
 
 const Home = () => {
   const [curDate, setCurDate] = useState(new Date());
@@ -42,10 +43,6 @@ const Home = () => {
     }
   }, [diaryList, curDate]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <div>
       <MyHeader
@@ -67,7 +64,7 @@ const Home = () => {
           />
         }
       />
-      <div>이곳은 홈 입니다</div>
+      <DiaryList diaryList={data} />
     </div>
   );
 };

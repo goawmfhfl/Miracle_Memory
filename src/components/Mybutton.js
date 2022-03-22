@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Mybutton({ text, type, onClick }) {
+const Mybutton = ({ text, type, onClick }) => {
   const btnType = ["positive", "negative"].includes(type) ? type : "default";
   return (
     <button
@@ -10,8 +10,10 @@ export default function Mybutton({ text, type, onClick }) {
       {text}
     </button>
   );
-}
+};
 
 Mybutton.defaultProps = {
   type: "default",
 };
+
+export default Mybutton;
