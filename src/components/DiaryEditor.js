@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 
@@ -12,7 +12,7 @@ env.PUBLIC_URL = env.PUBLIC_URL || "";
 const emotionList = [
   {
     emotion_id: 1,
-    emotion_img: process.env.PUBLIC_URL + `assets/emotion1.png`,
+    emotion_img: process.env.PUBLIC_URL + `/assets/emotion1.png`,
     emotion_descript: "완전 좋음",
   },
   {
@@ -40,13 +40,13 @@ const emotionList = [
 const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
-const DiaryEditor = () => {
+const DiaryEditor = ({ isEdit, originData }) => {
   const contentRef = useRef();
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
   const [date, setDate] = useState(getStringDate(new Date()));
 
-  const { onCreate } = useContext(DiaryDispatchContext);
+  const { onCreate, onEdit } = useContext(DiaryDispatchContext);
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
   };
@@ -56,16 +56,34 @@ const DiaryEditor = () => {
       contentRef.current.focus();
       return;
     }
+    if (
+      window.confirm(
+        isEdit ? "일기를 수정하시겠습니까?" : "새로운 일기를 작성하시겠습니까?"
+      )
+    ) {
+      if (!isEdit) {
+        onCreate(date, content, emotion);
+      } else {
+        onEdit(originData.id, date, content, emotion);
+      }
+    }
 
-    onCreate(date, content, emotion);
     navigate("/", { replace: true });
   };
   // https://velog.io/@jungyh0528/React-Router-%EC%82%AC%EC%9A%A9-%EB%B0%8F-State-%EC%A0%84%EC%86%A1-%EC%A0%95%EB%A6%AC
 
+  useEffect(() => {
+    if (isEdit) {
+      setDate(getStringDate(new Date(parseInt(originData.date))));
+      setEmotion(originData.emotion);
+      setContent(originData.content);
+    }
+  }, [isEdit, originData]);
+
   return (
     <div className="DiaryEditor">
       <MyHeader
-        headText={"새 일기 쓰기"}
+        headText={isEdit ? "일기 수정하기" : "새 일기 쓰기"}
         leftChild={
           <MyButton text={"< 뒤로가기"} onClick={() => navigate(-1)} />
         }
