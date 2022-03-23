@@ -1,4 +1,10 @@
-import React, { useContext, useRef, useState, useEffect } from "react";
+import React, {
+  useContext,
+  useRef,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 import { getStringDate } from "../util/date";
@@ -19,9 +25,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const [date, setDate] = useState(getStringDate(new Date()));
 
   const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
-  const handleClickEmote = (emotion) => {
+  const handleClickEmote = useCallback((emotion) => {
     setEmotion(emotion);
-  };
+  }, []);
   const navigate = useNavigate();
   const handleRemove = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
@@ -48,7 +54,6 @@ const DiaryEditor = ({ isEdit, originData }) => {
 
     navigate("/", { replace: true });
   };
-  // https://velog.io/@jungyh0528/React-Router-%EC%82%AC%EC%9A%A9-%EB%B0%8F-State-%EC%A0%84%EC%86%A1-%EC%A0%95%EB%A6%AC
 
   useEffect(() => {
     if (isEdit) {
@@ -112,12 +117,12 @@ const DiaryEditor = ({ isEdit, originData }) => {
         </section>
         <section>
           <div className="control_box">
-            <MyButton text={"취소하기"} onClick={() => navigate(-1)}></MyButton>
+            <MyButton text={"취소하기"} onClick={() => navigate(-1)} />
             <MyButton
               text={"작성완료"}
               type={"positive"}
               onClick={handleSubmit}
-            ></MyButton>
+            />
           </div>
         </section>
       </div>
