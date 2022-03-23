@@ -55,7 +55,7 @@ const Diary = () => {
         />
         <article>
           <section>
-            <h4>오늘의 감정</h4>
+            <h4>오늘의 점수</h4>
             <div
               className={[
                 "diary_img_wrapper",
@@ -73,7 +73,7 @@ const Diary = () => {
             </div>
           </section>
           <section>
-            <h4>오늘의 일기</h4>
+            <h4>오늘의 기록</h4>
             <div className="diary_content_wrapper">
               <p>{data.content}</p>
             </div>

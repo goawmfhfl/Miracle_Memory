@@ -5,7 +5,6 @@ import DiaryEditor from "../components/DiaryEditor";
 
 const Edit = () => {
   const [originData, setOriginData] = useState();
-  console.log("originData", originData);
   const navigate = useNavigate();
   const { id } = useParams();
 
