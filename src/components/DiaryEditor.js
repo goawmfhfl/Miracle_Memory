@@ -62,7 +62,6 @@ const DiaryEditor = ({ isEdit, originData }) => {
       setContent(originData.content);
     }
   }, [isEdit, originData]);
-
   return (
     <div className="DiaryEditor">
       <MyHeader
