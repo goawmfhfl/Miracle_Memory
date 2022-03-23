@@ -66,7 +66,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
   return (
     <div className="DiaryEditor">
       <MyHeader
-        headText={isEdit ? "일기 수정하기" : "새 일기 쓰기"}
+        headText={isEdit ? "일지 수정하기" : "새 일지 쓰기"}
         leftChild={
           <MyButton text={"< 뒤로가기"} onClick={() => navigate(-1)} />
         }
@@ -92,7 +92,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
           </div>
         </section>
         <section>
-          <h4>오늘의 감정</h4>
+          <h4>Today`s Score</h4>
           <div className="input_box emotion_list_wrapper">
             {emotionList.map((it) => (
               <EmotionItem
@@ -105,7 +105,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
           </div>
         </section>
         <section>
-          <h4>오늘의 일기</h4>
+          <h4>Today`s Memory</h4>
           <div className="input_box text_wrapper">
             <textarea
               placeholder="오늘은 어떠셨나요?"
