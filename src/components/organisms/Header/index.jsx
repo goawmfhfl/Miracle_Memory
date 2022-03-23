@@ -1,5 +1,7 @@
 import React from "react";
 
+// 유기체 역할을 한다.
+
 import { MainHeader, HeadLeftBtn, HeadRightBtn, HeadText } from "./index.style";
 
 const Header = ({ leftChild, rightChild, headText }) => {
