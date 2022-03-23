@@ -13,6 +13,11 @@ const Diary = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Memory - ${id}번째 기록`;
+  }, []);
+
+  useEffect(() => {
     const targetDiary = diaryList.find(
       (it) => parseInt(it.id) === parseInt(id)
     );

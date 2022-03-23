@@ -24,6 +24,11 @@ const Home = () => {
   };
 
   useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Miracle Memory Home`;
+  }, []);
+
+  useEffect(() => {
     if (diaryList.length >= 1) {
       const firstDay = new Date(
         curDate.getFullYear(),
