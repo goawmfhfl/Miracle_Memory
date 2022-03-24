@@ -1,10 +1,10 @@
 import React, { useReducer, useRef, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import New from "./pages/New";
-import Edit from "./pages/Edit";
-import Diary from "./pages/Diary";
+import {
+  DiaryStateContext,
+  DiaryDispatchContext,
+} from "./context/DiaryContext";
 
 const reducer = (state, action) => {
   let newState = [];
@@ -33,9 +33,6 @@ const reducer = (state, action) => {
   return newState;
 };
 
-export const DiaryStateContext = React.createContext();
-export const DiaryDispatchContext = React.createContext();
-
 const App = () => {
   const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(0);
@@ -54,7 +51,6 @@ const App = () => {
     }
   }, []);
 
-  // CREATE
   const onCreate = (date, content, emotion) => {
     dispatch({
       type: "CREATE",
@@ -68,12 +64,10 @@ const App = () => {
     dataId.current += 1;
   };
 
-  // REMOVE
   const onRemove = (targetId) => {
     dispatch({ type: "REMOVE", targetId });
   };
 
-  // EDIT
   const onEdit = (targetId, date, content, emotion) => {
     dispatch({
       type: "EDIT",
@@ -91,12 +85,7 @@ const App = () => {
       <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
           <div className="App">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/new" element={<New />} />
-              <Route path="/edit/:id" element={<Edit />} />
-              <Route path="/diary/:id" element={<Diary />} />
-            </Routes>
+            <Routes></Routes>
           </div>
         </BrowserRouter>
       </DiaryDispatchContext.Provider>
