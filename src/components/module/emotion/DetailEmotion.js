@@ -4,7 +4,6 @@ const DetailEmotion = ({ emotion_descript, emotion, emotion_img }) => {
   return (
     <>
       <EmotionImg className={emotion} src={emotion_img} />
-      <EmotionDescript>{emotion_descript}</EmotionDescript>
     </>
   );
 };
@@ -27,11 +26,6 @@ const EmotionImg = styled.img.attrs({ alt: "이모션 이미지" })`
   &.5 {
     box-shadow: 0px 0px 20px #bd131c;
   }
-`;
-
-const EmotionDescript = styled.span`
-  font-size: 25px;
-  color: white;
 `;
 
 export default DetailEmotion;
