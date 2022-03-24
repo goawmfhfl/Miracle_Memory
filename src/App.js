@@ -1,7 +1,8 @@
 import React, { useReducer, useRef, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import "./App.css";
+import theme from "./styles/theme";
+import GlobalStyles from "./styles/GlobalStyles";
 import {
   DiaryStateContext,
   DiaryDispatchContext,
@@ -89,7 +90,8 @@ const App = () => {
     <DiaryStateContext.Provider value={data}>
       <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
-          <ThemeProvider>
+          <ThemeProvider theme={theme}>
+            <GlobalStyles />
             <div className="App">
               <Routes>
                 <Route path="/" element={<Home />} />
