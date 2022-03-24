@@ -1,10 +1,15 @@
 import React, { useReducer, useRef, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import "./App.css";
 import {
   DiaryStateContext,
   DiaryDispatchContext,
 } from "./context/DiaryContext";
+import Diary from "./pages/Diary";
+import Edit from "./pages/Edit";
+import Home from "./pages/Home";
+import New from "./pages/New";
 
 const reducer = (state, action) => {
   let newState = [];
@@ -84,9 +89,16 @@ const App = () => {
     <DiaryStateContext.Provider value={data}>
       <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
         <BrowserRouter>
-          <div className="App">
-            <Routes></Routes>
-          </div>
+          <ThemeProvider>
+            <div className="App">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/new" element={<New />} />
+                <Route path="/edit/:id" element={<Edit />} />
+                <Route path="/diary/:id" element={<Diary />} />
+              </Routes>
+            </div>
+          </ThemeProvider>
         </BrowserRouter>
       </DiaryDispatchContext.Provider>
     </DiaryStateContext.Provider>
