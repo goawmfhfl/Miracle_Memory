@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import Option from "../../module/etc/Option";
+import { sortOptionList } from "../../../util/optionList";
 
 const SelectBox = () => {
   return (
     <ControlMenu>
-      <Option />
+      {sortOptionList &&
+        sortOptionList.map((list, index) => {
+          <Option key={index} value={list.value} name={list.name} />;
+        })}
     </ControlMenu>
   );
 };
