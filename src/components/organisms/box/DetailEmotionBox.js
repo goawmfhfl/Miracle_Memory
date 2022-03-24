@@ -1,7 +1,7 @@
+import styled from "styled-components";
 import SubText from "../../module/text/SubText";
 import DetailEmotion from "../../module/emotion/DetailEmotion";
 import Descript from "../../module/text/Decript";
-import styled from "styled-components";
 
 const DetailEmotionBox = ({ emotion, emotion_img, emotion_descript }) => {
   return (
