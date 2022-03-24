@@ -15,6 +15,13 @@ const CommonHeader = ({ headText, leftChild, rightChild }) => {
 };
 
 const MainHeader = styled.header`
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+
   & > div {
     display: flex;
   }
