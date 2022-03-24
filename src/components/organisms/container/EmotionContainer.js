@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import SubText from "../../module/text/SubText";
+import SubTitle from "../../module/text/SubTitle";
 import EditEmotionBox from "../box/EditEmotionBox";
 import { emotionList } from "../../../util/emotion";
 
 const EmotionContainer = ({ handleClickEmote, emotion }) => {
   return (
     <Section>
-      <SubText text={"오늘의 점수"} />
+      <SubTitle text={"오늘의 점수"} />
       <Wrapper>
         {emotionList &&
           emotionList.map((list) => {

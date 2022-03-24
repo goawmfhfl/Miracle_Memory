@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const HomeEmotion = () => {
+const HomeEmotion = ({ emotion }) => {
   return (
-    <Wrapper>
-      <EmotionImg />
+    <Wrapper className={emotion}>
+      <EmotionImg emotion={emotion} />
     </Wrapper>
   );
 };
@@ -16,7 +16,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
-const EmotionImg = styled.img.attrs({ alt: "이모션 이미지" })`
+const EmotionImg = styled.img.attrs((props) => ({
+  alt: "이모션 이미지",
+  src: process.env.PUBLIC_URL + `assets/emotion${props.emotion}.png`,
+}))`
   &.1 {
     background-color: #64c964;
   }

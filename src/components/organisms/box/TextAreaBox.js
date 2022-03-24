@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import TextArea from "../../module/etc/TextArea";
-import SubText from "../../module/text/SubText";
+import SubTitle from "../../module/text/SubTitle";
 
 const TextAreaBox = ({ content, contentRef, onChange }) => {
   return (
     <Section>
-      <SubText text={"Today`s Memory"} />
+      <SubTitle text={"Today`s Memory"} />
       <TextArea ref={contentRef} value={content} onChange={onChange} />
     </Section>
   );
