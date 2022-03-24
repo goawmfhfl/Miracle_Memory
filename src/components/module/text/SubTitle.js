@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SubText = ({ text }) => {
+const SubTitle = ({ text }) => {
   return <Text>{text}</Text>;
 };
 
@@ -9,4 +9,4 @@ const Text = styled.h4`
   font-weight: bold;
 `;
 
-export default SubText;
+export default SubTitle;

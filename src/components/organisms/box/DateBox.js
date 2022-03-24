@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import SubText from "../../module/text/SubText";
+import SubTitle from "../../module/text/SubTitle";
 import Date from "../../module/etc/Date";
 
 const DateBox = ({ onChange }) => {
   return (
     <Section>
-      <SubText text={"오늘은 언제인가요?"} />
+      <SubTitle text={"오늘은 언제인가요?"} />
       <Date onChange={onChange} />
     </Section>
   );

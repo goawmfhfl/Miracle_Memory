@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import SubText from "../../module/text/SubText";
-import Content from "../../module/text/Content";
+import SubTitle from "../../module/text/SubTitle";
+import Memory from "../../module/text/Memory";
 
 const DetailTextBox = ({ content }) => {
   return (
     <Section>
-      <SubText text={"오늘의 기록"} />
-      <Content content={content} />
+      <SubTitle text={"오늘의 기록"} />
+      <Memory content={content} />
     </Section>
   );
 };
