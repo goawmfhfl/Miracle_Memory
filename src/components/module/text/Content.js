@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 const Content = ({ content }) => {
   return (
-    <ContentWrapper>
-      <ContentText>{content}</ContentText>
-    </ContentWrapper>
+    <Wrapper>
+      <Text>{content}</Text>
+    </Wrapper>
   );
 };
 
-const ContentWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   background-color: #ececec;
   word-break: keep-all;
   overflow-wrap: break-word;
 `;
-const ContentText = styled.p`
+const Text = styled.p`
   padding: 20px;
   text-align: left;
   border-radius: 5px;
