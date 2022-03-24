@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const DetailEmotion = ({ emotion_descript, emotion, emotion_img }) => {
+const DetailEmotion = ({ emotion, img }) => {
   return (
     <>
-      <EmotionImg className={emotion} src={emotion_img} />
+      <EmotionImg className={emotion} src={img} />
     </>
   );
 };
