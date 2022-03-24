@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const Title = () => {
-  return <Text>Title</Text>;
+const Title = ({ text }) => {
+  return <Text>{text}</Text>;
 };
 
 const Text = styled.h1`

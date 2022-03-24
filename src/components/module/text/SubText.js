@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-const SubText = () => {
-  return <Text>SubText</Text>;
+const SubText = ({ text }) => {
+  return <Text>{text}</Text>;
 };
 
 const Text = styled.h4`

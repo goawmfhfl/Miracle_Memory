@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const EditEmotion = ({ emotion_id, emotion_img, onClick, isSelected }) => {
+const EditEmotion = ({ id, img, onClick, isSelected }) => {
   return (
     <EmotionItem
-      onClick={() => onClick(emotion_id)}
-      className={isSelected ? `on_${emotion_id}` : "off"}
+      onClick={() => onClick(id)}
+      className={isSelected ? `on_${id}` : "off"}
     >
-      <EmotionImg src={emotion_img} />
+      <EmotionImg src={img} />
     </EmotionItem>
   );
 };
