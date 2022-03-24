@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 const TextArea = ({ contentRef, content, onChange }) => {
   return (
-    <TextWrapper>
-      <TextInputArea ref={contentRef} value={content} onChange={onChange} />
-    </TextWrapper>
+    <Wrapper>
+      <InputArea ref={contentRef} value={content} onChange={onChange} />
+    </Wrapper>
   );
 };
 
-const TextWrapper = styled.div``;
-const TextInputArea = styled.textarea.attrs({ type: "오늘은 어떠셨나요?" })`
-  font-family: "Nanum Pen Script", cursive;
+const Wrapper = styled.div``;
+const InputArea = styled.textarea.attrs({ type: "오늘은 어떠셨나요?" })`
+  /* font-family: "Nanum Pen Script", cursive; */
   font-size: 20px;
 
   box-sizing: border-box;
