@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import CommonHeader from "../organisms/common/CommonHeader";
-import Button from "../module/etc/Button";
 import { useNavigate } from "react-router-dom";
+import Button from "../module/etc/Button";
+import CommonHeader from "../organisms/common/CommonHeader";
 import DateBox from "../organisms/box/DateBox";
+import TextAreaBox from "../organisms/box/TextAreaBox";
 import EmotionContainer from "../organisms/container/EmotionContainer";
 
 const MemoryEditor = () => {
@@ -26,7 +27,8 @@ const MemoryEditor = () => {
       />
       <Article>
         <DateBox />
-        <EmotionContainer emotion={"emotion"} />
+        <EmotionContainer emotion={"1"} />
+        <TextAreaBox content={"content"} />
       </Article>
     </div>
   );
