@@ -5,11 +5,9 @@ const SelectBox = ({ value, onChange, optionList }) => {
   return (
     <ControlMenu value={value} onChange={onChange}>
       {optionList &&
-        optionList.map((list, index) => {
-          <Option key={index} value={list.value}>
-            {list.name}
-          </Option>;
-        })}
+        optionList.map((list, index) => (
+          <Option key={index} value={list.value} name={list.name} />
+        ))}
     </ControlMenu>
   );
 };

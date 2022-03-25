@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     color: #000;
   }
   &.positive {
-    background-color: #ececec;
+    background-color: #3caddd;
     color: #fff;
   }
   &.negative {

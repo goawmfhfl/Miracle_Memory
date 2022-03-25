@@ -12,6 +12,8 @@ const Info = ({ goDetail, date, content }) => {
 };
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
   margin-left: 20px;
   cursor: pointer;
@@ -19,7 +21,7 @@ const Wrapper = styled.div`
 const Date = styled.span`
   font-weight: bold;
   font-size: 25px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 `;
 const Preview = styled.span`
   font-size: 18px;
