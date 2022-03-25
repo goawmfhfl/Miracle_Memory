@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-const EditEmotion = ({ id, img, onClick, isSelected }) => {
+const EditEmotion = ({ id, img, descript, onClick, isSelected }) => {
   return (
     <EmotionItem
       onClick={() => onClick(id)}
       className={isSelected ? `on_${id}` : "off"}
     >
       <EmotionImg src={img} />
+      <EmotionText>{descript}</EmotionText>
     </EmotionItem>
   );
 };
@@ -52,6 +53,11 @@ const EmotionImg = styled.img.attrs((props) => ({
 }))`
   width: 50%;
   margin-bottom: 10px;
+`;
+
+const EmotionText = styled.span`
+  font-size: 18px;
+  margin-top: 15px;
 `;
 
 export default EditEmotion;

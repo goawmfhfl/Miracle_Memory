@@ -60,10 +60,9 @@ const MemoListContainer = ({ diaryList }) => {
           />
         </RightCol>
       </Wrapper>
-
-      {getProcessedDiaryList().map((list) => (
-        <MemoItemBox key={list.id} {...list} />
-      ))}
+      <MemoItemBox />
+      <MemoItemBox />
+      <MemoItemBox />
     </MemoList>
   );
 };

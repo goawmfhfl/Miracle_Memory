@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const Memory = ({ Memory }) => {
+const Content = ({ content }) => {
   return (
     <Wrapper>
-      <Text>{Memory}</Text>
+      <Text>{content}</Text>
     </Wrapper>
   );
 };
@@ -23,4 +23,4 @@ const Text = styled.p`
   font-weight: 400;
   line-height: 2.5;
 `;
-export default Memory;
+export default Content;

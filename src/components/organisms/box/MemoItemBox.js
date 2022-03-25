@@ -9,7 +9,7 @@ const MemoItemBox = ({ emotion, id, date, content }) => {
   return (
     <MomoItem>
       <HomeEmotion onClick={goDetail} emotion={emotion} />
-      <Info onClick={goDetail} date={date} content={content} />
+      <Info onClick={goDetail} date={"date"} content={"content"} />
       <BtnWrapper>
         <Button text={"수정하기"} onClick={goEdit} />
       </BtnWrapper>

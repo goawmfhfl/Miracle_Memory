@@ -29,15 +29,15 @@ const StyledButton = styled.button`
   font-family: "Nanum Pen Script", cursive;
   &.default {
     background-color: #ececec;
-    color: black;
+    color: #000;
   }
   &.positive {
-    background-color: #ececec;
-    color: black;
+    background-color: #3caddd;
+    color: #fff;
   }
   &.negative {
-    background-color: #ececec;
-    color: black;
+    background-color: #e1936e;
+    color: #fff;
   }
 `;
 

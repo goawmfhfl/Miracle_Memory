@@ -1,9 +1,5 @@
-import styled from "styled-components";
-
 const Option = ({ value, name }) => {
-  return <OptionItem value={value}>{name}</OptionItem>;
+  return <option value={value}>{name}</option>;
 };
-
-const OptionItem = styled.option``;
 
 export default Option;

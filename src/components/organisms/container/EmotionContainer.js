@@ -5,26 +5,23 @@ import { emotionList } from "../../../util/emotion";
 
 const EmotionContainer = ({ handleClickEmote, emotion }) => {
   return (
-    <Section>
+    <section>
       <SubTitle text={"오늘의 점수"} />
       <Wrapper>
         {emotionList &&
-          emotionList.map((list) => {
+          emotionList.map((list) => (
             <EditEmotionBox
               key={list.emotion_id}
               {...list}
               onClick={handleClickEmote}
-              isSelected={it.emotion_id === emotion}
-            />;
-          })}
+              isSelected={list.emotion_id === emotion}
+            />
+          ))}
       </Wrapper>
-    </Section>
+    </section>
   );
 };
 
-const Section = styled.section`
-  margin-bottom: 40px;
-`;
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, auto);
