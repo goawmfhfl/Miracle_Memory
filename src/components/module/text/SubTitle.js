@@ -7,6 +7,7 @@ const SubTitle = ({ text }) => {
 const Text = styled.h4`
   font-size: 22px;
   font-weight: bold;
+  margin: 25px;
 `;
 
 export default SubTitle;

@@ -1,19 +1,23 @@
 import styled from "styled-components";
 import SubTitle from "../../module/text/SubTitle";
 import DetailEmotion from "../../module/emotion/DetailEmotion";
-import Descript from "../../module/text/Decript";
 
-const DetailEmotionBox = ({ emotion, emotion_img, emotion_descript }) => {
+const DetailEmotionBox = ({ emotion, img, descript }) => {
   return (
     <Section>
       <SubTitle text={"오늘의 감정"} />
-      <DetailEmotion emotion={emotion} img={emotion_img} />
-      <Descript descript={emotion_descript} color={"white"} size={"18px"} />
+      <DetailEmotion emotion={emotion} img={img} descript={descript} />
     </Section>
   );
 };
 
 const Section = styled.section`
-  margin-bottom: 40px;
+  width: 100%;
+  margin-bottom: 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 `;
 export default DetailEmotionBox;

@@ -1,31 +1,67 @@
 import styled from "styled-components";
 
-const DetailEmotion = ({ emotion, img }) => {
+const DetailEmotion = ({ descript, emotion, img }) => {
   return (
-    <>
-      <EmotionImg className={emotion} src={img} />
-    </>
+    <Wrapper className={`emotion_${emotion}`}>
+      <EmotionImg className={`emotion_${emotion}`} src={img} />
+      <Descript color={"black"} size={"18px"}>
+        {descript}
+      </Descript>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  background-color: #ececec;
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  &.emotion_1 {
+    background-color: #63c964;
+  }
+  &.emotion_2 {
+    background-color: #9dd772;
+  }
+  &.emotion_3 {
+    background-color: #fdce17;
+  }
+  &.emotion_4 {
+    background-color: #fd8446;
+  }
+  &.emotion_5 {
+    background-color: #fd565f;
+  }
+`;
 
 const EmotionImg = styled.img.attrs({ alt: "이모션 이미지" })`
   border-radius: 50%;
 
-  &.1 {
+  &.emotion_1 {
     box-shadow: 0px 0px 20px #038d05;
   }
-  &.2 {
+  &.emotion_2 {
     box-shadow: 0px 0px 20px #5bb616;
   }
-  &.3 {
+  &.emotion_3 {
     box-shadow: 0px 0px 20px #cfa601;
   }
-  &.4 {
+  &.emotion_4 {
     box-shadow: 0px 0px 20px #f86d28;
   }
-  &.5 {
+  &.emotion_5 {
     box-shadow: 0px 0px 20px #bd131c;
   }
+`;
+
+const Descript = styled.span`
+  font-size: ${(props) => `${props.size}px`};
+  color: ${(props) => props.color || "#fff"};
+  padding-bottom: 10px;
 `;
 
 export default DetailEmotion;

@@ -46,10 +46,6 @@ const GlobalStyles = createGlobalStyle`
         box-sizing:border-box;
     }
  
-    img {
-        width: 100%;
-        height: 100%;
-    }
     button {
         border: none;
         cursor: pointer;

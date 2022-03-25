@@ -1,6 +1,7 @@
-import React from "react";
+import styled from "styled-components";
 import CommonHeader from "../organisms/common/CommonHeader";
 import Button from "../module/etc/Button";
+import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
 import { useNavigate } from "react-router-dom";
 
 const MemoryDetail = () => {
@@ -19,7 +20,15 @@ const MemoryDetail = () => {
         leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
         rightChild={<Button text={"수정하기"} onClick={goEdit} />}
       ></CommonHeader>
+      <article>
+        <DetailEmotionBox
+          img={process.env.PUBLIC_URL + `/assets/emotion1.png`}
+          emotion={"1"}
+          descript={"descript"}
+        />
+      </article>
     </div>
   );
 };
+
 export default MemoryDetail;
