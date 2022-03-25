@@ -2,6 +2,7 @@ import styled from "styled-components";
 import CommonHeader from "../organisms/common/CommonHeader";
 import Button from "../module/etc/Button";
 import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
+import DetailContentBox from "../organisms/box/DetailContentBox";
 import { useNavigate } from "react-router-dom";
 
 const MemoryDetail = () => {
@@ -20,15 +21,28 @@ const MemoryDetail = () => {
         leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
         rightChild={<Button text={"수정하기"} onClick={goEdit} />}
       ></CommonHeader>
-      <article>
+      <Article>
         <DetailEmotionBox
           img={process.env.PUBLIC_URL + `/assets/emotion1.png`}
           emotion={"1"}
           descript={"descript"}
         />
-      </article>
+        <DetailContentBox content={"content"} />
+      </Article>
     </div>
   );
 };
+
+const Article = styled.article`
+  & > section {
+    width: 100%;
+    margin-bottom: 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+`;
 
 export default MemoryDetail;
