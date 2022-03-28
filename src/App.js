@@ -82,7 +82,6 @@ const App = () => {
   const [data, dispatch] = useReducer(reducer, []);
   const dataId = useRef(0);
 
-  console.log(new Date().getTime());
   useEffect(() => {
     const localData = localStorage.getItem("diary");
     if (localData) {
