@@ -1,14 +1,31 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { DiaryDispatchContext } from "../../context/DiaryContext";
+import { getStringDate } from "../../util/date";
+import styled from "styled-components";
 import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import DateBox from "../organisms/box/DateBox";
 import TextAreaBox from "../organisms/box/TextAreaBox";
-import EmotionItem from "../organisms/item/EmotionItem";
+import EmotionBox from "../organisms/box/EmotionBox";
+import ContolBox from "../organisms/box/ControlBox";
 
 const EditorContainer = () => {
   const navigate = useNavigate();
+
+  const contentRef = useRef();
+  const [content, setContent] = useState("");
+  const [date, setDate] = useState(getStringDate(new Date()).ISOString());
+  const [emotion, setEmotion] = useState(3);
+
+  const { onCreate } = useContext(DiaryDispatchContext);
+
+  const handleClickEmote = (emotion) => {
+    setEmotion(emotion);
+  };
+  const handleInputValue = (value) => {
+    setContent(value);
+  };
 
   const handleRemove = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
@@ -16,19 +33,39 @@ const EditorContainer = () => {
       navigate("/", { replace: true });
     }
   };
+  const handleSubmit = () => {
+    if (content.length < 1) {
+      contentRef.current.focus();
+      return;
+    }
+    onCreate(date, content, emotion);
+    navigate("/", { replace: true });
+  };
+
+  const goBack = () => {
+    navigate(-1);
+  };
+  const goHome = () => {
+    navigate("/");
+  };
   return (
     <div>
       <CommonHeader
         headText={"기록 수정하기"}
-        leftChild={<Button text={"< 뒤로가기"} />}
+        leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
         rightChild={
           <Button text={"삭제하기"} type={"negative"} onClick={handleRemove} />
         }
       />
       <Article>
-        <DateBox />
-        <EmotionItem emotion={"1"} />
-        <TextAreaBox content={"content"} />
+        <DateBox date={date} setDate={setDate} />
+        <EmotionBox emotion={emotion} onClick={handleClickEmote} />
+        <TextAreaBox
+          content={content}
+          onChange={handleInputValue}
+          reference={contentRef}
+        />
+        <ContolBox handleSubmit={handleSubmit} goHome={goHome} />
       </Article>
     </div>
   );

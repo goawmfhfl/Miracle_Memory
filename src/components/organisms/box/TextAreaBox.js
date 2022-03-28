@@ -1,11 +1,11 @@
 import TextArea from "../../molecule/etc/TextArea";
 import SubTitle from "../../molecule/text/SubTitle";
 
-const TextAreaBox = ({ content, contentRef, onChange }) => {
+const TextAreaBox = ({ content, onChange, reference }) => {
   return (
     <section>
       <SubTitle text={"Today`s Memory"} />
-      <TextArea ref={contentRef} content={content} onChange={onChange} />
+      <TextArea content={content} onChange={onChange} reference={reference} />
     </section>
   );
 };

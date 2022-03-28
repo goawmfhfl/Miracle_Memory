@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Button from "../../molecule/etc/Button";
-const ButtonBox = ({ goHome, handleSubmit }) => {
+const ContolBox = ({ handleSubmit, goHome }) => {
   return (
     <Wrapper>
       <Button text={"취소하기"} type={"positive"} onClick={goHome}></Button>
@@ -18,4 +18,4 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export default ButtonBox;
+export default ContolBox;
