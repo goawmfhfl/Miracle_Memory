@@ -12,22 +12,20 @@ const ViewContainer = () => {
 
   useEffect(() => {
     if (diaryList.length >= 1) {
-      getMonthDate.changeMonthDate(curDate, setData, diaryList);
+      getMonthDate(curDate, setData, diaryList).changeMonthDate();
     }
   }, [curDate, diaryList]);
 
-  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
-
   const increaseMonth = () => {
-    getMonthDate.increaseMonth(curDate, setCurDate);
+    getMonthDate(curDate, setCurDate).increaseMonth();
   };
   const decreaseMonth = () => {
-    getMonthDate.decreaseMonth(curDate, setCurDate);
+    getMonthDate(curDate, setCurDate).decreaseMonth();
   };
   return (
     <div>
       <CommonHeader
-        headText={headText}
+        headText={getMonthDate(curDate, setCurDate).headText}
         leftChild={<Button text={"<"} onClick={decreaseMonth} />}
         rightChild={<Button text={">"} onClick={increaseMonth} />}
       />
