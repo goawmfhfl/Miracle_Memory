@@ -1,15 +1,21 @@
+import { useRef } from "react";
 import styled from "styled-components";
 
-const TextArea = ({ contentRef, content, onChange }) => {
+const TextArea = ({ content, onChange }) => {
+  const contentRef = useRef();
   return (
     <Wrapper>
-      <InputArea ref={contentRef} value={content} onChange={onChange} />
+      <InputArea
+        ref={contentRef}
+        value={content}
+        onChange={(e) => onChange(e.target.value)}
+      />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div``;
-const InputArea = styled.textarea.attrs({ type: "오늘은 어떠셨나요?" })`
+const InputArea = styled.textarea.attrs({ placeholder: "오늘은 어떠셨나요?" })`
   /* font-family: "Nanum Pen Script", cursive; */
   font-size: 20px;
 
