@@ -12,7 +12,7 @@ export const filterOptionList = [
   { value: "bad", name: "안좋은 감정만" },
 ];
 
-export const getProcessedDiaryList = (filter, sortType, diaryList) => {
+const getProcessedDiaryList = (filter, sortType, diaryList) => {
   const filterCallBack = (item) => {
     if (filter === "good") {
       return parseInt(item.emotion) <= 3;
@@ -35,3 +35,5 @@ export const getProcessedDiaryList = (filter, sortType, diaryList) => {
 
   return sortedList;
 };
+
+export default getProcessedDiaryList;
