@@ -12,6 +12,7 @@ import ContolBox from "../organisms/box/ControlBox";
 
 const EditorContainer = () => {
   const navigate = useNavigate();
+
   const contentRef = useRef();
   const [content, setContent] = useState("");
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
@@ -37,10 +38,15 @@ const EditorContainer = () => {
       contentRef.current.focus();
       return;
     }
+    onCreate(date, content, emotion);
+    navigate("/", { replace: true });
   };
 
   const goBack = () => {
     navigate(-1);
+  };
+  const goHome = () => {
+    navigate("/");
   };
   return (
     <div>
@@ -59,7 +65,7 @@ const EditorContainer = () => {
           onChange={handleInputValue}
           reference={contentRef}
         />
-        <ContolBox handleSubmit={handleSubmit} />
+        <ContolBox handleSubmit={handleSubmit} goHome={goHome} />
       </Article>
     </div>
   );
