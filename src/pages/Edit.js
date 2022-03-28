@@ -1,11 +1,11 @@
 import React, { useEffect, useContext, useState } from "react";
-import { DiaryStateContext } from "../context/DiaryContext";
 import { useNavigate, useParams } from "react-router-dom";
+import { DiaryStateContext } from "../context/DiaryContext";
 import EditorContainer from "../components/template/EditorContainer";
 const Edit = () => {
   const { id } = useParams();
-  const [originData, setOriginData] = useState();
   const navigate = useNavigate();
+  const [originData, setOriginData] = useState();
   const diaryList = useContext(DiaryStateContext);
 
   useEffect(() => {
@@ -20,8 +20,11 @@ const Edit = () => {
       }
     }
   }, [id, diaryList]);
+
   return (
-    originData && <EditorContainer isEdit={true} originData={originData} />
+    <>
+      {originData && <EditorContainer isEdit={true} originData={originData} />}
+    </>
   );
 };
 export default Edit;
