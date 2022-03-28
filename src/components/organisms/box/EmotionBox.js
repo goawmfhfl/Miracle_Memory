@@ -5,8 +5,10 @@ import SubTitle from "../../molecule/text/SubTitle";
 import EditEmotion from "../../molecule/emotion/EditEmotion";
 
 const EmotionItem = () => {
-  const [emotion, setEmotion] = useState("");
-  const handleClickEmote = () => {};
+  const [emotion, setEmotion] = useState(3);
+  const handleClickEmote = (emotion) => {
+    setEmotion(emotion);
+  };
   return (
     <section>
       <SubTitle text={"오늘의 점수"} />
