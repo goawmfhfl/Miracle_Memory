@@ -19,7 +19,9 @@ export const getMonthDate = (curDate, setData, diaryList) => {
   const closureSetData = setData;
   const closureDiaryList = diaryList;
 
-  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
+  const headText = `${closureCurDate.getFullYear()}년 ${
+    closureCurDate.getMonth() + 1
+  }월`;
 
   const increaseMonth = () => {
     closureSetData(
@@ -42,8 +44,8 @@ export const getMonthDate = (curDate, setData, diaryList) => {
     ).getTime();
 
     const lastDay = new Date(
-      curDate.getFullYear(),
-      curDate.getMonth() + 1,
+      closureCurDate.getFullYear(),
+      closureCurDate.getMonth() + 1,
       0
     ).getTime();
     setData(
