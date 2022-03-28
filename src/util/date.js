@@ -1,5 +1,17 @@
 export const getStringDate = (date) => {
-  return date.toISOString().slice(0, 10);
+  const memoryDate = parseInt(date);
+
+  // 2022-03-28
+  const ISOString = () => {
+    return new Date(memoryDate).toISOString().slice(0, 10);
+  };
+
+  // 2022. 03. 28
+  const DataString = () => {
+    return new Date(memoryDate).toLocaleDateString().slice(0, -1);
+  };
+
+  return { ISOString, DataString };
 };
 
 export const getMonthDate = {
@@ -27,7 +39,6 @@ export const getMonthDate = {
       curDate.getMonth() + 1,
       0
     ).getTime();
-
     setData(
       diaryList.filter((list) => firstDay <= list.date && list.date <= lastDay)
     );

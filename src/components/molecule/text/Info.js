@@ -1,12 +1,10 @@
 import styled from "styled-components";
-
-const Info = ({ goDetail, date, content }) => {
-  // const strDate = new Date(parseInt(date)).toLocaleDateString();
-  // content.slice(0, 25)
+import { getStringDate } from "../../../util/date";
+const Info = ({ date, content, onClick }) => {
   return (
-    <Wrapper onClick={goDetail}>
-      <Date>{date}</Date>
-      <Preview>{content}</Preview>
+    <Wrapper onClick={onClick}>
+      <DateText>{getStringDate(date).DataString()}</DateText>
+      <Preview>{content.slice(0, 25)}</Preview>
     </Wrapper>
   );
 };
@@ -18,7 +16,7 @@ const Wrapper = styled.div`
   margin-left: 20px;
   cursor: pointer;
 `;
-const Date = styled.span`
+const DateText = styled.span`
   font-weight: bold;
   font-size: 25px;
   margin-bottom: 10px;
