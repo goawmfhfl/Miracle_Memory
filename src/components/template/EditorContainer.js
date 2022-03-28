@@ -6,6 +6,7 @@ import CommonHeader from "../organisms/common/CommonHeader";
 import DateBox from "../organisms/box/DateBox";
 import TextAreaBox from "../organisms/box/TextAreaBox";
 import EmotionItem from "../organisms/item/EmotionItem";
+import { getStringDate } from "../../util/date";
 
 const EditorContainer = () => {
   const navigate = useNavigate();

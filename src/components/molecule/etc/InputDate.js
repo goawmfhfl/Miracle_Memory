@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-const Date = ({}) => {
+const InputDate = ({ date, onChange }) => {
   return (
     <InputBox>
-      <InputDate />
+      <InputCalendar value={date} onChange={(e) => onChange(e.target.value)} />
     </InputBox>
   );
 };
 
 const InputBox = styled.div``;
-const InputDate = styled.input.attrs({ type: "date" })`
+const InputCalendar = styled.input.attrs({ type: "date" })`
   border: none;
   border-radius: 5px;
   background-color: #ececec;
@@ -24,4 +24,4 @@ const InputDate = styled.input.attrs({ type: "date" })`
   font-family: "Nanum Pen Script", cursive;
   font-size: 20px;
 `;
-export default Date;
+export default InputDate;

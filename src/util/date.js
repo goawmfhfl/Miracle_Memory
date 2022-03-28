@@ -1,14 +1,15 @@
 export const getStringDate = (date) => {
-  const memoryDate = parseInt(date);
+  const stringDate = parseInt(date);
+  const ISODate = date;
 
   // 2022-03-28
   const ISOString = () => {
-    return new Date(memoryDate).toISOString().slice(0, 10);
+    return new Date(ISODate).toISOString().slice(0, 10);
   };
 
   // 2022. 03. 28
   const DataString = () => {
-    return new Date(memoryDate).toLocaleDateString().slice(0, -1);
+    return new Date(stringDate).toLocaleDateString().slice(0, -1);
   };
 
   return { ISOString, DataString };
