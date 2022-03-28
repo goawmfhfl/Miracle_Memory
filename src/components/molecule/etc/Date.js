@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Date = ({ onChange }) => {
+const Date = ({}) => {
   return (
     <InputBox>
-      <InputDate onChange={onChange} />
+      <InputDate />
     </InputBox>
   );
 };

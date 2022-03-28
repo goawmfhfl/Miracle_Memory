@@ -1,7 +1,7 @@
 import React from "react";
-import MemoryEditor from "../components/template/MemoryEditor";
+import EditorContainer from "../components/template/EditorContainer";
 
 const New = () => {
-  return <MemoryEditor />;
+  return <EditorContainer />;
 };
 export default New;

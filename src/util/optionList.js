@@ -11,3 +11,29 @@ export const filterOptionList = [
   { value: "good", name: "좋은 감정만" },
   { value: "bad", name: "안좋은 감정만" },
 ];
+
+const getProcessedDiaryList = (filter, sortType, diaryList) => {
+  const filterCallBack = (item) => {
+    if (filter === "good") {
+      return parseInt(item.emotion) <= 3;
+    } else {
+      return parseInt(item.emotion) > 3;
+    }
+  };
+  const compare = (a, b) => {
+    if (sortType === "latest") {
+      return parseInt(b.date) - parseInt(a.date);
+    } else {
+      return parseInt(a.date) - parseInt(b.date);
+    }
+  };
+  const copyList = JSON.parse(JSON.stringify(diaryList));
+
+  let filterList =
+    filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
+  const sortedList = filterList.sort(compare);
+
+  return sortedList;
+};
+
+export default getProcessedDiaryList;

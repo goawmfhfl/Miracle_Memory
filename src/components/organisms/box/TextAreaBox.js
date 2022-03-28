@@ -1,5 +1,5 @@
-import TextArea from "../../module/etc/TextArea";
-import SubTitle from "../../module/text/SubTitle";
+import TextArea from "../../molecule/etc/TextArea";
+import SubTitle from "../../molecule/text/SubTitle";
 
 const TextAreaBox = ({ content, contentRef, onChange }) => {
   return (

@@ -1,15 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import HomeEmotion from "../../module/emotion/HomeEmotion";
-import Info from "../../module/text/Info";
-import Button from "../../module/etc/Button";
+import HomeEmotion from "../../molecule/emotion/HomeEmotion";
+import Info from "../../molecule/text/Info";
+import Button from "../../molecule/etc/Button";
 
 const MemoItemBox = ({ emotion, id, date, content }) => {
-  const goDetail = () => {};
-  const goEdit = () => {};
+  const navigate = useNavigate();
+  const goDetail = () => {
+    navigate(`/detail/${id}`);
+  };
+  const goEdit = () => {
+    navigate(`/edit/${id}`);
+  };
   return (
     <MomoItem>
       <HomeEmotion onClick={goDetail} emotion={emotion} />
-      <Info onClick={goDetail} date={"date"} content={"content"} />
+      <Info onClick={goDetail} date={date} content={content} />
       <BtnWrapper>
         <Button text={"수정하기"} onClick={goEdit} />
       </BtnWrapper>

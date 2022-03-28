@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import SubTitle from "../../module/text/SubTitle";
+import SubTitle from "../../molecule/text/SubTitle";
 import EditEmotionBox from "../box/EditEmotionBox";
 import { emotionList } from "../../../util/emotion";
 
-const EmotionContainer = ({ handleClickEmote, emotion }) => {
+const EmotionItem = ({ handleClickEmote, emotion }) => {
   return (
     <section>
       <SubTitle text={"오늘의 점수"} />
@@ -27,4 +27,4 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(5, auto);
   gap: 2%;
 `;
-export default EmotionContainer;
+export default EmotionItem;

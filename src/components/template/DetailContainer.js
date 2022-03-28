@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import CommonHeader from "../organisms/common/CommonHeader";
-import Button from "../module/etc/Button";
+import Button from "../molecule/etc/Button";
 import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
 import DetailContentBox from "../organisms/box/DetailContentBox";
 import { useNavigate } from "react-router-dom";
 
-const MemoryDetail = () => {
+const DetailContainer = () => {
   const navigate = useNavigate();
 
   const goEdit = () => {
@@ -45,4 +45,4 @@ const Article = styled.article`
   }
 `;
 
-export default MemoryDetail;
+export default DetailContainer;

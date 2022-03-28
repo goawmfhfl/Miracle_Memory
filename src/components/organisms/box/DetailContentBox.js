@@ -1,5 +1,5 @@
-import SubTitle from "../../module/text/SubTitle";
-import Content from "../../module/text/Content";
+import SubTitle from "../../molecule/text/SubTitle";
+import Content from "../../molecule/text/Content";
 
 const DetailContentBox = ({ content }) => {
   return (
