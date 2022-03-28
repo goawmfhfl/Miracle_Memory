@@ -6,7 +6,7 @@ import MemoItemBox from "../box/MemoItemBox";
 import SelectBox from "../box/SelectBox";
 import { sortOptionList, filterOptionList } from "../../../util/optionList";
 
-const MemoListContainer = ({ diaryList }) => {
+const MemoListItem = ({ diaryList }) => {
   const navigate = useNavigate();
   const [sortType, setSortType] = useState("latest");
   const [filter, setFilter] = useState("all");
@@ -83,8 +83,8 @@ const RightCol = styled.div`
   }
 `;
 
-MemoListContainer.defaultProps = {
+MemoListItem.defaultProps = {
   diaryList: [],
 };
 
-export default MemoListContainer;
+export default MemoListItem;

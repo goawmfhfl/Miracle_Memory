@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
-import MemoListContainer from "../organisms/container/MemoListContainer";
+import MemoListItem from "../organisms/item/MemoListItem";
 
-const MemoryView = () => {
+const ViewContainer = () => {
   const increaseMonth = () => {};
   const decreaseMonth = () => {};
   return (
@@ -13,9 +13,9 @@ const MemoryView = () => {
         leftChild={<Button text={"<"} onClick={decreaseMonth} />}
         rightChild={<Button text={">"} onClick={increaseMonth} />}
       />
-      <MemoListContainer />
+      <MemoListItem />
     </div>
   );
 };
 
-export default MemoryView;
+export default ViewContainer;

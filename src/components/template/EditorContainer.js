@@ -5,9 +5,9 @@ import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import DateBox from "../organisms/box/DateBox";
 import TextAreaBox from "../organisms/box/TextAreaBox";
-import EmotionContainer from "../organisms/container/EmotionContainer";
+import EmotionItem from "../organisms/item/EmotionItem";
 
-const MemoryEditor = () => {
+const EditorContainer = () => {
   const navigate = useNavigate();
 
   const handleRemove = () => {
@@ -27,7 +27,7 @@ const MemoryEditor = () => {
       />
       <Article>
         <DateBox />
-        <EmotionContainer emotion={"1"} />
+        <EmotionItem emotion={"1"} />
         <TextAreaBox content={"content"} />
       </Article>
     </div>
@@ -39,4 +39,4 @@ const Article = styled.article`
   }
 `;
 
-export default MemoryEditor;
+export default EditorContainer;

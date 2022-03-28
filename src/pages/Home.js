@@ -1,7 +1,7 @@
 import React from "react";
-import MemoryView from "../components/template/MemoryView";
+import ViewContainer from "../components/template/ViewContainer";
 
 const Home = () => {
-  return <MemoryView />;
+  return <ViewContainer />;
 };
 export default Home;

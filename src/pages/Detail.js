@@ -1,7 +1,7 @@
 import React from "react";
-import MemoryDetail from "../components/template/MemoryDetail";
+import DetailContainer from "../components/template/DetailContainer";
 
 const Detail = () => {
-  return <MemoryDetail />;
+  return <DetailContainer />;
 };
 export default Detail;
