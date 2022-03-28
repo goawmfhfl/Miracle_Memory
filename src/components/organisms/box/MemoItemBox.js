@@ -2,10 +2,16 @@ import styled from "styled-components";
 import HomeEmotion from "../../molecule/emotion/HomeEmotion";
 import Info from "../../molecule/text/Info";
 import Button from "../../molecule/etc/Button";
+import { useNavigate } from "react-router-dom";
 
 const MemoItemBox = ({ emotion, id, date, content }) => {
-  const goDetail = () => {};
-  const goEdit = () => {};
+  const navigate = useNavigate();
+  const goDetail = () => {
+    navigate(`/detail/${id}`);
+  };
+  const goEdit = () => {
+    navigate(`/edit/${id}`);
+  };
   return (
     <MomoItem>
       <HomeEmotion onClick={goDetail} emotion={emotion} />
