@@ -1,16 +1,22 @@
 import styled from "styled-components";
-
-const EditEmotion = ({ id, img, descript, onClick, isSelected }) => {
+const EditEmotionBox = ({
+  emotion_descript,
+  emotion_id,
+  emotion_img,
+  isSelected,
+  onClick,
+}) => {
   return (
     <EmotionItem
-      onClick={() => onClick(id)}
-      className={isSelected ? `on_${id}` : "off"}
+      onClick={() => onClick(emotion_id)}
+      className={isSelected ? `on_${emotion_id}` : "off"}
     >
-      <EmotionImg src={img} />
-      <EmotionText>{descript}</EmotionText>
+      <EmotionImg src={emotion_img} />
+      <EmotionText>{emotion_descript}</EmotionText>
     </EmotionItem>
   );
 };
+
 const EmotionItem = styled.li`
   cursor: pointer;
 
@@ -60,4 +66,4 @@ const EmotionText = styled.span`
   margin-top: 15px;
 `;
 
-export default EditEmotion;
+export default EditEmotionBox;

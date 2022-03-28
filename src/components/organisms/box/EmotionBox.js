@@ -1,16 +1,19 @@
+import { useState } from "react";
+import { emotionList } from "../../../util/emotion";
 import styled from "styled-components";
 import SubTitle from "../../molecule/text/SubTitle";
-import EditEmotionBox from "../box/EditEmotionBox";
-import { emotionList } from "../../../util/emotion";
+import EditEmotion from "../../molecule/emotion/EditEmotion";
 
-const EmotionItem = ({ handleClickEmote, emotion }) => {
+const EmotionItem = () => {
+  const [emotion, setEmotion] = useState("");
+  const handleClickEmote = () => {};
   return (
     <section>
       <SubTitle text={"오늘의 점수"} />
       <Wrapper>
         {emotionList &&
           emotionList.map((list) => (
-            <EditEmotionBox
+            <EditEmotion
               key={list.emotion_id}
               {...list}
               onClick={handleClickEmote}

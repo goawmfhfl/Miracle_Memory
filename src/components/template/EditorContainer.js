@@ -5,8 +5,7 @@ import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import DateBox from "../organisms/box/DateBox";
 import TextAreaBox from "../organisms/box/TextAreaBox";
-import EmotionItem from "../organisms/item/EmotionItem";
-import { getStringDate } from "../../util/date";
+import EmotionBox from "../organisms/box/EmotionBox";
 
 const EditorContainer = () => {
   const navigate = useNavigate();
@@ -28,7 +27,7 @@ const EditorContainer = () => {
       />
       <Article>
         <DateBox />
-        <EmotionItem emotion={"1"} />
+        <EmotionBox />
         <TextAreaBox content={"content"} />
       </Article>
     </div>
