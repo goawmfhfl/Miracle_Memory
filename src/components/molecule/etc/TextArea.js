@@ -1,12 +1,10 @@
-import { useRef } from "react";
 import styled from "styled-components";
 
-const TextArea = ({ content, onChange }) => {
-  const contentRef = useRef();
+const TextArea = ({ content, onChange, reference }) => {
   return (
     <Wrapper>
       <InputArea
-        ref={contentRef}
+        ref={reference}
         value={content}
         onChange={(e) => onChange(e.target.value)}
       />
