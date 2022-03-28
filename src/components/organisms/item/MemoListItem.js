@@ -60,9 +60,8 @@ const MemoListItem = ({ diaryList }) => {
           />
         </RightCol>
       </Wrapper>
-      <MemoItemBox />
-      <MemoItemBox />
-      <MemoItemBox />
+      {diaryList &&
+        diaryList.map((list) => <MemoItemBox key={list.id} {...list} />)}
     </MemoList>
   );
 };

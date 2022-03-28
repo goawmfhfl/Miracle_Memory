@@ -30,7 +30,9 @@ export const onEdit = (targetId, date, content, emotion) => ({
   },
 });
 
-const memoryReducer = (state, action) => {
+const initialState = [];
+
+const memoryReducer = (state = initialState, action) => {
   let newState = [];
   switch (action.type) {
     case MEMORY_INIT: {
