@@ -1,5 +1,5 @@
-import SubTitle from "../../moldecule/text/SubTitle";
-import DetailEmotion from "../../moldecule/emotion/DetailEmotion";
+import SubTitle from "../../molecule/text/SubTitle";
+import DetailEmotion from "../../molecule/emotion/DetailEmotion";
 
 const DetailEmotionBox = ({ emotion, img, descript }) => {
   return (

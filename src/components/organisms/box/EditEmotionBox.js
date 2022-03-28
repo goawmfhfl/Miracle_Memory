@@ -1,4 +1,4 @@
-import EditEmotion from "../../moldecule/emotion/EditEmotion";
+import EditEmotion from "../../molecule/emotion/EditEmotion";
 
 const EditEmotionBox = ({
   emotion_descript,

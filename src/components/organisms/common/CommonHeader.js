@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Title from "../../moldecule/text/Title";
+import Title from "../../molecule/text/Title";
 
 const CommonHeader = ({ headText, leftChild, rightChild }) => {
   return (

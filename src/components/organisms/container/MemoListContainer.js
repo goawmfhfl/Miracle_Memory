@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../moldecule/etc/Button";
+import Button from "../../molecule/etc/Button";
 import MemoItemBox from "../box/MemoItemBox";
 import SelectBox from "../box/SelectBox";
 import { sortOptionList, filterOptionList } from "../../../util/optionList";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CommonHeader from "../organisms/common/CommonHeader";
-import Button from "../moldecule/etc/Button";
+import Button from "../molecule/etc/Button";
 import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
 import DetailContentBox from "../organisms/box/DetailContentBox";
 import { useNavigate } from "react-router-dom";

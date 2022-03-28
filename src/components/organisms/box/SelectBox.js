@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Option from "../../moldecule/etc/Option";
+import Option from "../../molecule/etc/Option";
 
 const SelectBox = ({ value, onChange, optionList }) => {
   return (

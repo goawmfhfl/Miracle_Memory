@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import Button from "../../module/etc/Button";
-
+import Button from "../../molecule/etc/Button";
 const ButtonBox = ({ goHome, handleSubmit }) => {
   return (
     <Wrapper>

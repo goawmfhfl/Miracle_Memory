@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../moldecule/etc/Button";
+import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import MemoListContainer from "../organisms/container/MemoListContainer";
 
