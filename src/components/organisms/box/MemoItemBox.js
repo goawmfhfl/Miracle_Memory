@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import HomeEmotion from "../../module/emotion/HomeEmotion";
-import Info from "../../module/text/Info";
-import Button from "../../module/etc/Button";
+import HomeEmotion from "../../moldecule/emotion/HomeEmotion";
+import Info from "../../moldecule/text/Info";
+import Button from "../../moldecule/etc/Button";
 
 const MemoItemBox = ({ emotion, id, date, content }) => {
   const goDetail = () => {};

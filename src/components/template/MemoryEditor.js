@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../module/etc/Button";
+import Button from "../moldecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import DateBox from "../organisms/box/DateBox";
 import TextAreaBox from "../organisms/box/TextAreaBox";

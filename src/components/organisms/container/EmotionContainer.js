@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SubTitle from "../../module/text/SubTitle";
+import SubTitle from "../../moldecule/text/SubTitle";
 import EditEmotionBox from "../box/EditEmotionBox";
 import { emotionList } from "../../../util/emotion";
 

@@ -1,5 +1,5 @@
-import SubTitle from "../../module/text/SubTitle";
-import Content from "../../module/text/Content";
+import SubTitle from "../../moldecule/text/SubTitle";
+import Content from "../../moldecule/text/Content";
 
 const DetailContentBox = ({ content }) => {
   return (

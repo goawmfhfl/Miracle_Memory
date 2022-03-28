@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import SubTitle from "../../module/text/SubTitle";
-import Date from "../../module/etc/Date";
+import SubTitle from "../../moldecule/text/SubTitle";
+import Date from "../../moldecule/etc/Date";
 
 const DateBox = ({ onChange }) => {
   return (
