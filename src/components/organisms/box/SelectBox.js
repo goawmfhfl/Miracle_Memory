@@ -3,7 +3,7 @@ import Option from "../../molecule/etc/Option";
 
 const SelectBox = ({ value, onChange, optionList }) => {
   return (
-    <ControlMenu value={value} onChange={onChange}>
+    <ControlMenu value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList &&
         optionList.map((list, index) => (
           <Option key={index} value={list.value} name={list.name} />
