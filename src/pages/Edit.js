@@ -1,12 +1,12 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { DiaryStateContext } from "../context/DiaryContext";
 import EditorContainer from "../components/template/EditorContainer";
 const Edit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [editData, setEditData] = useState();
-  const diaryList = useContext(DiaryStateContext);
+  const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
 
   useEffect(() => {
     if (diaryList.length >= 1) {

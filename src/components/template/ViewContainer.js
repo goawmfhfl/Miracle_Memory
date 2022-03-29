@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { DiaryStateContext } from "../../context/DiaryContext";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { getMonthDate } from "../../util/date";
 import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import MemoListItem from "../organisms/item/MemoListItem";
 
 const ViewContainer = () => {
-  const diaryList = useContext(DiaryStateContext);
+  const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
   const [data, setData] = useState([]);
   const [curDate, setCurDate] = useState(new Date());
 

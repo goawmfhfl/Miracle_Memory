@@ -1,6 +1,7 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { DiaryDispatchContext } from "../../context/DiaryContext";
+import { useDispatch } from "react-redux";
+import { onCreate, onEdit, onRemove } from "../../module/memoryReducer";
 import { getStringDate } from "../../util/date";
 import styled from "styled-components";
 import Button from "../molecule/etc/Button";
@@ -11,14 +12,13 @@ import EmotionBox from "../organisms/box/EmotionBox";
 import ContolBox from "../organisms/box/ControlBox";
 
 const EditorContainer = ({ isEdit, editData }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const contentRef = useRef();
   const [content, setContent] = useState("");
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
   const [emotion, setEmotion] = useState(3);
-
-  const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
 
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
@@ -29,7 +29,7 @@ const EditorContainer = ({ isEdit, editData }) => {
 
   const handleRemove = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
-      onRemove(editData.id);
+      dispatch(onRemove(editData.id));
       navigate("/", { replace: true });
     }
   };
@@ -45,9 +45,9 @@ const EditorContainer = ({ isEdit, editData }) => {
       )
     ) {
       if (!isEdit) {
-        onCreate(date, content, emotion);
+        dispatch(onCreate(date, content, emotion));
       } else {
-        onEdit(editData.id, date, content, emotion);
+        dispatch(onEdit(editData.id, date, content, emotion));
       }
     }
     navigate("/", { replace: true });
