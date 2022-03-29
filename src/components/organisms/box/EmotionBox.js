@@ -1,4 +1,4 @@
-import { emotionList } from "../../../util/emotion";
+import emotionList from "../../../util/emotion";
 import styled from "styled-components";
 import SubTitle from "../../molecule/text/SubTitle";
 import EditEmotion from "../../molecule/emotion/EditEmotion";

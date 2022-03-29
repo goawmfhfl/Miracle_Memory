@@ -1,7 +1,7 @@
 const env = process.env;
 env.PUBLIC_URL = env.PUBLIC_URL || "";
 
-export const emotionList = [
+const emotionList = [
   {
     emotion_id: 1,
     emotion_img: process.env.PUBLIC_URL + `/assets/emotion1.png`,
@@ -28,3 +28,4 @@ export const emotionList = [
     emotion_descript: "끔찍함",
   },
 ];
+export default emotionList;

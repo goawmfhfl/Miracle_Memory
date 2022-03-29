@@ -1,47 +1,61 @@
 export const getStringDate = (date) => {
-  const stringDate = parseInt(date);
-  const ISODate = date;
+  const clouserDate = date;
 
   // 2022-03-28
   const ISOString = () => {
-    return new Date(ISODate).toISOString().slice(0, 10);
+    return new Date(clouserDate).toISOString().slice(0, 10);
   };
 
   // 2022. 03. 28
-  const DataString = () => {
-    return new Date(stringDate).toLocaleDateString().slice(0, -1);
+  const dataString = () => {
+    return new Date(parseInt(clouserDate)).toLocaleDateString().slice(0, -1);
   };
 
-  return { ISOString, DataString };
+  return { ISOString, dataString };
 };
 
-export const getMonthDate = {
-  increaseMonth(curDate, setCurDate) {
-    setCurDate(
-      new Date(curDate.getFullYear(), curDate.getMonth() + 1),
-      curDate.getDate()
+export const getMonthDate = (curDate, setData, diaryList) => {
+  const closureCurDate = curDate;
+  const closureSetData = setData;
+  const closureDiaryList = diaryList;
+
+  const headText = `${closureCurDate.getFullYear()}년 ${
+    closureCurDate.getMonth() + 1
+  }월`;
+
+  const increaseMonth = () => {
+    closureSetData(
+      new Date(closureCurDate.getFullYear(), closureCurDate.getMonth() + 1),
+      closureCurDate.getDate()
     );
-  },
-  decreaseMonth(curDate, setCurDate) {
-    setCurDate(
-      new Date(curDate.getFullYear(), curDate.getMonth() - 1),
-      curDate.getDate()
+  };
+
+  const decreaseMonth = () => {
+    closureSetData(
+      new Date(closureCurDate.getFullYear(), closureCurDate.getMonth() - 1),
+      closureCurDate.getDate()
     );
-  },
-  changeMonthDate(curDate, setData, diaryList) {
+  };
+  const changeMonthDate = () => {
     const firstDay = new Date(
-      curDate.getFullYear(),
-      curDate.getMonth(),
+      closureCurDate.getFullYear(),
+      closureCurDate.getMonth(),
       1
     ).getTime();
 
     const lastDay = new Date(
-      curDate.getFullYear(),
-      curDate.getMonth() + 1,
-      0
+      closureCurDate.getFullYear(),
+      closureCurDate.getMonth() + 1,
+      0,
+      23,
+      59,
+      59
     ).getTime();
     setData(
-      diaryList.filter((list) => firstDay <= list.date && list.date <= lastDay)
+      closureDiaryList.filter(
+        (list) => firstDay <= list.date && list.date <= lastDay
+      )
     );
-  },
+  };
+  return { increaseMonth, decreaseMonth, changeMonthDate, headText };
 };

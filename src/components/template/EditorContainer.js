@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../../context/DiaryContext";
 import { getStringDate } from "../../util/date";
@@ -10,7 +10,7 @@ import TextAreaBox from "../organisms/box/TextAreaBox";
 import EmotionBox from "../organisms/box/EmotionBox";
 import ContolBox from "../organisms/box/ControlBox";
 
-const EditorContainer = () => {
+const EditorContainer = ({ isEdit, editData }) => {
   const navigate = useNavigate();
 
   const contentRef = useRef();
@@ -18,7 +18,7 @@ const EditorContainer = () => {
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
   const [emotion, setEmotion] = useState(3);
 
-  const { onCreate } = useContext(DiaryDispatchContext);
+  const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
 
   const handleClickEmote = (emotion) => {
     setEmotion(emotion);
@@ -29,7 +29,7 @@ const EditorContainer = () => {
 
   const handleRemove = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
-      // onRemove()
+      onRemove(editData.id);
       navigate("/", { replace: true });
     }
   };
@@ -38,7 +38,18 @@ const EditorContainer = () => {
       contentRef.current.focus();
       return;
     }
-    onCreate(date, content, emotion);
+
+    if (
+      window.confirm(
+        isEdit ? "일기를 수정하시겠습니까" : "새로운 일기를 작성하시겠습니까?"
+      )
+    ) {
+      if (!isEdit) {
+        onCreate(date, content, emotion);
+      } else {
+        onEdit(editData.id, date, content, emotion);
+      }
+    }
     navigate("/", { replace: true });
   };
 
@@ -48,13 +59,27 @@ const EditorContainer = () => {
   const goHome = () => {
     navigate("/");
   };
+
+  useEffect(() => {
+    if (isEdit) {
+      setDate(getStringDate(editData.date).ISOString());
+      setEmotion(editData.emotion);
+      setContent(editData.content);
+    }
+  }, [isEdit, editData]);
   return (
     <div>
       <CommonHeader
-        headText={"기록 수정하기"}
+        headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
         leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
         rightChild={
-          <Button text={"삭제하기"} type={"negative"} onClick={handleRemove} />
+          isEdit && (
+            <Button
+              text={"삭제하기"}
+              type={"negative"}
+              onClick={handleRemove}
+            />
+          )
         }
       />
       <Article>

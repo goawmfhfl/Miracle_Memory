@@ -3,7 +3,7 @@ import { getStringDate } from "../../../util/date";
 const Info = ({ date, content, onClick }) => {
   return (
     <Wrapper onClick={onClick}>
-      <DateText>{getStringDate(date).DataString()}</DateText>
+      <DateText>{getStringDate(date).dataString()}</DateText>
       <Preview>{content.slice(0, 25)}</Preview>
     </Wrapper>
   );
