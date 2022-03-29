@@ -16,8 +16,8 @@ const EditorContainer = ({ isEdit, editData }) => {
   const navigate = useNavigate();
 
   const contentRef = useRef();
-  const [content, setContent] = useState("");
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
+  const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
 
   const handleClickEmote = (emotion) => {
@@ -41,7 +41,7 @@ const EditorContainer = ({ isEdit, editData }) => {
 
     if (
       window.confirm(
-        isEdit ? "일기를 수정하시겠습니까" : "새로운 일기를 작성하시겠습니까?"
+        !isEdit ? "새로운 일기를 작성하시겠습니까?" : "일기를 수정하시겠습니까?"
       )
     ) {
       if (!isEdit) {
@@ -49,8 +49,8 @@ const EditorContainer = ({ isEdit, editData }) => {
       } else {
         dispatch(onEdit(editData.id, date, content, emotion));
       }
+      navigate("/", { replace: true });
     }
-    navigate("/", { replace: true });
   };
 
   const goBack = () => {

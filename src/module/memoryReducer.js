@@ -8,10 +8,11 @@ export const initData = (data) => ({
   data: data,
 });
 
+let id = 0;
 export const onCreate = (date, content, emotion) => ({
   type: MEMORY_CREATE,
   data: {
-    id: 0,
+    id: id++,
     date: new Date(date).getTime(),
     content,
     emotion,

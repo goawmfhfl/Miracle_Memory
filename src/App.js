@@ -1,30 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { initData } from "./module/memoryReducer";
 import theme from "./styles/theme";
 import GlobalStyles from "./styles/GlobalStyles";
 import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import New from "./pages/New";
-import { initData } from "./module/memoryReducer";
 const App = () => {
-  const dataId = useRef(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const localData = localStorage.getItem("memory");
-    if (localData) {
-      const memoryList = JSON.parse(localData).sort(
-        (a, b) => parseInt(a.id) - parseInt(b.id)
-      );
-      if (memoryList.length >= 1) {
-        dataId.current = parseInt(memoryList[0].id) + 1;
-        dispatch(initData(memoryList));
-      }
-    }
-  }, [dispatch]);
+    const localData = JSON.parse(localStorage.getItem("memory"));
+    dispatch(initData(localData));
+  }, []);
 
   return (
     <BrowserRouter>
