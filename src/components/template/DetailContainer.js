@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { getStringDate } from "../../util/date";
 import emotionList from "../../util/emotion";
 import styled from "styled-components";
@@ -7,7 +8,6 @@ import CommonHeader from "../organisms/common/CommonHeader";
 import Button from "../molecule/etc/Button";
 import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
 import DetailContentBox from "../organisms/box/DetailContentBox";
-import { useSelector } from "react-redux";
 
 const DetailContainer = () => {
   const navigate = useNavigate();

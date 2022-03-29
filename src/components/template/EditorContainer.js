@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { onCreate, onEdit, onRemove } from "../../module/memoryReducer";
@@ -19,10 +19,9 @@ const EditorContainer = ({ isEdit, editData }) => {
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
-
-  const handleClickEmote = (emotion) => {
+  const handleClickEmote = useCallback((emotion) => {
     setEmotion(emotion);
-  };
+  }, []);
   const handleInputValue = (value) => {
     setContent(value);
   };

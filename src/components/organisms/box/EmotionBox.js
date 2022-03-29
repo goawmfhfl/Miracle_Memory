@@ -1,5 +1,6 @@
-import emotionList from "../../../util/emotion";
+import React from "react";
 import styled from "styled-components";
+import emotionList from "../../../util/emotion";
 import SubTitle from "../../molecule/text/SubTitle";
 import EditEmotion from "../../molecule/emotion/EditEmotion";
 
@@ -27,4 +28,4 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(5, auto);
   gap: 2%;
 `;
-export default EmotionItem;
+export default React.memo(EmotionItem);
