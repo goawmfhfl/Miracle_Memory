@@ -1,7 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { sortOptionList, filterOptionList } from "../../../util/optionList";
+import styled from "styled-components";
 import Button from "../../molecule/etc/Button";
 import Select from "../../molecule/etc/Select";
 
@@ -46,4 +46,4 @@ const RightCol = styled.div`
   }
 `;
 
-export default SelectBox;
+export default React.memo(SelectBox);
