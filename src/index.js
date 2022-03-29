@@ -6,7 +6,15 @@ import rootReducer from "./module/store";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-const store = createStore(rootReducer, composeWithDevTools());
+
+const memoryFromLocalStorage = localStorage.getItem("memory")
+  ? JSON.parse("memory")
+  : null;
+
+const initialState = {
+  memory: memoryFromLocalStorage,
+};
+const store = createStore(rootReducer, initialState, composeWithDevTools());
 
 ReactDOM.render(
   <Provider store={store}>

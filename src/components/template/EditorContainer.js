@@ -73,13 +73,13 @@ const EditorContainer = ({ isEdit, editData }) => {
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
         leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
         rightChild={
-          isEdit ? (
+          isEdit && (
             <Button
               text={"삭제하기"}
               type={"negative"}
               onClick={handleRemove}
             />
-          ) : null
+          )
         }
       />
       <Article>
