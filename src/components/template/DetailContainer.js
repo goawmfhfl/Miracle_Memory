@@ -1,6 +1,5 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { DiaryStateContext } from "../../context/DiaryContext";
 import { getStringDate } from "../../util/date";
 import emotionList from "../../util/emotion";
 import styled from "styled-components";
@@ -8,11 +7,12 @@ import CommonHeader from "../organisms/common/CommonHeader";
 import Button from "../molecule/etc/Button";
 import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
 import DetailContentBox from "../organisms/box/DetailContentBox";
+import { useSelector } from "react-redux";
 
 const DetailContainer = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const diaryList = useContext(DiaryStateContext);
+  const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
   const [detailData, setDetailData] = useState([]);
 
   const goEdit = () => {

@@ -3,12 +3,15 @@ const MEMORY_CREATE = "MEMORY_CREATE";
 const MEMORY_REMOVE = "MEMORY_REMOVE";
 const MEMORY_UPDATE = "MEMORY_UPDATE";
 
-const dataId = 0;
+export const initalData = (data) => ({
+  type: MEMORY_INIT,
+  data: data,
+});
 
 export const onCreate = (date, content, emotion) => ({
   type: MEMORY_CREATE,
   data: {
-    id: dataId.current,
+    id: String(Math.random() * 1).split(".")[1],
     date: new Date(date).getTime(),
     content,
     emotion,
@@ -30,16 +33,18 @@ export const onEdit = (targetId, date, content, emotion) => ({
   },
 });
 
-const initialState = [];
-
-const memoryReducer = (state = initialState, action) => {
+const memoryReducer = (state = {}, action) => {
   let newState = [];
   switch (action.type) {
     case MEMORY_INIT: {
       return action.data;
     }
     case MEMORY_CREATE: {
-      newState = [action.data, ...state];
+      if (state === null) {
+        newState = [action.data];
+      } else {
+        newState = [...state, action.data];
+      }
       break;
     }
     case MEMORY_REMOVE: {
