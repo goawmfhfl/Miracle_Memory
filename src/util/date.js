@@ -46,7 +46,10 @@ export const getMonthDate = (curDate, setData, diaryList) => {
     const lastDay = new Date(
       closureCurDate.getFullYear(),
       closureCurDate.getMonth() + 1,
-      0
+      0,
+      23,
+      59,
+      59
     ).getTime();
     setData(
       closureDiaryList.filter(
