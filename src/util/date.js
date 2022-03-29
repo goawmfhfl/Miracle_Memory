@@ -7,11 +7,11 @@ export const getStringDate = (date) => {
   };
 
   // 2022. 03. 28
-  const DataString = () => {
+  const dataString = () => {
     return new Date(parseInt(clouserDate)).toLocaleDateString().slice(0, -1);
   };
 
-  return { ISOString, DataString };
+  return { ISOString, dataString };
 };
 
 export const getMonthDate = (curDate, setData, diaryList) => {
