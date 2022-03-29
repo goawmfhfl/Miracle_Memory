@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const DetailEmotion = ({ descript, emotion, img }) => {
+const DetailEmotion = ({ descript, id, img }) => {
   return (
-    <Wrapper className={`emotion_${emotion}`}>
-      <EmotionImg className={`emotion_${emotion}`} src={img} />
+    <Wrapper className={`emotion_${id}`}>
+      <EmotionImg className={`emotion_${id}`} src={img} />
       <Descript color={"black"} size={"18px"}>
         {descript}
       </Descript>
