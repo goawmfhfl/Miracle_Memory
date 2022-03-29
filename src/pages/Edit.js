@@ -5,7 +5,7 @@ import EditorContainer from "../components/template/EditorContainer";
 const Edit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [originData, setOriginData] = useState();
+  const [editData, setEditData] = useState();
   const diaryList = useContext(DiaryStateContext);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Edit = () => {
         (list) => parseInt(list.id) === parseInt(id)
       );
       if (targetDiary) {
-        setOriginData(targetDiary);
+        setEditData(targetDiary);
       } else {
         navigate("/", { replace: true });
       }
@@ -22,9 +22,7 @@ const Edit = () => {
   }, [id, diaryList]);
 
   return (
-    <>
-      {originData && <EditorContainer isEdit={true} originData={originData} />}
-    </>
+    <>{editData && <EditorContainer isEdit={true} editData={editData} />}</>
   );
 };
 export default Edit;

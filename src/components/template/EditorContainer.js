@@ -10,7 +10,7 @@ import TextAreaBox from "../organisms/box/TextAreaBox";
 import EmotionBox from "../organisms/box/EmotionBox";
 import ContolBox from "../organisms/box/ControlBox";
 
-const EditorContainer = ({ isEdit, originData }) => {
+const EditorContainer = ({ isEdit, editData }) => {
   const navigate = useNavigate();
 
   const contentRef = useRef();
@@ -29,7 +29,7 @@ const EditorContainer = ({ isEdit, originData }) => {
 
   const handleRemove = () => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
-      // onRemove()
+      onRemove(editData.id);
       navigate("/", { replace: true });
     }
   };
@@ -47,7 +47,7 @@ const EditorContainer = ({ isEdit, originData }) => {
       if (!isEdit) {
         onCreate(date, content, emotion);
       } else {
-        onEdit(originData.id, date, content, emotion);
+        onEdit(editData.id, date, content, emotion);
       }
     }
     navigate("/", { replace: true });
@@ -62,18 +62,24 @@ const EditorContainer = ({ isEdit, originData }) => {
 
   useEffect(() => {
     if (isEdit) {
-      setDate(getStringDate(originData.date).ISOString());
-      setEmotion(originData.emotion);
-      setContent(originData.content);
+      setDate(getStringDate(editData.date).ISOString());
+      setEmotion(editData.emotion);
+      setContent(editData.content);
     }
-  }, [isEdit, originData]);
+  }, [isEdit, editData]);
   return (
     <div>
       <CommonHeader
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
         leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
         rightChild={
-          <Button text={"삭제하기"} type={"negative"} onClick={handleRemove} />
+          isEdit ? (
+            <Button
+              text={"삭제하기"}
+              type={"negative"}
+              onClick={handleRemove}
+            />
+          ) : null
         }
       />
       <Article>
