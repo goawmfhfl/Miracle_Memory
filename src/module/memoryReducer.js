@@ -1,3 +1,4 @@
+import { v4 as uuid } from "uuid";
 const MEMORY_INIT = "MEMORY_INIT";
 const MEMORY_CREATE = "MEMORY_CREATE";
 const MEMORY_REMOVE = "MEMORY_REMOVE";
@@ -8,11 +9,10 @@ export const initData = (data) => ({
   data: data,
 });
 
-let id = 0;
 export const onCreate = (date, content, emotion) => ({
   type: MEMORY_CREATE,
   data: {
-    id: id++,
+    id: uuid(),
     date: new Date(date).getTime(),
     content,
     emotion,

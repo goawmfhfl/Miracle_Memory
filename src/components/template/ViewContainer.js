@@ -11,7 +11,7 @@ const ViewContainer = () => {
   const [curDate, setCurDate] = useState(new Date());
 
   useEffect(() => {
-    if (diaryList.length >= 1) {
+    if (diaryList?.length >= 1) {
       getMonthDate(curDate, setData, diaryList).changeMonthDate();
     }
   }, [curDate, diaryList]);

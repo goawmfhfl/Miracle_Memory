@@ -9,9 +9,9 @@ import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import New from "./pages/New";
+
 const App = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("memory"));
     dispatch(initData(localData));
