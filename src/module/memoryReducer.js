@@ -1,10 +1,9 @@
-import { v4 as uuid } from "uuid";
 const MEMORY_INIT = "MEMORY_INIT";
 const MEMORY_CREATE = "MEMORY_CREATE";
 const MEMORY_REMOVE = "MEMORY_REMOVE";
 const MEMORY_UPDATE = "MEMORY_UPDATE";
 
-export const initData = (data) => ({
+export const initalData = (data) => ({
   type: MEMORY_INIT,
   data: data,
 });
@@ -12,7 +11,7 @@ export const initData = (data) => ({
 export const onCreate = (date, content, emotion) => ({
   type: MEMORY_CREATE,
   data: {
-    id: uuid(),
+    id: String(Math.random() * 1).split(".")[1],
     date: new Date(date).getTime(),
     content,
     emotion,
@@ -34,14 +33,18 @@ export const onEdit = (targetId, date, content, emotion) => ({
   },
 });
 
-const memoryReducer = (state = [], action) => {
+const memoryReducer = (state = {}, action) => {
   let newState = [];
   switch (action.type) {
     case MEMORY_INIT: {
       return action.data;
     }
     case MEMORY_CREATE: {
-      newState = [action.data, ...state];
+      if (state === null) {
+        newState = [action.data];
+      } else {
+        newState = [...state, action.data];
+      }
       break;
     }
     case MEMORY_REMOVE: {

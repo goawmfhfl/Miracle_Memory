@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { initData } from "./module/memoryReducer";
+import { initalData } from "./module/memoryReducer";
 import theme from "./styles/theme";
 import GlobalStyles from "./styles/GlobalStyles";
 import Detail from "./pages/Detail";
@@ -14,7 +14,7 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("memory"));
-    dispatch(initData(localData));
+    dispatch(initalData(localData));
   }, []);
 
   return (
