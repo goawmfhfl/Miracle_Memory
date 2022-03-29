@@ -51,9 +51,9 @@ const DetailContainer = () => {
         ></CommonHeader>
         <Article>
           <DetailEmotionBox
-            img={curEmotionData.emotion_img}
-            id={curEmotionData.emotion_id}
-            descript={curEmotionData.emotion_descript}
+            img={curEmotionData?.emotion_img}
+            id={curEmotionData?.emotion_id}
+            descript={curEmotionData?.emotion_descript}
           />
           <DetailContentBox content={detailData.content} />
         </Article>
