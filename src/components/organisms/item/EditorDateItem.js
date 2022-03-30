@@ -1,0 +1,13 @@
+import React from "react";
+import SubTitle from "../../atom/text/SubTitle";
+import EditorInputDataBox from "../../molecule/editor/EditorInputDataBox";
+const EditorDateItem = ({ date, setDate }) => {
+  return (
+    <section>
+      <SubTitle text={"오늘은 언제인가요?"} />
+      <EditorInputDataBox onChange={setDate} date={date} />
+    </section>
+  );
+};
+
+export default React.memo(EditorDateItem);
