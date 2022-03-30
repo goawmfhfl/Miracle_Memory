@@ -44,4 +44,4 @@ const HeadText = styled.div`
   text-align: center;
 `;
 
-export default CommonHeader;
+export default React.memo(CommonHeader);

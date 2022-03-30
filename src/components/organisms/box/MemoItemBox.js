@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import HomeEmotion from "../../molecule/emotion/HomeEmotion";
@@ -35,4 +36,4 @@ const MomoItem = styled.li`
 const BtnWrapper = styled.div`
   min-width: 70px;
 `;
-export default MemoItemBox;
+export default React.memo(MemoItemBox);

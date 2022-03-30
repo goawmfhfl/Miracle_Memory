@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { onCreate, onEdit, onRemove } from "../../module/memoryReducer";
@@ -20,25 +20,26 @@ const EditorContainer = ({ isEdit, editData }) => {
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
 
-  const handleClickEmote = (emotion) => {
+  const handleClickEmote = useCallback((emotion) => {
     setEmotion(emotion);
-  };
-  const handleInputValue = (value) => {
-    setContent(value);
-  };
+  }, []);
 
-  const handleRemove = () => {
+  const handleInputValue = useCallback((value) => {
+    setContent(value);
+  }, []);
+
+  const handleRemove = useCallback(() => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       dispatch(onRemove(editData.id));
       navigate("/", { replace: true });
     }
-  };
-  const handleSubmit = () => {
+  }, []);
+
+  const handleSubmit = useCallback(() => {
     if (content.length < 1) {
       contentRef.current.focus();
       return;
     }
-
     if (
       window.confirm(
         !isEdit ? "새로운 일기를 작성하시겠습니까?" : "일기를 수정하시겠습니까?"
@@ -51,14 +52,14 @@ const EditorContainer = ({ isEdit, editData }) => {
       }
       navigate("/", { replace: true });
     }
-  };
+  }, []);
 
-  const goBack = () => {
+  const goBack = useCallback(() => {
     navigate(-1);
-  };
-  const goHome = () => {
+  }, []);
+  const goHome = useCallback(() => {
     navigate("/");
-  };
+  }, []);
 
   useEffect(() => {
     if (isEdit) {
