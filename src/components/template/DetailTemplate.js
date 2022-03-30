@@ -2,12 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getStringDate } from "../../util/date";
-import emotionList from "../../util/emotion";
-import styled from "styled-components";
-import CommonHeader from "../organisms/common/CommonHeader";
 import Button from "../molecule/etc/Button";
-import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
-import DetailContentBox from "../organisms/box/DetailContentBox";
+import CommonHeader from "../organisms/common/CommonHeader";
+import DetailContainer from "../organisms/container/DetailContainer";
 
 const DetailTemplate = () => {
   const navigate = useNavigate();
@@ -35,13 +32,9 @@ const DetailTemplate = () => {
       }
     }
   }, [diaryList, id, navigate]);
-
   if (!detailData) {
     return <div>로딩중입니다...</div>;
   } else {
-    const curEmotionData = emotionList.find(
-      (list) => parseInt(list.emotion_id) === parseInt(detailData.emotion)
-    );
     return (
       <div>
         <CommonHeader
@@ -49,29 +42,10 @@ const DetailTemplate = () => {
           leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
           rightChild={<Button text={"수정하기"} onClick={goEdit} />}
         ></CommonHeader>
-        <Article>
-          <DetailEmotionBox
-            img={curEmotionData?.emotion_img}
-            id={curEmotionData?.emotion_id}
-            descript={curEmotionData?.emotion_descript}
-          />
-          <DetailContentBox content={detailData.content} />
-        </Article>
+        <DetailContainer detailData={detailData} />
       </div>
     );
   }
 };
-
-const Article = styled.article`
-  & > section {
-    width: 100%;
-    margin-bottom: 100px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-`;
 
 export default DetailTemplate;

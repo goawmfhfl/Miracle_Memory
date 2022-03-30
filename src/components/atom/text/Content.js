@@ -1,19 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 
 const Content = ({ content }) => {
-  return (
-    <Wrapper>
-      <Text>{content}</Text>
-    </Wrapper>
-  );
+  return <Text>{content}</Text>;
 };
 
-const Wrapper = styled.div`
-  width: 100%;
-  background-color: #ececec;
-  word-break: keep-all;
-  overflow-wrap: break-word;
-`;
 const Text = styled.p`
   padding: 20px;
   text-align: left;
