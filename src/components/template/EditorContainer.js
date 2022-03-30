@@ -35,7 +35,7 @@ const EditorContainer = ({ isEdit, editData }) => {
     }
   }, []);
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = () => {
     if (content.length < 1) {
       contentRef.current.focus();
       return;
@@ -52,7 +52,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       }
       navigate("/", { replace: true });
     }
-  }, []);
+  };
 
   const goBack = useCallback(() => {
     navigate(-1);

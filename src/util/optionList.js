@@ -1,3 +1,4 @@
+import _ from "lodash";
 export const sortOptionList = [
   { value: "latest", name: "최신순" },
   {
@@ -27,7 +28,7 @@ const getProcessedDiaryList = (filter, sortType, diaryList) => {
       return parseInt(a.date) - parseInt(b.date);
     }
   };
-  const copyList = JSON.parse(JSON.stringify(diaryList));
+  const copyList = _.cloneDeep(diaryList);
 
   let filterList =
     filter === "all" ? copyList : copyList.filter((it) => filterCallBack(it));
