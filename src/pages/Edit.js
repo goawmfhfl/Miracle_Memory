@@ -19,7 +19,7 @@ const Edit = () => {
         navigate("/", { replace: true });
       }
     }
-  }, [id, diaryList]);
+  }, [id, diaryList, navigate]);
 
   return (
     <>{editData && <EditorTemplate isEdit={true} editData={editData} />}</>

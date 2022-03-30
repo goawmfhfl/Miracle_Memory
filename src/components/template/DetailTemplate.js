@@ -34,7 +34,7 @@ const DetailTemplate = () => {
         navigate("/", { replace: true });
       }
     }
-  }, [diaryList, id]);
+  }, [diaryList, id, navigate]);
 
   if (!detailData) {
     return <div>로딩중입니다...</div>;
