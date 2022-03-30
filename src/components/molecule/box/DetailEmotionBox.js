@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import DetailEmotionImg from "../../atom/img/DetailEmotionImg";
-import Descript from "../../atom/text/Descript";
+import CommonText from "../../atom/text/CommonText";
 const DetailEmotionBox = ({ id, img, descript }) => {
   return (
     <Wrapper className={`emotion_${id}`}>
       <DetailEmotionImg id={id} img={img} />
-      <Descript color={"black"} size={"18px"} descript={descript} />
+      <CommonText color={"black"} size={"18px"} descript={descript} />
     </Wrapper>
   );
 };

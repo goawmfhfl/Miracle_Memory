@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getMonthDate } from "../../util/date";
 import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
-import MemoListItem from "../organisms/item/MemoListItem";
+import HomeContainer from "../organisms/container/HomeContainer";
 
-const ViewTemplate = () => {
+const HomeTemplate = () => {
   const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
   const [data, setData] = useState([]);
   const [curDate, setCurDate] = useState(new Date());
@@ -23,15 +23,15 @@ const ViewTemplate = () => {
     getMonthDate(curDate, setCurDate).decreaseMonth();
   };
   return (
-    <div>
+    <>
       <CommonHeader
         headText={getMonthDate(curDate, setCurDate).headText}
         leftChild={<Button text={"<"} onClick={decreaseMonth} />}
         rightChild={<Button text={">"} onClick={increaseMonth} />}
       />
-      <MemoListItem diaryList={data} />
-    </div>
+      <HomeContainer MonthData={data} />
+    </>
   );
 };
 
-export default ViewTemplate;
+export default HomeTemplate;

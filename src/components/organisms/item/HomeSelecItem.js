@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { sortOptionList, filterOptionList } from "../../../util/optionList";
 import styled from "styled-components";
+import HomeSelectBox from "../../molecule/box/HomeSelectBox";
 import Button from "../../molecule/etc/Button";
-import Select from "../../molecule/etc/Select";
 
-const SelectBox = ({ sortType, setSortType, filter, setFilter }) => {
+const HomeSelectItem = ({ sortType, setSortType, filter, setFilter }) => {
   const navigate = useNavigate();
   const goNew = () => {
     navigate("/new");
@@ -13,12 +13,12 @@ const SelectBox = ({ sortType, setSortType, filter, setFilter }) => {
   return (
     <Wrapper>
       <LeftCol>
-        <Select
+        <HomeSelectBox
           value={sortType}
           onChange={setSortType}
           optionList={sortOptionList}
         />
-        <Select
+        <HomeSelectBox
           value={filter}
           onChange={setFilter}
           optionList={filterOptionList}
@@ -46,4 +46,4 @@ const RightCol = styled.div`
   }
 `;
 
-export default React.memo(SelectBox);
+export default React.memo(HomeSelectItem);

@@ -4,7 +4,7 @@ import emotionList from "../../../util/emotion";
 import DetailEmotionItem from "../item/DetailEmotionItem";
 import DetailContentItem from "../item/DetailContentItem";
 
-export const DetailContainer = ({ detailData }) => {
+const DetailContainer = ({ detailData }) => {
   const curEmotionData = emotionList.find(
     (list) => parseInt(list.emotion_id) === parseInt(detailData.emotion)
   );

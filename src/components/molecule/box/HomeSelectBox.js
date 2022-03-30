@@ -1,19 +1,18 @@
+import React from "react";
 import styled from "styled-components";
-
-const Select = ({ value, onChange, optionList }) => {
+import Option from "../../atom/etc/Option";
+const HomeSelectBox = ({ value, onChange, optionList }) => {
   return (
-    <ControlMenu value={value} onChange={(e) => onChange(e.target.value)}>
+    <SelectBox value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList &&
         optionList.map((list, index) => (
-          <option key={index} value={list.value}>
-            {list.name}
-          </option>
+          <Option key={index} value={list.value} name={list.name} />
         ))}
-    </ControlMenu>
+    </SelectBox>
   );
 };
 
-const ControlMenu = styled.select`
+const SelectBox = styled.select`
   margin-right: 10px;
   border: none;
   border-radius: 5px;
@@ -28,5 +27,4 @@ const ControlMenu = styled.select`
   /* font-family: "Nanum Pen Script", cursive; */
   font-size: 18px;
 `;
-
-export default Select;
+export default HomeSelectBox;
