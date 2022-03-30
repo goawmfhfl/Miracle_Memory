@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import emotionList from "../../../util/emotion";
+import emotionList from "../../../util/emotionList";
 import DetailEmotionItem from "../item/DetailEmotionItem";
 import DetailContentItem from "../item/DetailContentItem";
 

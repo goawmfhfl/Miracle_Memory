@@ -23,4 +23,5 @@ const Wrapper = styled.div`
   margin-left: 20px;
   cursor: pointer;
 `;
+
 export default HomeInfoBox;

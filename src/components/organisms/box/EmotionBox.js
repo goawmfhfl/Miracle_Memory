@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import emotionList from "../../../util/emotion";
+import emotionList from "../../../util/emotionList";
 import SubTitle from "../../molecule/text/SubTitle";
 import EditEmotion from "../../molecule/emotion/EditEmotion";
 

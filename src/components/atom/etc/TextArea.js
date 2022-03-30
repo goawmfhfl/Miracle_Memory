@@ -1,14 +1,12 @@
+import React from "react";
 import styled from "styled-components";
-
 const TextArea = ({ content, onChange, reference }) => {
   return (
-    <div>
-      <InputArea
-        ref={reference}
-        value={content}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    </div>
+    <InputArea
+      ref={reference}
+      value={content}
+      onChange={(e) => onChange(e.target.value)}
+    />
   );
 };
 
@@ -27,5 +25,4 @@ const InputArea = styled.textarea.attrs({ placeholder: "오늘은 어떠셨나�
 
   padding: 20px;
 `;
-
 export default TextArea;

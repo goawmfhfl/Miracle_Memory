@@ -6,10 +6,10 @@ import { getStringDate } from "../../util/date";
 import styled from "styled-components";
 import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
-import DateBox from "../organisms/box/DateBox";
-import TextAreaBox from "../organisms/box/TextAreaBox";
-import EmotionBox from "../organisms/box/EmotionBox";
-import ContolBox from "../organisms/box/ControlBox";
+import EditorDateItem from "../organisms/item/EditorDateItem";
+import EditorEmotionItem from "../organisms/item/EditorEmotionItem";
+import EditorTextAreaItem from "../organisms/item/EditorTextAreaItem";
+import EditorControlBox from "../molecule/box/EditorControlBox";
 
 const EditorTemplate = ({ isEdit, editData }) => {
   const dispatch = useDispatch();
@@ -20,9 +20,12 @@ const EditorTemplate = ({ isEdit, editData }) => {
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
 
-  const handleClickEmote = useCallback((emotion) => {
-    setEmotion(emotion);
-  }, []);
+  const handleClickEmote = useCallback(
+    (emotion) => {
+      setEmotion(emotion);
+    },
+    [emotion]
+  );
 
   const handleInputValue = useCallback((value) => {
     setContent(value);
@@ -84,14 +87,27 @@ const EditorTemplate = ({ isEdit, editData }) => {
         }
       />
       <Article>
-        <DateBox date={date} setDate={setDate} />
-        <EmotionBox emotion={emotion} onClick={handleClickEmote} />
-        <TextAreaBox
+        <EditorDateItem date={date} setDate={setDate} />
+        <EditorEmotionItem emotion={emotion} onClick={handleClickEmote} />
+        <EditorTextAreaItem
           content={content}
           onChange={handleInputValue}
           reference={contentRef}
         />
-        <ContolBox handleSubmit={handleSubmit} goHome={goHome} />
+        <EditorControlBox
+          handleSubmit={handleSubmit}
+          goHome={goHome}
+          leftChild={
+            <Button text={"취소하기"} type={"positive"} onClick={goHome} />
+          }
+          rightChild={
+            <Button
+              text={"작성완료"}
+              type={"positive"}
+              onClick={handleSubmit}
+            />
+          }
+        />
       </Article>
     </div>
   );
