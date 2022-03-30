@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getStringDate } from "../../util/date";
-import Button from "../molecule/etc/Button";
+import Button from "../atom/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import DetailContainer from "../organisms/container/DetailContainer";
 

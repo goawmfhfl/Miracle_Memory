@@ -1,5 +1,5 @@
 import SubTitle from "../../atom/text/SubTitle";
-import DetailContentBox from "../../molecule/box/DetailContentBox";
+import DetailContentBox from "../../molecule/detail/DetailContentBox";
 
 const DetailContentItem = ({ content }) => {
   return (

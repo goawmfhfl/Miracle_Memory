@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../../molecule/etc/Button";
+import Button from "../../atom/etc/Button";
 const HomeButtonBox = ({ onClick }) => {
   return (
     <Wrapper>

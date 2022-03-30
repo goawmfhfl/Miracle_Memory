@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import HomeEmotionBox from "../../molecule/box/HomeEmotionBox";
-import HomeInfoBox from "../../molecule/box/HomeInfoBox";
-import HomeButtonBox from "../../molecule/box/HomeButtonBox";
+import HomeEmotionBox from "../../molecule/home/HomeEmotionBox";
+import HomeInfoBox from "../../molecule/home/HomeInfoBox";
+import HomeButtonBox from "../../molecule/home/HomeButtonBox";
 
 const HomeMemoItem = ({ emotion, id, date, content }) => {
   const navigate = useNavigate();

@@ -4,12 +4,12 @@ import { useDispatch } from "react-redux";
 import { onCreate, onEdit, onRemove } from "../../module/memoryReducer";
 import { getStringDate } from "../../util/date";
 import styled from "styled-components";
-import Button from "../molecule/etc/Button";
+import Button from "../atom/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import EditorDateItem from "../organisms/item/EditorDateItem";
 import EditorEmotionItem from "../organisms/item/EditorEmotionItem";
 import EditorTextAreaItem from "../organisms/item/EditorTextAreaItem";
-import EditorControlBox from "../molecule/box/EditorControlBox";
+import EditorControlBox from "../molecule/editor/EditorControlBox";
 
 const EditorTemplate = ({ isEdit, editData }) => {
   const dispatch = useDispatch();

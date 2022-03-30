@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import emotionList from "../../../util/emotionList";
-import EditorEmotionBox from "../../molecule/box/EditorEmotionBox";
+import EditorEmotionBox from "../../molecule/editor/EditorEmotionBox";
 
 const EditorEmotionList = ({ emotion, onClick }) => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import SubTitle from "../../atom/text/SubTitle";
-import EditorInputDataBox from "../../molecule/box/EditorInputDataBox";
+import EditorInputDataBox from "../../molecule/editor/EditorInputDataBox";
 const EditorDateItem = ({ date, setDate }) => {
   return (
     <section>

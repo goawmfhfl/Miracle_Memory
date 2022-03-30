@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getMonthDate } from "../../util/date";
-import Button from "../molecule/etc/Button";
+import Button from "../atom/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import HomeContainer from "../organisms/container/HomeContainer";
 

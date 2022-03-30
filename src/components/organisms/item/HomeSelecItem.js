@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { sortOptionList, filterOptionList } from "../../../util/optionList";
 import styled from "styled-components";
-import HomeSelectBox from "../../molecule/box/HomeSelectBox";
-import Button from "../../molecule/etc/Button";
+import Button from "../../atom/etc/Button";
+import HomeSelectBox from "../../molecule/home/HomeSelectBox";
 
 const HomeSelectItem = ({ sortType, setSortType, filter, setFilter }) => {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React from "react";
 import SubTitle from "../../atom/text/SubTitle";
-import EditorTextAreaBox from "../../molecule/box/EditorTextAreaBox";
+import EditorTextAreaBox from "../../molecule/editor/EditorTextAreaBox";
 
 const EditorTextAreaItem = ({ content, onChange, reference }) => {
   return (

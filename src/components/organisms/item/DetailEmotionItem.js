@@ -1,5 +1,5 @@
 import SubTitle from "../../atom/text/SubTitle";
-import DetailEmotionBox from "../../molecule/box/DetailEmotionBox";
+import DetailEmotionBox from "../../molecule/detail/DetailEmotionBox";
 
 const DetailEmotionItem = ({ id, img, descript }) => {
   return (
