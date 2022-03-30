@@ -1,7 +1,7 @@
 import React from "react";
-import DetailContainer from "../components/template/DetailContainer";
+import DetailTemplate from "../components/template/DetailTemplate";
 
 const Detail = () => {
-  return <DetailContainer />;
+  return <DetailTemplate />;
 };
 export default Detail;

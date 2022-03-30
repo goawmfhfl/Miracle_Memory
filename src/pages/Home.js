@@ -1,7 +1,7 @@
 import React from "react";
-import ViewContainer from "../components/template/ViewContainer";
+import ViewTemplate from "../components/template/ViewTemplate";
 
 const Home = () => {
-  return <ViewContainer />;
+  return <ViewTemplate />;
 };
 export default Home;

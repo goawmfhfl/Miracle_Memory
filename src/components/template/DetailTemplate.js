@@ -9,7 +9,7 @@ import Button from "../molecule/etc/Button";
 import DetailEmotionBox from "../organisms/box/DetailEmotionBox";
 import DetailContentBox from "../organisms/box/DetailContentBox";
 
-const DetailContainer = () => {
+const DetailTemplate = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
@@ -74,4 +74,4 @@ const Article = styled.article`
   }
 `;
 
-export default DetailContainer;
+export default DetailTemplate;

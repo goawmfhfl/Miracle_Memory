@@ -5,7 +5,7 @@ import Button from "../molecule/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import MemoListItem from "../organisms/item/MemoListItem";
 
-const ViewContainer = () => {
+const ViewTemplate = () => {
   const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
   const [data, setData] = useState([]);
   const [curDate, setCurDate] = useState(new Date());
@@ -34,4 +34,4 @@ const ViewContainer = () => {
   );
 };
 
-export default ViewContainer;
+export default ViewTemplate;

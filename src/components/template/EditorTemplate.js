@@ -11,7 +11,7 @@ import TextAreaBox from "../organisms/box/TextAreaBox";
 import EmotionBox from "../organisms/box/EmotionBox";
 import ContolBox from "../organisms/box/ControlBox";
 
-const EditorContainer = ({ isEdit, editData }) => {
+const EditorTemplate = ({ isEdit, editData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -102,4 +102,4 @@ const Article = styled.article`
   }
 `;
 
-export default EditorContainer;
+export default EditorTemplate;
