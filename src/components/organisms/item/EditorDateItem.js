@@ -1,5 +1,5 @@
 import React from "react";
-import SubTitle from "../../molecule/text/SubTitle";
+import SubTitle from "../../atom/text/SubTitle";
 import EditorInputDataBox from "../../molecule/box/EditorInputDataBox";
 const EditorDateItem = ({ date, setDate }) => {
   return (

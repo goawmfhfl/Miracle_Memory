@@ -1,5 +1,5 @@
 import React from "react";
-import DateInput from "../../atom/input/DateInput";
+import DateInput from "../../atom/etc/DateInput";
 
 const EditorInputDataBox = ({ date, setDate }) => {
   return (

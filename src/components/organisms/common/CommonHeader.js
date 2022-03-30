@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Title from "../../molecule/text/Title";
+import Title from "../../atom/text/Title";
 
 const CommonHeader = ({ headText, leftChild, rightChild }) => {
   return (
@@ -13,7 +13,6 @@ const CommonHeader = ({ headText, leftChild, rightChild }) => {
     </MainHeader>
   );
 };
-
 const MainHeader = styled.header`
   padding-top: 20px;
   padding-bottom: 20px;
