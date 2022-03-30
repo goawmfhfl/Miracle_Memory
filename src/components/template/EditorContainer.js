@@ -33,7 +33,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       dispatch(onRemove(editData.id));
       navigate("/", { replace: true });
     }
-  }, [dispatch]);
+  }, []);
 
   const handleSubmit = useCallback(() => {
     if (content.length < 1) {
@@ -52,14 +52,14 @@ const EditorContainer = ({ isEdit, editData }) => {
       }
       navigate("/", { replace: true });
     }
-  }, [dispatch]);
+  }, []);
 
   const goBack = useCallback(() => {
     navigate(-1);
-  }, [navigate]);
+  }, []);
   const goHome = useCallback(() => {
     navigate("/");
-  }, [navigate]);
+  }, []);
 
   useEffect(() => {
     if (isEdit) {
