@@ -1,3 +1,4 @@
+import React from "react";
 import TextArea from "../../molecule/etc/TextArea";
 import SubTitle from "../../molecule/text/SubTitle";
 
@@ -10,4 +11,4 @@ const TextAreaBox = ({ content, onChange, reference }) => {
   );
 };
 
-export default TextAreaBox;
+export default React.memo(TextAreaBox);

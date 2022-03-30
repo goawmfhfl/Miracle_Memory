@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Button from "../../molecule/etc/Button";
 const ContolBox = ({ handleSubmit, goHome }) => {
@@ -18,4 +19,4 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
-export default ContolBox;
+export default React.memo(ContolBox);

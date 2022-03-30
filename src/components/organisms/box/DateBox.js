@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import SubTitle from "../../molecule/text/SubTitle";
 import InputDate from "../../molecule/etc/InputDate";
@@ -15,4 +16,4 @@ const Section = styled.section`
   margin-bottom: 40px;
 `;
 
-export default DateBox;
+export default React.memo(DateBox);
