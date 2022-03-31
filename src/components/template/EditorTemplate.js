@@ -36,7 +36,7 @@ const EditorTemplate = ({ isEdit, editData }) => {
       dispatch(onRemove(editData.id));
       navigate("/", { replace: true });
     }
-  }, [dispatch, navigate, editData.id]);
+  }, [dispatch, navigate]);
 
   const handleSubmit = () => {
     if (content.length < 1) {
