@@ -8,7 +8,7 @@ const DateInput = ({ date, onChange }) => {
 const Input = styled.input.attrs({ type: "date" })`
   border: none;
   border-radius: 5px;
-  background-color: #ececec;
+  background-color: ${(props) => props.theme.palette["border"]};
 
   padding-top: 10px;
   padding-bottom: 10px;

@@ -28,11 +28,11 @@ const StyledButton = styled.button`
   white-space: nowrap;
   font-family: "Nanum Pen Script", cursive;
   &.default {
-    background-color: #ececec;
+    background-color: ${(props) => props.theme.palette["border"]};
     color: #000;
   }
   &.positive {
-    background-color: #3caddd;
+    background-color: ${(props) => props.theme.palette["main"]};
     color: #fff;
   }
   &.negative {

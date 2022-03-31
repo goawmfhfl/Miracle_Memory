@@ -23,37 +23,31 @@ const EditorEmotionBox = ({
 const EmotionBox = styled.li`
   cursor: pointer;
 
-  border-radius: 5px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  width: 110px;
+  height: 120px;
+  border-radius: 15px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  &.off {
-    background-color: #ececec;
-  }
+  background-color: ${(props) => props.theme.palette["border"]};
+
   &.on_1 {
-    background-color: #63c964;
-    color: white;
+    border: 3px solid ${(props) => props.theme.palette["main"]};
   }
   &.on_2 {
-    background-color: #9dd772;
-    color: white;
+    border: 3px solid ${(props) => props.theme.palette["main"]};
   }
   &.on_3 {
-    background-color: #fdce17;
-    color: white;
+    border: 3px solid ${(props) => props.theme.palette["main"]};
   }
   &.on_4 {
-    background-color: #fd8446;
-    color: white;
+    border: 3px solid ${(props) => props.theme.palette["main"]};
   }
   &.on_5 {
-    background-color: #fd565f;
-    color: white;
+    border: 3px solid ${(props) => props.theme.palette["main"]};
   }
 `;
 

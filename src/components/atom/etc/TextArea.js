@@ -10,7 +10,9 @@ const TextArea = ({ content, onChange, reference }) => {
   );
 };
 
-const InputArea = styled.textarea.attrs({ placeholder: "오늘은 어떠셨나요?" })`
+const InputArea = styled.textarea.attrs({
+  placeholder: "오늘의 미라클 모닝을 기록해보세요",
+})`
   /* font-family: "Nanum Pen Script", cursive; */
   font-size: 20px;
 
@@ -20,8 +22,8 @@ const InputArea = styled.textarea.attrs({ placeholder: "오늘은 어떠셨나�
   resize: vertical;
 
   border: none;
-  border-radius: 5px;
-  background-color: #ececec;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.palette["border"]};
 
   padding: 20px;
 `;
