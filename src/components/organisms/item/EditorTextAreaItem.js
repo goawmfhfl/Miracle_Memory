@@ -7,7 +7,7 @@ const EditorTextAreaItem = ({ content, onChange, reference }) => {
     <section>
       <SubTitle text={"Today`s Memory"} />
       <EditorTextAreaBox
-        conten={content}
+        content={content}
         onChange={onChange}
         reference={reference}
       />

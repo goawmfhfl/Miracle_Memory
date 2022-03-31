@@ -1,60 +1,50 @@
 export const getStringDate = (date) => {
-  const clouserDate = date;
-
   // 2022-03-28
   const ISOString = () => {
-    return new Date(clouserDate).toISOString().slice(0, 10);
+    return new Date(date).toISOString().slice(0, 10);
   };
 
   // 2022. 03. 28
   const dataString = () => {
-    return new Date(parseInt(clouserDate)).toLocaleDateString().slice(0, -1);
+    return new Date(parseInt(date)).toLocaleDateString().slice(0, -1);
   };
 
   return { ISOString, dataString };
 };
 
 export const getMonthDate = (curDate, setData, diaryList) => {
-  const closureCurDate = curDate;
-  const closureSetData = setData;
-  const closureDiaryList = diaryList;
-
-  const headText = `${closureCurDate.getFullYear()}년 ${
-    closureCurDate.getMonth() + 1
-  }월`;
+  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
   const increaseMonth = () => {
-    closureSetData(
-      new Date(closureCurDate.getFullYear(), closureCurDate.getMonth() + 1),
-      closureCurDate.getDate()
+    setData(
+      new Date(curDate.getFullYear(), curDate.getMonth() + 1),
+      curDate.getDate()
     );
   };
 
   const decreaseMonth = () => {
-    closureSetData(
-      new Date(closureCurDate.getFullYear(), closureCurDate.getMonth() - 1),
-      closureCurDate.getDate()
+    setData(
+      new Date(curDate.getFullYear(), curDate.getMonth() - 1),
+      curDate.getDate()
     );
   };
   const changeMonthDate = () => {
     const firstDay = new Date(
-      closureCurDate.getFullYear(),
-      closureCurDate.getMonth(),
+      curDate.getFullYear(),
+      curDate.getMonth(),
       1
     ).getTime();
 
     const lastDay = new Date(
-      closureCurDate.getFullYear(),
-      closureCurDate.getMonth() + 1,
+      curDate.getFullYear(),
+      curDate.getMonth() + 1,
       0,
       23,
       59,
       59
     ).getTime();
     setData(
-      closureDiaryList.filter(
-        (list) => firstDay <= list.date && list.date <= lastDay
-      )
+      diaryList.filter((list) => firstDay <= list.date && list.date <= lastDay)
     );
   };
   return { increaseMonth, decreaseMonth, changeMonthDate, headText };
