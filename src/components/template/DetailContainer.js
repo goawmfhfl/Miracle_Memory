@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import emotionList from "../../../util/emotionList";
-import DetailEmotionItem from "../item/DetailEmotionItem";
-import DetailContentItem from "../item/DetailContentItem";
+import emotionList from "../../util/emotionList";
+import DetailEmotionItem from "../organisms/item/DetailEmotionItem";
+import DetailContentItem from "../organisms/item/DetailContentItem";
 
 const DetailContainer = ({ detailData }) => {
   const curEmotionData = emotionList.find(
