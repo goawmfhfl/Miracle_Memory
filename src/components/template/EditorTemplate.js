@@ -97,9 +97,7 @@ const EditorTemplate = ({ isEdit, editData }) => {
         <EditorControlBox
           handleSubmit={handleSubmit}
           goHome={goHome}
-          leftChild={
-            <Button text={"취소하기"} type={"positive"} onClick={goHome} />
-          }
+          leftChild={<Button text={"취소하기"} onClick={goHome} />}
           rightChild={
             <Button
               text={"작성완료"}

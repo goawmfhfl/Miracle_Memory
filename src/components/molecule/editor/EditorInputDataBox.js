@@ -4,7 +4,7 @@ import DateInput from "../../atom/etc/DateInput";
 const EditorInputDataBox = ({ date, setDate }) => {
   return (
     <div>
-      <DateInput date={date} onChange={setDate} />
+      <DateInput date={date} setDate={setDate} />
     </div>
   );
 };

@@ -1,11 +1,15 @@
 import React from "react";
-import SubTitle from "../../atom/text/SubTitle";
+import SubTitleBox from "../../molecule/common/SubTitleBox";
 import EditorTextAreaBox from "../../molecule/editor/EditorTextAreaBox";
 
 const EditorTextAreaItem = ({ content, onChange, reference }) => {
   return (
     <section>
-      <SubTitle text={"Today`s Memory"} />
+      <SubTitleBox
+        text={"미라클 일기"}
+        icon={process.env.PUBLIC_URL + `/assets/icon/edit.svg`}
+        mb={16}
+      />
       <EditorTextAreaBox
         content={content}
         onChange={onChange}

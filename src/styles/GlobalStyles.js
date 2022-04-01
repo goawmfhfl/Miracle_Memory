@@ -1,3 +1,4 @@
+import "./font.css";
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
@@ -9,7 +10,8 @@ const GlobalStyles = createGlobalStyle`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* font-family: "Nanum Pen Script", cursive; */
+    font-family: "Amsterdam";
+
     min-height: 100vh;
     margin: 0;
     }
@@ -66,7 +68,7 @@ const GlobalStyles = createGlobalStyle`
     -moz-box-shadow: none;
     box-shadow: none;
 
-    resize: none; /*remove the resize handle on the bottom right*/
+    resize: none; 
     }
     .ir {
         position: absolute;

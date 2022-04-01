@@ -31,7 +31,7 @@ const HomeSelectItem = ({ sortType, setSortType, filter, setFilter }) => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   margin-top: 20px;
   margin-bottom: 30px;
 

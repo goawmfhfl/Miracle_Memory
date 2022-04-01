@@ -10,8 +10,10 @@ const Text = styled.p`
   text-align: left;
   border-radius: 5px;
   font-size: 20px;
-  /* font-family: "Yeon Sung", cursive; */
-  font-weight: 400;
+
+  font-family: "Amsterdam";
+  font-weight: bolder;
+
   line-height: 2.5;
 `;
 export default Content;

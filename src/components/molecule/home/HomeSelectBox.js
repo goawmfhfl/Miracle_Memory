@@ -15,16 +15,17 @@ const HomeSelectBox = ({ value, onChange, optionList }) => {
 const SelectBox = styled.select`
   margin-right: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: #ececec;
 
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 15px;
 
   cursor: pointer;
-  /* font-family: "Nanum Pen Script", cursive; */
+  font-family: "Amsterdam";
+  font-weight: bolder;
   font-size: 18px;
 `;
 export default HomeSelectBox;

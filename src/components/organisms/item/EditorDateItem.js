@@ -1,11 +1,15 @@
 import React from "react";
-import SubTitle from "../../atom/text/SubTitle";
 import EditorInputDataBox from "../../molecule/editor/EditorInputDataBox";
+import SubTitleBox from "../../molecule/common/SubTitleBox";
 const EditorDateItem = ({ date, setDate }) => {
   return (
     <section>
-      <SubTitle text={"오늘은 언제인가요?"} />
-      <EditorInputDataBox onChange={setDate} date={date} />
+      <SubTitleBox
+        text={"미라클 날짜"}
+        icon={process.env.PUBLIC_URL + `/assets/icon/calendar.svg`}
+        mb={16}
+      />
+      <EditorInputDataBox setDate={setDate} date={date} />
     </section>
   );
 };
