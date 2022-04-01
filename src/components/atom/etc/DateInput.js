@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const DateInput = ({ date, onChange }) => {
-  return <Input value={date} onChange={(e) => onChange(e.target.value)} />;
+const DateInput = ({ date, setDate }) => {
+  return <Input value={date} onChange={(e) => setDate(e.target.value)} />;
 };
 
 const Input = styled.input.attrs({ type: "date" })`

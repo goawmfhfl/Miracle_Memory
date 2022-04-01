@@ -9,7 +9,7 @@ const EditorInputDataBox = ({ date, setDate }) => {
         text={"미라클 날짜"}
         icon={process.env.PUBLIC_URL + `/assets/icon/calendar.svg`}
       />
-      <DateInput date={date} onChange={setDate} />
+      <DateInput date={date} setDate={setDate} />
     </div>
   );
 };
