@@ -75,7 +75,9 @@ const EditorContainer = ({ isEdit, editData }) => {
     <div>
       <CommonHeader
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
-        leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
+        leftChild={
+          <Button text={"< 뒤로가기"} type={"none"} onClick={goBack} />
+        }
         rightChild={
           isEdit && (
             <Button

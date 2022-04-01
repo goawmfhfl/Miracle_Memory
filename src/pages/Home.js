@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getMonthDate } from "../util/date";
+import Icon from "../components/atom/icon/Icon";
 import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
 import HomeContainer from "../components/template/HomeContainer";
@@ -26,8 +27,29 @@ const Home = () => {
     <>
       <CommonHeader
         headText={getMonthDate(curDate, setCurDate).headText}
-        leftChild={<Button text={"<"} onClick={decreaseMonth} />}
-        rightChild={<Button text={">"} onClick={increaseMonth} />}
+        leftChild={
+          <Button
+            text={
+              <Icon
+                icon={process.env.PUBLIC_URL + `/assets/icon/chevron-left.svg`}
+              />
+            }
+            type={"none"}
+            onClick={decreaseMonth}
+          />
+        }
+        rightChild={
+          <Button
+            text={">"}
+            text={
+              <Icon
+                icon={process.env.PUBLIC_URL + `/assets/icon/chevron-right.svg`}
+              />
+            }
+            type={"none"}
+            onClick={increaseMonth}
+          />
+        }
       />
       <HomeContainer MonthData={data} />
     </>

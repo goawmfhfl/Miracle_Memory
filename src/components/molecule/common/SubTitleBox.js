@@ -6,7 +6,7 @@ import Icon from "../../atom/icon/Icon";
 const SubTitleBox = ({ text, icon, mb }) => {
   return (
     <Wrapper mb={mb}>
-      <Icon icon={icon} />
+      <Icon icon={icon} mr={"7px"} />
       <SubTitle text={text} />
     </Wrapper>
   );

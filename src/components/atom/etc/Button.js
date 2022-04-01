@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const Button = ({ text, type, onClick }) => {
-  const btnType = ["positive", "negative"].includes(type) ? type : "default";
+  const btnType = ["positive", "negative", "none"].includes(type)
+    ? type
+    : "default";
   return (
     <StyledButton className={btnType} onClick={onClick}>
       {text}
@@ -43,6 +45,9 @@ const StyledButton = styled.button`
     background-color: ${(props) => props.theme.palette["text"]};
     box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
     color: #fff;
+  }
+  &.none {
+    background-color: #fff;
   }
 `;
 

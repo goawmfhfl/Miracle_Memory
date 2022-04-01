@@ -27,7 +27,7 @@ const TextBox = styled.div`
   padding: 15px 25px 15px 25px;
   border-radius: 15px;
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
-  background-color: ${(props) => props.theme.palette["border"]};
+  /* background-color: ${(props) => props.theme.palette["border"]}; */
 `;
 
 export default DetailEmotionBox;
