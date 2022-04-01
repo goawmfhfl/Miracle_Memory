@@ -3,9 +3,9 @@ import styled from "styled-components";
 import SubTitle from "../../atom/text/SubTitle";
 import Icon from "../../atom/icon/Icon";
 
-const SubTitleBox = ({ text, icon }) => {
+const SubTitleBox = ({ text, icon, mb }) => {
   return (
-    <Wrapper>
+    <Wrapper mb={mb}>
       <Icon icon={icon} />
       <SubTitle text={text} />
     </Wrapper>
@@ -14,7 +14,7 @@ const SubTitleBox = ({ text, icon }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 16px;
   font-weight: bold;
+  margin-bottom: ${(props) => `${props.mb}px` || "16px"};
 `;
 export default SubTitleBox;

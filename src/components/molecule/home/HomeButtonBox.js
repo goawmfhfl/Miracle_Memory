@@ -9,6 +9,8 @@ const HomeButtonBox = ({ onClick }) => {
   );
 };
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
   min-width: 70px;
 `;
 export default HomeButtonBox;

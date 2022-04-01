@@ -6,7 +6,7 @@ const Title = ({ text }) => {
 };
 const Text = styled.h1`
   width: 50%;
-  font-size: 24px;
+  font-size: 22px;
   justify-content: center;
   font-family: "MaruBuri-Bold";
 `;

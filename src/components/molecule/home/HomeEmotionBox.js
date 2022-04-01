@@ -11,26 +11,17 @@ const HomeEmotionBox = ({ onClick, emotion }) => {
 
 const Wrapper = styled.div`
   cursor: pointer;
-  min-width: 120px;
+  min-width: 100px;
   height: 80px;
-  border-radius: 5px;
+
+  box-sizing: content-box;
+  padding: 5px;
+  border-radius: 15px;
+
   display: flex;
   justify-content: center;
 
-  &.emotion_1 {
-    background-color: #64c964;
-  }
-  &.emotion_2 {
-    background-color: #9dd772;
-  }
-  &.emotion_3 {
-    background-color: #fdce17;
-  }
-  &.emotion_4 {
-    background-color: #fd8446;
-  }
-  &.emotion_5 {
-    background-color: #fd565f;
-  }
+  box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
+  background-color: ${(props) => props.theme.palette["border"]};
 `;
 export default HomeEmotionBox;

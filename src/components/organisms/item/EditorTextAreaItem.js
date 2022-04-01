@@ -8,6 +8,7 @@ const EditorTextAreaItem = ({ content, onChange, reference }) => {
       <SubTitleBox
         text={"미라클 일기"}
         icon={process.env.PUBLIC_URL + `/assets/icon/edit.svg`}
+        mb={16}
       />
       <EditorTextAreaBox
         content={content}
