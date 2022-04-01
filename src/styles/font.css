@@ -1,0 +1,13 @@
+/* 
+font-family: url에 넣은 폰트 파일을 사용시 입력할 이름 
+*/
+
+@font-face {
+  font-family: "Amsterdam";
+  src: url("../../public/assets/fonts/nanum-Amsterdam.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "MaruBuri-Bold";
+  src: url("../../public/assets/fonts/MaruBuri-Bold.woff2") format("woff2");
+}

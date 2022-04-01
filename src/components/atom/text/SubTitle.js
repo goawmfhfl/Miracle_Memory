@@ -6,8 +6,10 @@ const SubTitle = ({ text }) => {
 };
 const Text = styled.h4`
   display: flex;
-  align-items: flex-end;
-  font-size: 22px;
+  align-items: center;
+  font-size: 20px;
+
+  font-family: "MaruBuri-Bold";
 `;
 
 export default SubTitle;

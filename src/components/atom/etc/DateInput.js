@@ -9,6 +9,7 @@ const Input = styled.input.attrs({ type: "date" })`
   border: none;
   border-radius: 5px;
   background-color: ${(props) => props.theme.palette["border"]};
+  box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -16,7 +17,9 @@ const Input = styled.input.attrs({ type: "date" })`
   padding-right: 20px;
 
   cursor: pointer;
-  font-family: "Nanum Pen Script", cursive;
   font-size: 20px;
+
+  font-family: "Amsterdam";
+  font-weight: bolder;
 `;
 export default DateInput;

@@ -16,7 +16,7 @@ Button.defaultProps = {
 const StyledButton = styled.button`
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -26,17 +26,22 @@ const StyledButton = styled.button`
   font-size: 18px;
 
   white-space: nowrap;
-  font-family: "Nanum Pen Script", cursive;
+  font-family: "Amsterdam";
+  font-weight: bolder;
+
   &.default {
     background-color: ${(props) => props.theme.palette["border"]};
+    box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
     color: #000;
   }
   &.positive {
     background-color: ${(props) => props.theme.palette["main"]};
+    box-shadow: ${(props) => props.theme.shadow["mainShadow"]};
     color: #fff;
   }
   &.negative {
-    background-color: #e1936e;
+    background-color: ${(props) => props.theme.palette["text"]};
+    box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
     color: #fff;
   }
 `;
