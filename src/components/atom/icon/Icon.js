@@ -1,11 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 
-const Icon = ({ icon, mr }) => {
-  return <Img src={icon} mr={mr} />;
-};
-
-const Img = styled.img`
+const Icon = styled.img.attrs((props) => ({
+  src: props.icon,
+}))`
   width: 25px;
   height: 25px;
   margin-right: ${(props) => props.mr && props.mr};

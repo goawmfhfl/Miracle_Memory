@@ -1,17 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-const TextArea = ({ content, onChange, reference }) => {
-  return (
-    <InputArea
-      ref={reference}
-      value={content}
-      onChange={(e) => onChange(e.target.value)}
-    />
-  );
+
+const TitleInput = () => {
+  return <Input />;
 };
 
-const InputArea = styled.textarea.attrs({
-  placeholder: "미라클 모닝을 기록해보세요",
+const Input = styled.input.attrs({
+  placeholder: "미라클 모닝 제목을 입력해주세요",
 })`
   font-family: "Amsterdam";
   font-weight: bolder;
@@ -19,7 +14,6 @@ const InputArea = styled.textarea.attrs({
 
   box-sizing: border-box;
   width: 100%;
-  min-height: 200px;
   resize: vertical;
 
   border: none;
@@ -29,4 +23,4 @@ const InputArea = styled.textarea.attrs({
 
   padding: 20px;
 `;
-export default TextArea;
+export default TitleInput;

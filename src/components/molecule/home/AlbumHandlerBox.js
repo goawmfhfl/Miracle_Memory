@@ -9,25 +9,43 @@ const AlbumHandlerBox = ({ gallery, galleryHandler }) => {
       <Wrapper>
         <GalleryButton onClick={galleryHandler} disabled={gallery}>
           {gallery ? (
-            <Icon icon={process.env.PUBLIC_URL + `/assets/icon/list-on.svg`} />
+            <ListIcon
+              icon={process.env.PUBLIC_URL + `/assets/icon/list-on.svg`}
+            />
           ) : (
-            <Icon icon={process.env.PUBLIC_URL + `/assets/icon/list-off.svg`} />
+            <ListIcon
+              icon={process.env.PUBLIC_URL + `/assets/icon/list-off.svg`}
+            />
           )}
         </GalleryButton>
         <GalleryButton onClick={galleryHandler} disabled={!gallery}>
           {gallery ? (
-            <Icon
+            <AlbumIcon
               icon={process.env.PUBLIC_URL + `/assets/icon/album-off.svg`}
             />
           ) : (
-            <Icon icon={process.env.PUBLIC_URL + `/assets/icon/album-on.svg`} />
+            <AlbumIcon
+              icon={process.env.PUBLIC_URL + `/assets/icon/album-on.svg`}
+            />
           )}
         </GalleryButton>
       </Wrapper>
     </>
   );
 };
+const Wrapper = styled.div`
+  min-width: 60px;
+  display: flex;
+  justify-content: space-between;
+`;
 
-const Wrapper = styled.div``;
+const ListIcon = styled(Icon)`
+  width: 30px;
+  height: 30px;
+`;
+const AlbumIcon = styled(Icon)`
+  width: 30px;
+  height: 30px;
+`;
 
 export default AlbumHandlerBox;

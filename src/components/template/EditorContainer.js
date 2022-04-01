@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Button from "../atom/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import EditorDateItem from "../organisms/editor/EditorDateItem";
+import EditorTitleItem from "../organisms/editor/EditorTitleItem";
 import EditorEmotionItem from "../organisms/editor/EditorEmotionItem";
 import EditorTextAreaItem from "../organisms/editor/EditorTextAreaItem";
 import EditorControlBox from "../molecule/editor/EditorControlBox";
@@ -90,6 +91,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       />
       <Article>
         <EditorDateItem date={date} setDate={setDate} />
+        <EditorTitleItem />
         <EditorEmotionItem emotion={emotion} onClick={handleClickEmote} />
         <EditorTextAreaItem
           content={content}
