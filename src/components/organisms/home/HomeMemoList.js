@@ -1,6 +1,6 @@
 import React from "react";
 import getProcessedDiaryList from "../../../util/optionList";
-import HomeMemoItem from "../item/HomeMemoItem";
+import HomeMemoItem from "./HomeMemoItem";
 
 const HomeMemoList = ({ filter, sortType, MonthData }) => {
   return (

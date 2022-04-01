@@ -1,7 +1,7 @@
 import React from "react";
-import EditorTemplate from "../components/template/EditorTemplate";
+import EditorContainer from "../components/template/EditorContainer";
 
 const New = () => {
-  return <EditorTemplate />;
+  return <EditorContainer />;
 };
 export default New;

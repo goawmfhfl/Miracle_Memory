@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import HomeSelectItem from "../organisms/item/HomeSelecItem";
-import HomeMemoList from "../organisms/list/HomeMemoList";
+import HomeSelectItem from "../organisms/home/HomeSelecItem";
+import HomeMemoList from "../organisms/home/HomeMemoList";
 
 const HomeContainer = ({ MonthData }) => {
   const [sortType, setSortType] = useState("latest");

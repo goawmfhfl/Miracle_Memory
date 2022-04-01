@@ -1,6 +1,6 @@
 import React from "react";
 import SubTitleBox from "../../molecule/common/SubTitleBox";
-import EditorEmotionList from "../list/EditorEmotionList";
+import EditorEmotionList from "./EditorEmotionList";
 
 const EditorEmotionItem = ({ emotion, onClick }) => {
   return (
