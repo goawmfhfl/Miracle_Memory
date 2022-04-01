@@ -3,7 +3,7 @@ import EditorInputDataBox from "../../molecule/editor/EditorInputDataBox";
 const EditorDateItem = ({ date, setDate }) => {
   return (
     <section>
-      <EditorInputDataBox onChange={setDate} date={date} />
+      <EditorInputDataBox setDate={setDate} date={date} />
     </section>
   );
 };
