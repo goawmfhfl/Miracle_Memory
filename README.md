@@ -88,7 +88,7 @@
 
 # 🧐 프로젝트 특징
 
-# AutoMic Design 패턴이란 ?
+# AutoMic Design 패턴 그게 뭔데?
 
 > 아토믹 디자인 패턴이란 ?
 
@@ -106,18 +106,31 @@
 - `TEMPLATES` ORGANISMS(유기체)이 모여 구성하는 실질적 디자인 화면이다.
 - `PAGES` TEMPLATES(템플릿)들이 상황과 컨텐츠에 맞게 적용되면서 PAGES(페이지)를 구성한다.
 
+<br>
+
 # 난 왜 Automic Design 패턴을 왜 적용하려 하는가?
 
-난 체계적인것을 좋아하고 정리하는 것을 좋아한다. 개발을 하는데 있어서 체계화가 잡혀있다면 프로젝트를 진행하는데 있어서 프로젝트의 주도권을 갖는 느낌을 갖게한다. 잘 갖추어진 디자인 시스템을 갖고 있다면 유지보수를 하기 좀 더 편하며 다른 사람에게 내가 생각하고 있는 체계성을 설명하는데 아주 유리하다. 고로 잘 정리된 프로젝트는 협업에 유리하다는 관점이다.
+난 체계적인것을 좋아하고 정리하는 것을 좋아한다. 개발을 하는데 있어서 프로젝트에 체계화가 잡혀있다면 데이터의 흐름을 빠르게 이해할 수 있으며 개발자 스스로가 프로젝트에 대한 주도권을 가질 수 있게 된다. 그 중에서도 리액트의 컴포넌트 단위의 모듈과 함께 잘 갖추어진 디자인 시스템을 갖고 있다면 유지보수를 하기 편할 뿐 아니라 팀원들과 협업을 하는데 있어서도 유리하다. 또한 다른 사람에게 내가 가지고 있는 생각을 전달할 때 역시 잘 갖추어진 체계와 시스템이 있다면 분명 설득력있게 전달 될 것이다. 아토믹 디자인 패턴을 적용함으로써 나는 다른 나의 체계성을 다른사람에게 설득력 있게 전달하고싶다.
+
+<br>
 
 > Automic Design 패턴 적용 실패 경험
 
-지난번 EarthMarket 프로젝트를 진행하면서 AutomicDesign 패턴을 구성하려고 하였으나 리액트의 상태 흐름에 대하여 제대로 이해하지 못했고 상태 관리를 어떻게 하는줄도 잘 몰랐다. 리액트의 생명주기, 가상돔의 역할, 재조정과정 등등을 고려한 개발을 전혀 하지 못했다. 그런 상태에서 그저 아토믹 디자인 패턴이 좋아보여 적용을 하려하였으니 당연히 구조를 제대로 잡지 못했다.. 하지만 이번에 리액트 강의를 제대로 들으며 상태관리에 대한 이해도가 높아졌기에, 실패의 경험을 이제 성공의 경험으로 만들고자 한다.
+지난번 EarthMarket 리액트 프로젝트를 진행하면서 처음으로 아토믹 디자인 패턴을 알게되었고 AutomicDesign 패턴을 구성하려고 했다. 하지만 리액트의 상태 흐름에 대하여 제대로 이해하지 못했고 상태 관리를 어떻게 하는줄 몰랐다. 리액트의 생명주기, 가상돔의 역할, 재조정과정 등등을 고려한 개발을 전혀 하지 못했다. 그런 상태에서 그저 아토믹 디자인 패턴이 좋아보여 적용을 하려하였으니 당연히 구조를 제대로 잡지 못했다.. 하지만 이번에 리액트 강의를 제대로 들으며 상태관리에 대한 이해도가 높아졌기에, 실패의 경험을 이제 성공의 경험으로 만들고자 한다.
 
 # 어떤식으로 AutomicDesign System을 적용했는가?
 
+> Tree 구조
+
 <div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161015066-48e382c7-06a7-4c76-8fde-683af98da297.png" />
+<img src="https://user-images.githubusercontent.com/79143800/161205328-ce0f661d-add0-4bc0-8a89-e1cc78c825ab.png" />
+</div>
+<br>
+
+> 폴더 구조
+
+<div align='center' >
+<img src="https://user-images.githubusercontent.com/79143800/161205355-9775b7c2-aec2-4c63-bce0-bf523a592ec7.png" />
 </div>
 
 Component폴더 하위에 atom, molecule, organisms, template으로 구성했다
@@ -127,10 +140,7 @@ Component폴더 하위에 atom, molecule, organisms, template으로 구성했다
 > 최소 디자인 요소들로 구성
 
 - `예제 코드`
-
   ```jsx
-  import styled from "styled-components";
-
   const Button = ({ text, type, onClick }) => {
     const btnType = ["positive", "negative"].includes(type) ? type : "default";
     return (
@@ -139,25 +149,17 @@ Component폴더 하위에 atom, molecule, organisms, template으로 구성했다
       </StyledButton>
     );
   };
-
-  Button.defaultProps = {
-    type: "default",
-  };
-
-  const StyledButton = styled.button`
-  ...
-  `;
-
   export default Button;
   ```
 
 <div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161015528-7f3b271a-d05c-4883-9da4-af5f19371d08.png" width="29%" />
-<img src="https://user-images.githubusercontent.com/79143800/161015512-cf07d2e5-4393-4426-bcf6-05b8fdda1431.png" width="50%"/>
+<img src="https://user-images.githubusercontent.com/79143800/161205444-0e9bf615-7933-4c75-ad33-5f72b3591007.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205512-afaab0ad-da4f-46db-a056-eac363302ff0.png" width="50%"/>
 </div>
 
 <aside>
-💡 Button 역할 이외에 그 어떤 역할도 하고있지 않다. 이렇게 만들어진 Atom들은 molecule에 구성 요소로 역할을 하게 된다.
+💡 Button 역할 이외에 그 어떤 역할도 하고 있지 않다. 이렇게 만들어진 Atom들은 molecule에 구성 요소로 역할을 하게 된다.
+
 </aside>
 
 ## 폴더구조 - molecule
@@ -165,41 +167,25 @@ Component폴더 하위에 atom, molecule, organisms, template으로 구성했다
 > Atoms들이 조합되어 MOLECULES(분자들)을 형성한다
 
 - `예제 코드`
-
   ```jsx
-  import React from "react";
-  import styled from "styled-components";
-  import { getStringDate } from "../../../util/date";
   import CommonText from "../../atom/text/CommonText";
-
   const HomeInfoBox = ({ onClick, date, content }) => {
     return (
       <Wrapper onClick={onClick}>
-        <CommonText
-          descript={getStringDate(date).dataString()}
-          size={25}
-          pb={10}
-        />
         <CommonText descript={content} size={18} />
       </Wrapper>
     );
   };
-
-  const Wrapper = styled.div`
-  ...
-  `;
-
   export default HomeInfoBox;
   ```
 
-  <div align='center' >
-  <img src="https://user-images.githubusercontent.com/79143800/161016456-136ab117-0242-46bd-9f6e-17a78232f4c5.png" width="29%" />
-  <img src="https://user-images.githubusercontent.com/79143800/161016446-7a55cc93-43ad-4872-a161-17eda2c79ade.png" width="50%"/>
-  </div>
+<div align='center' >
+<img src="https://user-images.githubusercontent.com/79143800/161205571-bc98cc08-a377-4229-8b77-13253a5b2c79.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205611-3a5707cd-b8a3-4355-a509-d8ff400838c7.png" width="50%"/>
+</div>
 
 <aside>
-💡 분자들은 Atoms의 조합으로 생기게 된다. 날짜와 내용을 표시하는 Atom요소들을  HomeInfoBox라는 Molecule 컴포넌트로 관리해준다. 나는 molecule 역할을 하는 컴포넌트는 Box라는 컴포넌트 명으로 통일 시켰다.
-
+💡 분자들은 Atoms의 조합으로 생기게 된다. Atom으로 생긴 요소들은 하나의 Wrapper 태그 아래 Atom요소를 덮는 요소로 사용이 된다. 이렇게 구성된 박스들은 주로 상위 컨테이너의 flex 속성으로 인한 정렬 대상이 된다
 </aside>
 
 ## 폴더구조 - Organism
@@ -209,142 +195,123 @@ Component폴더 하위에 atom, molecule, organisms, template으로 구성했다
 - `예제코드`
 
   ```jsx
-  import React from "react";
-  import { useNavigate } from "react-router-dom";
-  import styled from "styled-components";
-  import HomeEmotionBox from "../../molecule/home/HomeEmotionBox";
-  import HomeInfoBox from "../../molecule/home/HomeInfoBox";
-  import HomeButtonBox from "../../molecule/home/HomeButtonBox";
+  import SubTitleBox from "../../molecule/common/SubTitleBox";
+  import EditorEmotionList from "./EditorEmotionList";
 
-  const HomeMemoItem = ({ emotion, id, date, content }) => {
-    const navigate = useNavigate();
-    const goDetail = () => {
-      navigate(`/detail/${id}`);
-    };
-    const goEdit = () => {
-      navigate(`/edit/${id}`);
-    };
+  const EditorEmotionItem = () => {
     return (
-      <MomoItem>
-        <HomeEmotionBox onClick={goDetail} emotion={emotion} />
-        <HomeInfoBox onClick={goDetail} date={date} content={content} />
-        <HomeButtonBox text={"수정하기"} onClick={goEdit} />
-      </MomoItem>
+      <section>
+        <SubTitleBox />
+        <EditorEmotionList />
+      </section>
     );
   };
-
-  const MomoItem = styled.li`
-  ...
-  `;
-
-  export default HomeMemoItem;
+  export default EditorEmotionItem;
   ```
 
 <div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161016746-4e7fcbd9-b47b-44ea-9563-1d8f1046e9ff.png" width="29%" />
-<img src="https://user-images.githubusercontent.com/79143800/161016737-58cb5d71-ca2f-4fa2-a021-78074b545c9e.png" width="50%"/>
+<img src="https://user-images.githubusercontent.com/79143800/161205697-0a965f50-69b4-4b69-9f0a-9f6fb155ffd9.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205737-f18f9fde-4575-4b42-9aec-736bcced4d49.png" width="50%"/>
 </div>
 
-<aside>
-💡 유기체는 분자들이 모여 형성된 것이다. 나는 유기체 컴포넌트를 기본적으로 Item이라고 칭했으며, Item들의 성격에 따라서 list와 Container라는 컴포넌트로 나누어 주었다. 그 외에 공통으로 쓰이는 컴포넌트는 common 폴더에 담아주었다 그렇다면 container, item, list 컴포넌트들의 역할은 무엇일까?
+- Organism은 Molecule들의 집합으로 이루어져있다. 성격에 따라서 List가 될 수 있고 Item이 될 수 있다. 예를들어 Organism의 성격을 띄고 있지만 Organism 요소 안에서 또 다른 Organism이 존재할 경우 List > Item 으로 구분짓는다.
 
-</aside>
-
-## Organism- Home 트리 구조를 보면서 구조 파악하기
+> Organism in Organism
 
 <div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161017217-b35425a9-1577-40ca-bfa5-1f17993877b2.png" width="100%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205795-04074bbb-3615-4c20-982e-a230fd76445a.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205812-9de2167c-78cb-4dee-b2dc-4d02b59f538a.png" width="50%"/>
 </div>
 
-### organism - container
+예를들면 각 게시글 하나는 Organism Item의 성격을 가지고 있다. 3개의 분자가 모여 구성된 Case이기 때문이다. 하지만 이 게시물을 담고있는 Organism 역시 Organism의 구성요소로 볼 수 있다. 이 외에도 Edit 페이지의 EidtorEmotionItem과 List는 둘은 동시에 Organism 성격을 갖고있다. 이로써 두 가지 상황이 가능하다
 
-<div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161017224-28100b8e-ff0b-45c1-a447-8d1f04a6b3a0.png" width="50%" />
-</div>
+1. List 성격을 가진 Organism이 Item 컴포넌트에 속하는 경우
+2. Item 성격을 가진 Organism이 List 컴포넌트에 속하는 경우.
 
-```jsx
-const HomeContainer = ({ MonthData }) => {
-  const [sortType, setSortType] = useState("latest");
-  const [filter, setFilter] = useState("all");
-  return (
-    <>
-      <HomeSelectItem
-        sortType={sortType}
-        setSortType={setSortType}
-        filter={filter}
-        setFilter={setFilter}
-      />
-      <HomeMemoList filter={filter} sortType={sortType} MonthData={MonthData} />
-    </>
-  );
-};
-```
-
-먼저 HomeContainer의 역할은 두 유기체가 동일한 `상태값을 공유한다`는 특징을 갖고 있다. 둘 모두 sortType과 filter라는 상태값을 공유하고 있으며 해당 상태값에 따라 렌더링 되는 결과물이 달라진다. 그렇기에 둘의 연관성을 고려해 Container라는 컴포넌트로 분류하여 함께 묶어주었다.
-
-### organism - list
-
-1. 여러 Organism의 요소들을 묶을 경우
-
-<div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161017226-1454ed26-548e-42f7-a13b-8d5e20979e2b.png" width="50%" />
-</div>
-
-Homememoitem는 List 하나의 아이템 역할을 한다. 하지만 화면의 구성 요소로 보았을 때 Ul태그의 역할을 하는 컨테이너 역시 organism의 구성 요소로 볼 수 있다. 그렇기에 여러개의 Organism을 묶어 하나의 organism을 구성하는 경우에 List라는 폴더로 구분지었다.
-
-2. 여러 Organism 안에 또 다른 Organism이 있는 경우
-
-<div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161017228-ab899b1c-3c7d-4016-afdf-7c6b884ba04d.png" width="50%" />
-</div>
-
-빨간색 블록 영역이 Organism > `Organism`을 의미한다
-
-```jsx
-import React from "react";
-import SubTitle from "../../atom/text/SubTitle";
-import EditorEmotionList from "../list/EditorEmotionList";
-
-const EditorEmotionItem = ({ emotion, onClick }) => {
-  return (
-    <section>
-      <SubTitle text={"오늘의 점수"} />
-      <EditorEmotionList emotion={emotion} onClick={onClick} />
-    </section>
-  );
-};
-export default React.memo(EditorEmotionItem);
-```
-
-`EditorEmotionItem` 컴포넌트는 Organism의 역할을 한다. 하지만 `EditorEmotionList` 컴포넌트 역시도 Organism의 역할을 하고 있다. EditorEmotionList 컴포넌트의 경우에는 Box의 List를 담아서 표현하기에 Organism이라고 할 수 있다. 그렇기에 이런 Item요소에 또 다른 Organism 요소가 중복으로 들어간 경우에는 List 폴더로 구분지었다.
-
-### organism - item
-
-Item은 요소를 나타내는 하나의 블럭을 의미한다. 때에 따라서 List에 속할 수도 있고 여러개의 Item이 컨테이너에 속할 수 있는 성질을 가졌다.
+이런 상황에는 UI의 속성에 맞게 Organism > Organim으로 분류를 해주었다.
 
 ## 폴더구조 - Template
+
+- `예시코드`
+
+  ```jsx
+  import HomeSelectItem from "../organisms/home/HomeSelecItem";
+  import HomeMemoList from "../organisms/home/HomeMemoList";
+
+  const HomeContainer = ({ MonthData }) => {
+    const [sortType, setSortType] = useState("latest");
+    const [filter, setFilter] = useState("all");
+    return (
+      <Article>
+        <HomeSelectItem
+          sortType={sortType}
+          setSortType={setSortType}
+          filter={filter}
+          setFilter={setFilter}
+        />
+        <HomeMemoList
+          filter={filter}
+          sortType={sortType}
+          MonthData={MonthData}
+        />
+      </Article>
+    );
+  };
+  export default HomeContainer;
+  // HomeSelectItem 컴포넌트와 HomeMemoList 컴포넌트는 동일한 상태값을 공유한다.
+  ```
 
 - `TEMPLATES` ORGANISMS(유기체)이 모여 구성하는 실질적 디자인 화면이다.
 
 <div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161017231-62619b44-6323-4000-a8fe-26a2009f9961.png" width="40%" height="100px"/>
-<img src="https://user-images.githubusercontent.com/79143800/161017234-148b6cd9-e17a-4de8-9d9c-8f2c0df8faa1.png" width="50%"/>
+<img src="https://user-images.githubusercontent.com/79143800/161205842-6ac6d320-3715-48f1-879e-d086d6c0cbed.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205898-f4e77175-ab49-4d17-b0aa-0679eda4f7cb.png" width="50%"/>
 </div>
 
-<br/>
+Template은 Container라는 파일명으로 관리된다. Template은 Organism의 집합으로 이루어진 UI를 의미한다. 보통 Template은 두 Organism이 화면에 보여질 상태값을 공유할 때 묶여진다.
+
+## 폴더구조 - Pages
+
+> `PAGES` TEMPLATES(템플릿)들이 상황과 컨텐츠에 맞게 적용되면서 PAGES(페이지)를 구성한다.
+
+```jsx
+import CommonHeader from "../components/organisms/common/CommonHeader";
+import HomeContainer from "../components/template/HomeContainer";
+
+const Home = () => {
+  return (
+    <>
+      <CommonHeader />
+      <HomeContainer />
+    </>
+  );
+};
+
+export default Home;
+```
+
+<div align='center' >
+<img src="https://user-images.githubusercontent.com/79143800/161205964-0d533f95-0b59-454f-9e4a-4c61c5228450.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/161205976-a4b3a125-dc87-4258-98b8-2efee6b2d24a.png" width="50%"/>
+</div>
+
+- 마지막으로 화면에 보여질 Template과 Organism의 레이아웃을 합하여 화면에 실제로 보여질 요소들로 구성을 시킨다. 이로써 페이지의 화면을 구성한다. 이때 template으로 묶어진 요소들의 특징은 서로가 상태값을 공유한다는 것이다.
 
 # 마치며
 
 구조를 잡다보니깐 계속해서 마음에 안드는 부분이 존재했고 상태관리와 컴포넌트의 레이아웃을 함께 고려하여 컴포넌트를 구조분해 하는일이 쉽지 않음을 느꼈다. 리액트의 특성상 컴포넌트의 상태가 변화면 리-렌더링이 일어나기 때문에 한 구조로 묶어버리더라도 결국에 컨테이너로 묶어버린 컴포넌트들이 리-렌더링 상태애 계속되서 노출이 된다면 이는 성능 최적화에 실패하는 경우가 되어버리기 때문이다.
 
 <div align='center' >
-<img src="https://user-images.githubusercontent.com/79143800/161017235-f240c62a-a433-422e-b86f-c26d928e9f55.png" />
+<img src="https://user-images.githubusercontent.com/79143800/161206019-18d4568b-2f14-4883-89db-f01c99008af2.png" />
 </div>
 
-EditorTemplate 같은 경우에는 상태를 입력함에 따라 상태값이 변화가 되는 경우가 많았다. 예를들면 위 Item요소들을 한 군데로 묶어버리고 Props로 상태 변경을 하는 상태변경 함수를 전달하여 레이아웃을 좀 더 명확하게 분리를 하는 방법도 있지만 그렇게 할 경우 Item 요소중 하나의 값만 변경이 되어버려도 컴포넌트 전체가 리-렌더링 되는 문제가 발생하게 된다.
+EditorCotainer 같은 경우에는 상태를 입력함에 따라 상태값이 변화가 되는 경우가 많았다. 예를들면 위 Item요소들을 한 군데로 묶어버리고 Props로 상태 변경을 하는 상태변경 함수를 전달하여 레이아웃을 좀 더 명확하게 분리를 하는 방법도 있지만 그렇게 할 경우 Item 요소중 하나의 값만 변경이 되어버려도 컴포넌트 전체가 리-렌더링 되는 문제가 발생하게 된다. 그래서 Page의 구조를 살리지 못하고 일단은 EditorContainer에 모든 Organism을 구성했다.
+
+Header Organism 컴포넌트라도 분리해서 State 끌어올리기를 통해서 분리를 해주려고 했으나 오히려 더 복잡한 버그가 발생해서 해결하지 못했다. 이 부분에 대해서는 추후과제로 조금 더 공부해 봐야 할 것 같다.
+
+## 결론
 
 결국에는 이런 디자인 시스템을 적용하기 위해서는 디자이너와 정말 많은 커뮤니케이션이 일어나야 할 것 같다는 생각이 들었다. 디자이너가 오로지 디자인의 관점으로만 레이아웃을 만들고 개발자가 UI를 만들어야 하는 상황이 온다면 개발자는 디자이너가 의도한대로 컴포넌트를 재 설계해야한다. 이 과정에서 최적화와 상태관리를 위하여 프로젝트 구조의 흐름을 깨뜨리는 상황이 발생할 수 있을 것 같다고 생각했다.
-
 <br>
 
 # 2. Redux Ducks Patten
