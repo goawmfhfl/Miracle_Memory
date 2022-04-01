@@ -7,7 +7,7 @@ const DateInput = ({ date, setDate }) => {
 
 const Input = styled.input.attrs({ type: "date" })`
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   background-color: ${(props) => props.theme.palette["border"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 

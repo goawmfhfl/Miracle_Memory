@@ -39,8 +39,12 @@ const DetailTemplate = () => {
       <div>
         <CommonHeader
           headText={`${getStringDate(detailData.date).dataString()} 기록`}
-          leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
-          rightChild={<Button text={"수정하기"} onClick={goEdit} />}
+          leftChild={
+            <Button text={"< 뒤로가기"} type={"none"} onClick={goBack} />
+          }
+          rightChild={
+            <Button text={"수정하기"} type={"positive"} onClick={goEdit} />
+          }
         ></CommonHeader>
         <DetailContainer detailData={detailData} />
       </div>

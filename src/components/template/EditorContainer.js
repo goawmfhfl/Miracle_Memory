@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Button from "../atom/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
 import EditorDateItem from "../organisms/editor/EditorDateItem";
+import EditorTitleItem from "../organisms/editor/EditorTitleItem";
 import EditorEmotionItem from "../organisms/editor/EditorEmotionItem";
 import EditorTextAreaItem from "../organisms/editor/EditorTextAreaItem";
 import EditorControlBox from "../molecule/editor/EditorControlBox";
@@ -75,7 +76,9 @@ const EditorContainer = ({ isEdit, editData }) => {
     <div>
       <CommonHeader
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
-        leftChild={<Button text={"< 뒤로가기"} onClick={goBack} />}
+        leftChild={
+          <Button text={"< 뒤로가기"} type={"none"} onClick={goBack} />
+        }
         rightChild={
           isEdit && (
             <Button
@@ -88,6 +91,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       />
       <Article>
         <EditorDateItem date={date} setDate={setDate} />
+        <EditorTitleItem />
         <EditorEmotionItem emotion={emotion} onClick={handleClickEmote} />
         <EditorTextAreaItem
           content={content}

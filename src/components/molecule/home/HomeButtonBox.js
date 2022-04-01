@@ -4,7 +4,7 @@ import Button from "../../atom/etc/Button";
 const HomeButtonBox = ({ onClick }) => {
   return (
     <Wrapper>
-      <Button text={"수정하기"} onClick={onClick} />
+      <Button text={"수정하기 ->"} type={"none"} onClick={onClick} />
     </Wrapper>
   );
 };
