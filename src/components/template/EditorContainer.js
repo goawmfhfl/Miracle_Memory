@@ -6,12 +6,12 @@ import { getStringDate } from "../../util/date";
 import styled from "styled-components";
 import Button from "../atom/etc/Button";
 import CommonHeader from "../organisms/common/CommonHeader";
-import EditorDateItem from "../organisms/item/EditorDateItem";
-import EditorEmotionItem from "../organisms/item/EditorEmotionItem";
-import EditorTextAreaItem from "../organisms/item/EditorTextAreaItem";
+import EditorDateItem from "../organisms/editor/EditorDateItem";
+import EditorEmotionItem from "../organisms/editor/EditorEmotionItem";
+import EditorTextAreaItem from "../organisms/editor/EditorTextAreaItem";
 import EditorControlBox from "../molecule/editor/EditorControlBox";
 
-const EditorTemplate = ({ isEdit, editData }) => {
+const EditorContainer = ({ isEdit, editData }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -116,4 +116,4 @@ const Article = styled.article`
   }
 `;
 
-export default EditorTemplate;
+export default EditorContainer;
