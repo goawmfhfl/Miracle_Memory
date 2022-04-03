@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Icon from "../../atom/icon/Icon";
 import GalleryButton from "../../atom/etc/GalleryButton";
 
-const AlbumHandlerBox = ({ gallery, galleryHandler }) => {
+const AlbumHandlerBox = ({ gallery, onClick }) => {
   return (
     <>
       <Wrapper>
-        <GalleryButton onClick={galleryHandler} disabled={gallery}>
+        <GalleryButton onClick={onClick} disabled={gallery}>
           {gallery ? (
             <ListIcon
               icon={process.env.PUBLIC_URL + `/assets/icon/list-on.svg`}
@@ -18,7 +18,7 @@ const AlbumHandlerBox = ({ gallery, galleryHandler }) => {
             />
           )}
         </GalleryButton>
-        <GalleryButton onClick={galleryHandler} disabled={!gallery}>
+        <GalleryButton onClick={onClick} disabled={!gallery}>
           {gallery ? (
             <AlbumIcon
               icon={process.env.PUBLIC_URL + `/assets/icon/album-off.svg`}

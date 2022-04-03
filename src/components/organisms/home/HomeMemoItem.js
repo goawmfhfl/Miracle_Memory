@@ -5,7 +5,7 @@ import HomeEmotionBox from "../../molecule/home/HomeEmotionBox";
 import HomeInfoBox from "../../molecule/home/HomeInfoBox";
 import HomeButtonBox from "../../molecule/home/HomeButtonBox";
 
-const HomeMemoItem = ({ emotion, id, date, content }) => {
+const HomeMemoItem = ({ emotion, id, date, title }) => {
   const navigate = useNavigate();
   const goDetail = () => {
     navigate(`/detail/${id}`);
@@ -16,7 +16,7 @@ const HomeMemoItem = ({ emotion, id, date, content }) => {
   return (
     <MomoItem>
       <HomeEmotionBox onClick={goDetail} emotion={emotion} />
-      <HomeInfoBox onClick={goDetail} date={date} content={content} />
+      <HomeInfoBox onClick={goDetail} date={date} title={title} />
       <HomeButtonBox text={"수정하기"} onClick={goEdit} />
     </MomoItem>
   );
