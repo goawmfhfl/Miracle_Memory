@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const TitleInput = ({ titleRef, title, onChange }) => {
+const TitleInput = ({ title, titleRef, onChange }) => {
   return (
     <Input
       ref={titleRef}

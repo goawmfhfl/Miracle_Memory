@@ -5,7 +5,7 @@ import TitleInput from "../../atom/etc/TitleInput";
 const EditorInputTitleBox = ({ title, titleRef, onChange }) => {
   return (
     <Wrapper>
-      <TitleInput value={title} titleRef={titleRef} onChange={onChange} />
+      <TitleInput title={title} titleRef={titleRef} onChange={onChange} />
     </Wrapper>
   );
 };

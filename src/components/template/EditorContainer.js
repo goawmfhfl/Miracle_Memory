@@ -23,8 +23,6 @@ const EditorContainer = ({ isEdit, editData }) => {
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
 
-  console.log(title);
-
   const handleClickEmote = useCallback(
     (emotion) => {
       setEmotion(emotion);
@@ -63,9 +61,9 @@ const EditorContainer = ({ isEdit, editData }) => {
       )
     ) {
       if (!isEdit) {
-        dispatch(onCreate(date, content, emotion));
+        dispatch(onCreate(date, title, content, emotion));
       } else {
-        dispatch(onEdit(editData.id, date, content, emotion));
+        dispatch(onEdit(editData.id, date, title, content, emotion));
       }
       navigate("/", { replace: true });
     }
@@ -81,6 +79,7 @@ const EditorContainer = ({ isEdit, editData }) => {
   useEffect(() => {
     if (isEdit) {
       setDate(getStringDate(editData.date).ISOString());
+      setTitle(editData.title);
       setEmotion(editData.emotion);
       setContent(editData.content);
     }

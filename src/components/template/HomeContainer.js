@@ -7,6 +7,7 @@ import HomeAlbumItem from "../organisms/home/HomeAlbumItem";
 const HomeContainer = ({ MonthData }) => {
   const [sortType, setSortType] = useState("latest");
   const [filter, setFilter] = useState("all");
+
   return (
     <Article>
       <HomeSelectItem
