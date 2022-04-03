@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const TitleInput = () => {
-  return <Input />;
+const TitleInput = ({ titleRef, title, onChange }) => {
+  return (
+    <Input
+      ref={titleRef}
+      value={title}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  );
 };
 
 const Input = styled.input.attrs({

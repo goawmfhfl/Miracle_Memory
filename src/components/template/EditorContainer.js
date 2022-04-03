@@ -17,9 +17,13 @@ const EditorContainer = ({ isEdit, editData }) => {
   const navigate = useNavigate();
 
   const contentRef = useRef();
+  const titleRef = useRef();
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
+  const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
+
+  console.log(title);
 
   const handleClickEmote = useCallback(
     (emotion) => {
@@ -32,6 +36,10 @@ const EditorContainer = ({ isEdit, editData }) => {
     setContent(value);
   }, []);
 
+  const handleInputTitle = useCallback((value) => {
+    setTitle(value);
+  }, []);
+
   const handleRemove = useCallback(() => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       dispatch(onRemove(editData.id));
@@ -42,6 +50,11 @@ const EditorContainer = ({ isEdit, editData }) => {
   const handleSubmit = () => {
     if (content.length < 1) {
       contentRef.current.focus();
+      return;
+    }
+
+    if (title.length < 1) {
+      titleRef.current.focus();
       return;
     }
     if (
@@ -91,7 +104,11 @@ const EditorContainer = ({ isEdit, editData }) => {
       />
       <Article>
         <EditorDateItem date={date} setDate={setDate} />
-        <EditorTitleItem />
+        <EditorTitleItem
+          title={title}
+          onChange={handleInputTitle}
+          reference={titleRef}
+        />
         <EditorEmotionItem emotion={emotion} onClick={handleClickEmote} />
         <EditorTextAreaItem
           content={content}
