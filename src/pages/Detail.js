@@ -32,6 +32,12 @@ const DetailTemplate = () => {
       }
     }
   }, [diaryList, id, navigate]);
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.textContent = `View - Miracle Memory`;
+  }, []);
+
   if (!detailData) {
     return <div>로딩중입니다...</div>;
   } else {

@@ -24,6 +24,11 @@ const Home = ({ loading, visible }) => {
     getMonthDate(curDate, setCurDate).decreaseMonth();
   };
 
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.textContent = `Home - Miracle Memory `;
+  }, []);
+
   return (
     <>
       {loading ? (
