@@ -6,7 +6,7 @@ import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
 import HomeSplashItem from "../components/organisms/home/HomeSplashItem";
 import HomeContainer from "../components/template/HomeContainer";
-const Home = ({ loading }) => {
+const Home = ({ loading, visible }) => {
   const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
   const [data, setData] = useState([]);
   const [curDate, setCurDate] = useState(new Date());
@@ -27,7 +27,7 @@ const Home = ({ loading }) => {
   return (
     <>
       {loading ? (
-        <HomeSplashItem loading={loading} />
+        <HomeSplashItem visible={visible} />
       ) : (
         <>
           <CommonHeader
