@@ -29,8 +29,8 @@ to{
 `;
 
 const SplashImgWrapper = styled.div`
+  margin-top: 125px;
   width: 100%;
-  height: 100%;
 
   &.up {
     animation-duration: 1.5s;

@@ -9,11 +9,6 @@ const SplashItem = ({ visible }) => {
   );
 };
 
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: center;
-  align-items: center;
-  height: 100vh;
-`;
+const Wrapper = styled.article``;
 
 export default SplashItem;
