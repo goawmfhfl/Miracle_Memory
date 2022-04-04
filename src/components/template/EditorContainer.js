@@ -40,7 +40,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       dispatch(onRemove(editData.id));
       navigate("/", { replace: true });
     }
-  }, [dispatch, navigate, editData.id]);
+  }, [dispatch, navigate, editData?.id]);
 
   const handleSubmit = () => {
     if (content.length < 1) {
