@@ -16,8 +16,6 @@ const GlobalStyles = createGlobalStyle`
     
     }
 
-    /* 650 ~ 이상일 경우에는 min*/
-    /* ~ 650 이하일 경우에는 max*/
     @media (min-width: 650px) {
     .App {
     width: 640px;
@@ -70,23 +68,6 @@ const GlobalStyles = createGlobalStyle`
     box-shadow: none;
 
     resize: none; 
-    }
-    .ir {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-    }
-    
-    .a11y-hidden{
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        clip-path: polygon(0 0, 0 0, 0, 0);
     }
 `;
 export default GlobalStyles;
