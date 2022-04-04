@@ -1,103 +1,57 @@
-import React, { useReducer, useRef, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+import { ThemeProvider } from "styled-components";
+import { initalData } from "./module/memoryReducer";
+import theme from "./styles/theme";
+import GlobalStyles from "./styles/GlobalStyles";
+import Detail from "./pages/Detail";
+import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import New from "./pages/New";
-import Edit from "./pages/Edit";
-import Diary from "./pages/Diary";
-
-const reducer = (state, action) => {
-  let newState = [];
-  switch (action.type) {
-    case "INIT": {
-      return action.data;
-    }
-    case "CREATE": {
-      newState = [action.data, ...state];
-      break;
-    }
-    case "REMOVE": {
-      newState = state.filter((it) => it.id !== action.targetId);
-      break;
-    }
-    case "EDIT": {
-      newState = state.map((it) =>
-        it.id === action.data.id ? { ...action.data } : it
-      );
-      break;
-    }
-    default:
-      return state;
-  }
-  localStorage.setItem("diary", JSON.stringify(newState));
-  return newState;
-};
-
-export const DiaryStateContext = React.createContext();
-export const DiaryDispatchContext = React.createContext();
 
 const App = () => {
-  const [data, dispatch] = useReducer(reducer, []);
-  const dataId = useRef(0);
-
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const localData = localStorage.getItem("diary");
-    if (localData) {
-      const diaryList = JSON.parse(localData).sort(
-        (a, b) => parseInt(b.id) - parseInt(a.id)
-      );
-
-      if (diaryList.length >= 1) {
-        dataId.current = parseInt(diaryList[0].id) + 1;
-        dispatch({ type: "INIT", data: diaryList });
-      }
-    }
+    const localData = JSON.parse(localStorage.getItem("memory"));
+    dispatch(initalData(localData));
   }, []);
 
-  const onCreate = (date, content, emotion) => {
-    dispatch({
-      type: "CREATE",
-      data: {
-        id: dataId.current,
-        date: new Date(date).getTime(),
-        content,
-        emotion,
-      },
-    });
-    dataId.current += 1;
-  };
+  useEffect(() => {
+    setVisible(true);
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
-  const onRemove = (targetId) => {
-    dispatch({ type: "REMOVE", targetId });
-  };
-
-  const onEdit = (targetId, date, content, emotion) => {
-    dispatch({
-      type: "EDIT",
-      data: {
-        id: targetId,
-        date: new Date(date).getTime(),
-        content,
-        emotion,
-      },
-    });
-  };
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <DiaryStateContext.Provider value={data}>
-      <DiaryDispatchContext.Provider value={{ onCreate, onEdit, onRemove }}>
-        <BrowserRouter>
-          <div className="App">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/new" element={<New />} />
-              <Route path="/edit/:id" element={<Edit />} />
-              <Route path="/diary/:id" element={<Diary />} />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </DiaryDispatchContext.Provider>
-    </DiaryStateContext.Provider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <div className="App">
+          <Routes>
+            <Route
+              path="/"
+              element={<Home loading={loading} visible={visible} />}
+            />
+            <Route path="/new" element={<New />} />
+            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="/detail/:id" element={<Detail />} />
+          </Routes>
+        </div>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 };
 export default App;

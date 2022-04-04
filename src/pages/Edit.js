@@ -1,36 +1,33 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { DiaryStateContext } from "../App";
-import DiaryEditor from "../components/DiaryEditor";
-
+import EditorContainer from "../components/template/EditorContainer";
 const Edit = () => {
-  const [originData, setOriginData] = useState();
-  const navigate = useNavigate();
   const { id } = useParams();
-
-  const diaryList = useContext(DiaryStateContext);
-
-  useEffect(() => {
-    const titleElement = document.getElementsByTagName("title")[0];
-    titleElement.innerHTML = `Memory - ${id}번째 기록 수정`;
-  }, []);
+  const navigate = useNavigate();
+  const [editData, setEditData] = useState();
+  const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
 
   useEffect(() => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find(
-        (it) => parseInt(it.id) === parseInt(id)
+        (list) => parseInt(list.id) === parseInt(id)
       );
       if (targetDiary) {
-        setOriginData(targetDiary);
+        setEditData(targetDiary);
       } else {
         navigate("/", { replace: true });
       }
     }
-  }, [id, diaryList]);
+  }, [id, diaryList, navigate]);
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.textContent = `Edit Miracle Memory`;
+  }, []);
+
   return (
-    <div>
-      {originData && <DiaryEditor isEdit={true} originData={originData} />}
-    </div>
+    <>{editData && <EditorContainer isEdit={true} editData={editData} />}</>
   );
 };
 export default Edit;

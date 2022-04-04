@@ -1,16 +1,12 @@
+import React from "react";
 import { useEffect } from "react";
-import DiaryEditor from "../components/DiaryEditor";
+import EditorContainer from "../components/template/EditorContainer";
 
 const New = () => {
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
-    titleElement.innerHTML = `New Miracle Memory`;
+    titleElement.textContent = `New - Miracle Memory `;
   }, []);
-  return (
-    <div>
-      <DiaryEditor />
-    </div>
-  );
+  return <EditorContainer />;
 };
-
 export default New;

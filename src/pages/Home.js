@@ -1,79 +1,75 @@
-import React, { useContext, useEffect, useState } from "react";
-import { DiaryStateContext } from "../App";
-import MyHeader from "../components/MyHeader";
-import MyButton from "../components/Mybutton";
-import DiaryList from "../components/DiaryList";
-
-const Home = () => {
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { getMonthDate } from "../util/date";
+import Icon from "../components/atom/icon/Icon";
+import Button from "../components/atom/etc/Button";
+import CommonHeader from "../components/organisms/common/CommonHeader";
+import HomeSplashItem from "../components/organisms/home/HomeSplashItem";
+import HomeContainer from "../components/template/HomeContainer";
+const Home = ({ loading, visible }) => {
+  const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
+  const [data, setData] = useState([]);
   const [curDate, setCurDate] = useState(new Date());
 
-  const diaryList = useContext(DiaryStateContext);
+  useEffect(() => {
+    if (diaryList?.length >= 1) {
+      getMonthDate(curDate, setData, diaryList).changeMonthDate();
+    }
+  }, [curDate, diaryList]);
 
-  const [data, setData] = useState([]);
-  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
   const increaseMonth = () => {
-    setCurDate(
-      new Date(curDate.getFullYear(), curDate.getMonth() + 1, curDate.getDate())
-    );
+    getMonthDate(curDate, setCurDate).increaseMonth();
   };
-
   const decreaseMonth = () => {
-    setCurDate(
-      new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate())
-    );
+    getMonthDate(curDate, setCurDate).decreaseMonth();
   };
 
   useEffect(() => {
     const titleElement = document.getElementsByTagName("title")[0];
-    titleElement.innerHTML = `Miracle Memory Home`;
+    titleElement.textContent = `Home - Miracle Memory `;
   }, []);
 
-  useEffect(() => {
-    if (diaryList.length >= 1) {
-      const firstDay = new Date(
-        curDate.getFullYear(),
-        curDate.getMonth(),
-        1
-      ).getTime();
-
-      const lastDay = new Date(
-        curDate.getFullYear(),
-        curDate.getMonth() + 1,
-        0,
-        23,
-        59,
-        59
-      ).getTime();
-
-      setData(
-        diaryList.filter((it) => firstDay <= it.date && it.date <= lastDay)
-      );
-    }
-  }, [diaryList, curDate]);
-
   return (
-    <div>
-      <MyHeader
-        headText={headText}
-        leftChild={
-          <MyButton
-            text={"<"}
-            onClick={() => {
-              decreaseMonth();
-            }}
+    <>
+      {loading ? (
+        <HomeSplashItem visible={visible} />
+      ) : (
+        <>
+          <CommonHeader
+            headText={getMonthDate(curDate, setCurDate).headText}
+            leftChild={
+              <Button
+                text={
+                  <Icon
+                    icon={
+                      process.env.PUBLIC_URL + `/assets/icon/chevron-left.svg`
+                    }
+                  />
+                }
+                type={"none"}
+                onClick={decreaseMonth}
+              />
+            }
+            rightChild={
+              <Button
+                text={">"}
+                text={
+                  <Icon
+                    icon={
+                      process.env.PUBLIC_URL + `/assets/icon/chevron-right.svg`
+                    }
+                  />
+                }
+                type={"none"}
+                onClick={increaseMonth}
+              />
+            }
           />
-        }
-        rightChild={
-          <MyButton
-            text={">"}
-            onClick={() => {
-              increaseMonth();
-            }}
-          />
-        }
-      />
-      <DiaryList diaryList={data} />
-    </div>
+          <HomeContainer MonthData={data} />
+        </>
+      )}
+    </>
   );
 };
+
 export default Home;
