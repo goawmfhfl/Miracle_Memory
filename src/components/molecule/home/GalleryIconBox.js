@@ -3,10 +3,12 @@ import styled from "styled-components";
 import Logo from "../../atom/logo/Logo";
 import Icon from "../../atom/icon/Icon";
 
-const GalleryIconBox = ({}) => {
+const GalleryIconBox = ({ onClick, emotion }) => {
   return (
-    <Wrapper>
-      <StyledLogo src={process.env.PUBLIC_URL + `/assets/icon/emotion1.svg`} />
+    <Wrapper onClick={onClick}>
+      <StyledLogo
+        src={process.env.PUBLIC_URL + `/assets/icon/emotion${emotion}.svg`}
+      />
       <Icon icon={process.env.PUBLIC_URL + `/assets/icon/chevron-right.svg`} />
     </Wrapper>
   );

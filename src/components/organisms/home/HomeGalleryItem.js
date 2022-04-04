@@ -1,15 +1,23 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { useNavigate } from "react-router-dom";
 import GalleryIconBox from "../../molecule/home/GalleryIconBox";
 import GalleryContentBox from "../../molecule/home/GalleryContentBox";
 import GalleryDateBox from "../../molecule/home/GalleryDateBox";
 
-const HomeGalleryItem = () => {
+const HomeGalleryItem = ({ emotion, id, date, title, content }) => {
+  const navigate = useNavigate();
+  const goEdit = () => {
+    navigate(`/edit/${id}`);
+  };
+  const goDetail = () => {
+    navigate(`/detail/${id}`);
+  };
   return (
     <GalleryItem>
-      <GalleryIconBox />
-      <GalleryContentBox />
-      <GalleryDateBox />
+      <GalleryIconBox emotion={emotion} onClick={goEdit} />
+      <GalleryContentBox title={title} content={content} onClick={goDetail} />
+      <GalleryDateBox date={date} />
     </GalleryItem>
   );
 };

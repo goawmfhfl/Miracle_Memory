@@ -1,14 +1,17 @@
 import React from "react";
+import { getStringDate } from "../../../util/date";
 import styled from "styled-components";
 import CommonText from "../../atom/text/CommonText";
 
-const GalleryDateBox = () => {
+const GalleryDateBox = ({ date }) => {
   return (
     <Wrapper>
-      <CommonText>{"2020-2020-2020"}</CommonText>
+      <CommonText>{getStringDate(date).dataString()}</CommonText>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  cursor: pointer;
+`;
 export default GalleryDateBox;

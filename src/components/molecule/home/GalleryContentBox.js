@@ -3,16 +3,17 @@ import styled from "styled-components";
 import SubTitle from "../../atom/text/SubTitle";
 import CommonText from "../../atom/text/CommonText";
 
-const GalleryContentBox = () => {
+const GalleryContentBox = ({ title, content, onClick }) => {
   return (
-    <Wrapper>
-      <StyledSubTitle>{"content"}</StyledSubTitle>
-      <CommonText>{"content"}</CommonText>
+    <Wrapper onClick={onClick}>
+      <StyledSubTitle>{title}</StyledSubTitle>
+      <CommonText>{content}</CommonText>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  cursor: pointer;
   margin-bottom: 10px;
 `;
 const StyledSubTitle = styled(SubTitle)`
