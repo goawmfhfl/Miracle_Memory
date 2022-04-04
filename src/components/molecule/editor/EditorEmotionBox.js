@@ -16,7 +16,9 @@ const EditorEmotionBox = ({
       className={isSelected ? `on_${emotion_id}` : "off"}
     >
       <EditorEmotionImg img={emotion_img} />
-      <CommonText descript={emotion_descript} mt={10} color={"#000"} />
+      <CommonText mt={10} color={"#000"}>
+        {emotion_descript}
+      </CommonText>
     </EmotionBox>
   );
 };

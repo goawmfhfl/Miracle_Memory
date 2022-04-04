@@ -15,8 +15,12 @@ const GalleryContentBox = ({ title, content, onClick }) => {
 const Wrapper = styled.div`
   cursor: pointer;
   margin-bottom: 10px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 const StyledSubTitle = styled(SubTitle)`
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 `;
 export default GalleryContentBox;

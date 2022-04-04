@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SubTitle = styled.h4`
-  display: flex;
+  display: block;
   align-items: center;
 
   font-size: 20px;

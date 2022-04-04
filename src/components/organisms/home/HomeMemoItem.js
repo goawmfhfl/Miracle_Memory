@@ -42,14 +42,18 @@ const MomoItem = styled.li`
   box-shadow: ${(props) => props.theme.shadow["cardShadow"]};
 
   transition: 0.5s;
-  animation-duration: 0.5s;
+  animation-duration: 1s;
   animation-timing-function: ease-out;
   animation-name: ${fadeIn};
   animation-fill-mode: forwards;
 
   &:hover {
-    background-color: rgba(163, 163, 163, 0.35);
+    background-color: ${(props) => props.theme.palette["main"]};
     border: 1px solid rgba(163, 163, 163, 0.35);
+    color: #fff;
+    span {
+      color: #fff;
+    }
   }
 `;
 

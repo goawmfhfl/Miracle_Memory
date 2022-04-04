@@ -13,5 +13,6 @@ const GalleryDateBox = ({ date }) => {
 
 const Wrapper = styled.div`
   cursor: pointer;
+  margin-bottom: 15px;
 `;
 export default GalleryDateBox;

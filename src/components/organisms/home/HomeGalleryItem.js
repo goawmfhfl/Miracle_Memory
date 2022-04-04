@@ -41,7 +41,7 @@ const GalleryItem = styled.li`
   flex-direction: column;
   justify-content: center;
 
-  background: #ffffff;
+  background: #fff;
   border-radius: 15px;
   border: 1px solid #f4f4f4;
   box-shadow: ${(props) => props.theme.shadow["cardShadow"]};
@@ -53,8 +53,12 @@ const GalleryItem = styled.li`
   animation-fill-mode: forwards;
 
   &:hover {
-    background-color: rgba(163, 163, 163, 0.35);
+    background-color: ${(props) => props.theme.palette["main"]};
     border: 1px solid rgba(163, 163, 163, 0.35);
+    color: #fff;
+    span {
+      color: #fff;
+    }
   }
 `;
 

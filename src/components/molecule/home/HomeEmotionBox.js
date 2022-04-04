@@ -20,8 +20,5 @@ const Wrapper = styled.div`
 
   display: flex;
   justify-content: center;
-
-  box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
-  background-color: ${(props) => props.theme.palette["border"]};
 `;
 export default HomeEmotionBox;
