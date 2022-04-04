@@ -4,7 +4,7 @@
 
 ### **[배포 URL]**
 
-- URL:
+- URL: https://react-project-jy.web.app/
 
 <br/>
 
