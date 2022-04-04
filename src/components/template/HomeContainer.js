@@ -31,7 +31,6 @@ const HomeContainer = ({ MonthData }) => {
   );
 };
 const Article = styled.article``;
-
 HomeContainer.defaultProps = {
   diaryList: [],
 };

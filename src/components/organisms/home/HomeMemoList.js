@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import getProcessedDiaryList from "../../../util/optionList";
+import HomeGalleryItem from "./HomeGalleryItem";
 import HomeMemoItem from "./HomeMemoItem";
 
 const HomeMemoList = ({ gallery, filter, sortType, MonthData }) => {
@@ -11,7 +12,7 @@ const HomeMemoList = ({ gallery, filter, sortType, MonthData }) => {
           <HomeMemoItem key={list.id} {...list} />
         ) : (
           <>
-            <div>정말 재밌죠?</div>
+            <HomeGalleryItem key={list.id} {...list} />
           </>
         )
       )}
@@ -19,6 +20,11 @@ const HomeMemoList = ({ gallery, filter, sortType, MonthData }) => {
   );
 };
 
-const MemoList = styled.ul``;
+const MemoList = styled.ul`
+  &.gallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`;
 
 export default HomeMemoList;

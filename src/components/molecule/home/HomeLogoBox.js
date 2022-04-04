@@ -1,19 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import HomeLogo from "../../atom/logo/HomeLogo";
+import Logo from "../../atom/logo/Logo";
 
 const HomeLogoBox = () => {
   return (
     <Wrapper>
-      <StyledLogo
-        logo={process.env.PUBLIC_URL + `/assets/logo/home-logo.svg`}
-      />
+      <Logo src={process.env.PUBLIC_URL + `/assets/logo/home-logo.svg`} />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div``;
-const StyledLogo = styled(HomeLogo)`
-  height: 10px;
-`;
 export default HomeLogoBox;

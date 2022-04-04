@@ -6,14 +6,14 @@ const GlobalStyles = createGlobalStyle`
     ${reset}
 
     body {
+    min-height: 100vh;
+    margin: 0;
     background-color: #f6f6f6;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Amsterdam";
-
-    min-height: 100vh;
-    margin: 0;
+    
     }
 
     /* 650 ~ 이상일 경우에는 min*/
@@ -26,6 +26,7 @@ const GlobalStyles = createGlobalStyle`
     @media (max-width: 650px) {
     .App {
     width: 90vw;
+    
         }
     }
 
@@ -35,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .App {
-    min-height: 100vh;
+    min-height:100vh;
     padding-left: 20px;
     padding-right: 20px;
     }
