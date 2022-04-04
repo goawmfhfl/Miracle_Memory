@@ -23,12 +23,9 @@ const EditorContainer = ({ isEdit, editData }) => {
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
 
-  const handleClickEmote = useCallback(
-    (emotion) => {
-      setEmotion(emotion);
-    },
-    [emotion]
-  );
+  const handleClickEmote = useCallback((emotion) => {
+    setEmotion(emotion);
+  }, []);
 
   const handleInputValue = useCallback((value) => {
     setContent(value);
@@ -43,7 +40,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       dispatch(onRemove(editData.id));
       navigate("/", { replace: true });
     }
-  }, [dispatch, navigate]);
+  }, [dispatch, navigate, editData.id]);
 
   const handleSubmit = () => {
     if (content.length < 1) {

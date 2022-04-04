@@ -52,7 +52,6 @@ const Home = ({ loading, visible }) => {
             }
             rightChild={
               <Button
-                text={">"}
                 text={
                   <Icon
                     icon={

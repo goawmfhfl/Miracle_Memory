@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("memory"));
     dispatch(initalData(localData));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setVisible(true);
