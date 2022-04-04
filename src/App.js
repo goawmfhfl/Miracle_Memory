@@ -13,16 +13,25 @@ import New from "./pages/New";
 const App = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("memory"));
     dispatch(initalData(localData));
   }, []);
 
   useEffect(() => {
+    setVisible(true);
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -32,7 +41,10 @@ const App = () => {
         <GlobalStyles />
         <div className="App">
           <Routes>
-            <Route path="/" element={<Home loading={loading} />} />
+            <Route
+              path="/"
+              element={<Home loading={loading} visible={visible} />}
+            />
             <Route path="/new" element={<New />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/detail/:id" element={<Detail />} />

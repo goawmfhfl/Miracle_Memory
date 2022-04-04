@@ -17,7 +17,9 @@ const EditorContainer = ({ isEdit, editData }) => {
   const navigate = useNavigate();
 
   const contentRef = useRef();
+  const titleRef = useRef();
   const [date, setDate] = useState(getStringDate(new Date()).ISOString());
+  const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [emotion, setEmotion] = useState(3);
 
@@ -32,6 +34,10 @@ const EditorContainer = ({ isEdit, editData }) => {
     setContent(value);
   }, []);
 
+  const handleInputTitle = useCallback((value) => {
+    setTitle(value);
+  }, []);
+
   const handleRemove = useCallback(() => {
     if (window.confirm("정말 삭제하시겠습니까?")) {
       dispatch(onRemove(editData.id));
@@ -44,15 +50,20 @@ const EditorContainer = ({ isEdit, editData }) => {
       contentRef.current.focus();
       return;
     }
+
+    if (title.length < 1) {
+      titleRef.current.focus();
+      return;
+    }
     if (
       window.confirm(
         !isEdit ? "새로운 일기를 작성하시겠습니까?" : "일기를 수정하시겠습니까?"
       )
     ) {
       if (!isEdit) {
-        dispatch(onCreate(date, content, emotion));
+        dispatch(onCreate(date, title, content, emotion));
       } else {
-        dispatch(onEdit(editData.id, date, content, emotion));
+        dispatch(onEdit(editData.id, date, title, content, emotion));
       }
       navigate("/", { replace: true });
     }
@@ -68,6 +79,7 @@ const EditorContainer = ({ isEdit, editData }) => {
   useEffect(() => {
     if (isEdit) {
       setDate(getStringDate(editData.date).ISOString());
+      setTitle(editData.title);
       setEmotion(editData.emotion);
       setContent(editData.content);
     }
@@ -91,7 +103,11 @@ const EditorContainer = ({ isEdit, editData }) => {
       />
       <Article>
         <EditorDateItem date={date} setDate={setDate} />
-        <EditorTitleItem />
+        <EditorTitleItem
+          title={title}
+          onChange={handleInputTitle}
+          reference={titleRef}
+        />
         <EditorEmotionItem emotion={emotion} onClick={handleClickEmote} />
         <EditorTextAreaItem
           content={content}

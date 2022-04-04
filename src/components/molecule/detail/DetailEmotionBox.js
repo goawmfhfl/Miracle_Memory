@@ -7,7 +7,7 @@ const DetailEmotionBox = ({ id, img, descript }) => {
     <Wrapper className={`emotion_${id}`}>
       <DetailEmotionImg id={id} img={img} />
       <TextBox>
-        <CommonText color={"black"} size={25} descript={descript} />
+        <CommonText size={25}>{descript}</CommonText>
       </TextBox>
     </Wrapper>
   );
@@ -27,7 +27,6 @@ const TextBox = styled.div`
   padding: 15px 25px 15px 25px;
   border-radius: 15px;
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
-  /* background-color: ${(props) => props.theme.palette["border"]}; */
 `;
 
 export default DetailEmotionBox;

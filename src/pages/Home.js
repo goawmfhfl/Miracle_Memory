@@ -6,7 +6,7 @@ import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
 import HomeSplashItem from "../components/organisms/home/HomeSplashItem";
 import HomeContainer from "../components/template/HomeContainer";
-const Home = ({ loading }) => {
+const Home = ({ loading, visible }) => {
   const diaryList = useSelector(({ memoryReducer }) => memoryReducer);
   const [data, setData] = useState([]);
   const [curDate, setCurDate] = useState(new Date());
@@ -24,10 +24,15 @@ const Home = ({ loading }) => {
     getMonthDate(curDate, setCurDate).decreaseMonth();
   };
 
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.textContent = `Home - Miracle Memory `;
+  }, []);
+
   return (
     <>
       {loading ? (
-        <HomeSplashItem loading={loading} />
+        <HomeSplashItem visible={visible} />
       ) : (
         <>
           <CommonHeader

@@ -21,6 +21,11 @@ const Edit = () => {
     }
   }, [id, diaryList, navigate]);
 
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.textContent = `Edit Miracle Memory`;
+  }, []);
+
   return (
     <>{editData && <EditorContainer isEdit={true} editData={editData} />}</>
   );

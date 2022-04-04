@@ -1,18 +1,13 @@
 import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
 import AlbumHandlerBox from "../../molecule/home/AlbumHandlerBox";
 import HomeLogoBox from "../../molecule/home/HomeLogoBox";
 
-const HomeAlbumItem = () => {
-  const [gallery, setGallery] = useState(true);
-  const galleryHandler = () => {
-    setGallery(!gallery);
-  };
+const HomeAlbumItem = ({ gallery, onClick }) => {
   return (
     <Wrapper>
       <HomeLogoBox />
-      <AlbumHandlerBox gallery={gallery} galleryHandler={galleryHandler} />
+      <AlbumHandlerBox gallery={gallery} onClick={onClick} />
     </Wrapper>
   );
 };

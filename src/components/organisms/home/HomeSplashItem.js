@@ -1,19 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import HomeSplashBox from "../../molecule/home/HomeSplashBox";
-const SplashItem = ({ loading }) => {
+const SplashItem = ({ visible }) => {
   return (
     <Wrapper>
-      <HomeSplashBox loading={loading} />
+      <HomeSplashBox visible={visible} />
     </Wrapper>
   );
 };
 
-const Wrapper = styled.article`
-  display: flex;
-  flex-direction: center;
-  align-items: center;
-  height: 100vh;
-`;
+const Wrapper = styled.article``;
 
 export default SplashItem;

@@ -8,11 +8,12 @@ export const initalData = (data) => ({
   data: data,
 });
 
-export const onCreate = (date, content, emotion) => ({
+export const onCreate = (date, title, content, emotion) => ({
   type: MEMORY_CREATE,
   data: {
     id: String(Math.random() * 1).split(".")[1],
     date: new Date(date).getTime(),
+    title,
     content,
     emotion,
   },
@@ -23,11 +24,12 @@ export const onRemove = (targetId) => ({
   targetId,
 });
 
-export const onEdit = (targetId, date, content, emotion) => ({
+export const onEdit = (targetId, date, title, content, emotion) => ({
   type: MEMORY_UPDATE,
   data: {
     id: targetId,
     date: new Date(date).getTime(),
+    title,
     content,
     emotion,
   },

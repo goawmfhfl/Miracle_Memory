@@ -1,9 +1,8 @@
 import React from "react";
-
 import SubTitleBox from "../../molecule/common/SubTitleBox";
 import EditorInputTitleBox from "../../molecule/editor/EditorInputTitleBox";
 
-const EditorTitleItem = ({ date, setDate }) => {
+const EditorTitleItem = ({ title, titleRef, onChange }) => {
   return (
     <section>
       <SubTitleBox
@@ -11,8 +10,12 @@ const EditorTitleItem = ({ date, setDate }) => {
         icon={process.env.PUBLIC_URL + `/assets/icon/plus-square.svg`}
         mb={15}
       />
-      <EditorInputTitleBox date={date} setDate={setDate} />
+      <EditorInputTitleBox
+        title={title}
+        titleRef={titleRef}
+        onChange={onChange}
+      />
     </section>
   );
 };
-export default EditorTitleItem;
+export default React.memo(EditorTitleItem);

@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 const HomeEmotionImg = ({ emotion }) => {
   return <EmotionImg src={emotion} />;
