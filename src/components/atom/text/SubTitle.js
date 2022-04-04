@@ -1,10 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-const SubTitle = ({ text }) => {
-  return <Text>{text}</Text>;
-};
-const Text = styled.h4`
+const SubTitle = styled.h4`
   display: flex;
   align-items: center;
 

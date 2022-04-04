@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 const DetailEmotionImg = ({ img, id }) => {
   return <EmotionImg className={`emotion_${id}`} src={img} />;

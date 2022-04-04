@@ -5,7 +5,7 @@ import Content from "../../atom/text/Content";
 const DetailContentBox = ({ content }) => {
   return (
     <Wrapper>
-      <Content content={content} />
+      <Content>{content}</Content>
     </Wrapper>
   );
 };

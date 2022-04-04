@@ -7,7 +7,7 @@ const SubTitleBox = ({ text, icon, mb }) => {
   return (
     <Wrapper mb={mb}>
       <Icon icon={icon} mr={"7px"} />
-      <SubTitle text={text} />
+      <SubTitle>{text}</SubTitle>
     </Wrapper>
   );
 };

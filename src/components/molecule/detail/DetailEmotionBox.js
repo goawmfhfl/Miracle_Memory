@@ -7,7 +7,7 @@ const DetailEmotionBox = ({ id, img, descript }) => {
     <Wrapper className={`emotion_${id}`}>
       <DetailEmotionImg id={id} img={img} />
       <TextBox>
-        <CommonText color={"black"} size={25} descript={descript} />
+        <CommonText size={25}>{descript}</CommonText>
       </TextBox>
     </Wrapper>
   );
