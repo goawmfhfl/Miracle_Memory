@@ -39,7 +39,6 @@ const RightBtn = styled.div`
 `;
 const HeadText = styled.div`
   width: 50%;
-  font-size: 25px;
   justify-content: center;
   text-align: center;
 `;

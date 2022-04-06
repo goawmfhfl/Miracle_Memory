@@ -15,16 +15,19 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Amsterdam";
     
     }
+    /* @media(min-width:390px){ */
+/*  */
+    /* } */
 
     @media (min-width: 650px) {
     .App {
     width: 640px;
         }
     }
+
     @media (max-width: 650px) {
     .App {
-    width: 90vw;
-    
+    width: 100vw;
         }
     }
 
