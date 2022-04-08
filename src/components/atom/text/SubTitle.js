@@ -6,10 +6,6 @@ const SubTitle = styled.h4`
 
   font-size: 20px;
   font-family: "MaruBuri-Bold";
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 `;
 
 export default SubTitle;

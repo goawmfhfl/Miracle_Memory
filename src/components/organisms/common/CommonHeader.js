@@ -7,7 +7,7 @@ const CommonHeader = ({ headText, leftChild, rightChild }) => {
     <MainHeader>
       <LeftBtn>{leftChild}</LeftBtn>
       <HeadText>
-        <Title text={headText} />
+        <Title>{headText}</Title>
       </HeadText>
       <RightBtn>{rightChild}</RightBtn>
     </MainHeader>

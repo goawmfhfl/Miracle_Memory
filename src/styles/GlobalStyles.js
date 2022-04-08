@@ -72,5 +72,11 @@ const GlobalStyles = createGlobalStyle`
 
     resize: none; 
     }
+    .nowrap{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+  
 `;
 export default GlobalStyles;
