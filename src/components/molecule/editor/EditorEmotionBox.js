@@ -21,13 +21,11 @@ const EditorEmotionBox = ({
   );
 };
 const EmotionBox = styled.li`
-  /* 390픽셀 이상 600픽셀 이하 */
   @media (min-width: 390px) and (max-width: 600px) {
     width: 100%;
     margin: 0 1.5%;
     padding: 3%;
   }
-  /* 600픽셀 이상 */
   @media (min-width: 600px) {
     width: 110px;
     height: 120px;

@@ -25,9 +25,6 @@ const MainHeader = styled.header`
   & > div {
     display: flex;
   }
-  button {
-    /* font-family: "Nanum Pen Script", cursive; */
-  }
 `;
 const LeftBtn = styled.div`
   width: 25%;

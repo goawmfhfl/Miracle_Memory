@@ -23,7 +23,7 @@ const Wrapper = styled.ul`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  /* 600픽셀 이상 */
+
   @media (min-width: 600px) {
     display: grid;
     grid-template-columns: repeat(5, auto);
