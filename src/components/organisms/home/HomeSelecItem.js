@@ -42,7 +42,7 @@ const LeftCol = styled.div`
   width: 50%;
 `;
 const RightCol = styled.div`
-  flex-grow: 1;
+  width: 50%;
   & > button {
     width: 100%;
   }

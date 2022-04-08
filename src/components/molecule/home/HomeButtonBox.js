@@ -11,7 +11,7 @@ const HomeButtonBox = ({ onClick }) => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  min-width: 100px;
+  width: 20%;
 
   & > button {
     padding: 0px;

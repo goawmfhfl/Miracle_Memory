@@ -10,5 +10,7 @@ const HomeLogoBox = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 50%;
+`;
 export default HomeLogoBox;

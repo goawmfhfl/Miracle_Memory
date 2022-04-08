@@ -20,7 +20,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 55%;
+
+  width: 60%;
 `;
 const StyledSubTitle = styled(SubTitle)`
   font-size: 14px;
