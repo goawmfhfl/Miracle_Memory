@@ -25,8 +25,6 @@ const StyledButton = styled.button`
   padding-left: 20px;
   padding-right: 20px;
 
-  font-size: 18px;
-
   white-space: nowrap;
   font-family: "Amsterdam";
   font-weight: bolder;
