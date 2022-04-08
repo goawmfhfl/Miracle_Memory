@@ -30,6 +30,7 @@ const EmotionBox = styled.li`
   /* 600픽셀 이상 */
   @media (min-width: 600px) {
     width: 110px;
+    height: 120px;
   }
   cursor: pointer;
   border: 3px solid ${(props) => props.theme.palette["border"]};
