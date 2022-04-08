@@ -19,6 +19,7 @@ const StyledButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 15px;
+  font-size: 15px;
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -45,7 +46,7 @@ const StyledButton = styled.button`
     color: #fff;
   }
   &.none {
-    background-color: #fff;
+    background-color: none;
   }
 `;
 

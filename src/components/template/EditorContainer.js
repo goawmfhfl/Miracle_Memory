@@ -131,6 +131,11 @@ const Article = styled.article`
   & > section {
     margin-bottom: 40px;
   }
+  @media (min-width: 390px) and (max-width: 600px) {
+    & > section:nth-last-child(2) {
+      margin-bottom: 15px;
+    }
+  }
 `;
 
 export default EditorContainer;

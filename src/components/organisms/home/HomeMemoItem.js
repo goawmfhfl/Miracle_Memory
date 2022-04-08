@@ -55,6 +55,9 @@ const MomoItem = styled.li`
     span {
       color: #fff;
     }
+    button {
+      color: #fff;
+    }
   }
 `;
 

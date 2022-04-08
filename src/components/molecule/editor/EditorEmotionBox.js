@@ -16,17 +16,23 @@ const EditorEmotionBox = ({
       className={isSelected ? `on_${emotion_id}` : "off"}
     >
       <EditorEmotionImg img={emotion_img} />
-      <CommonText mt={10} color={"#000"}>
-        {emotion_descript}
-      </CommonText>
+      <CommonText color={"#000"}>{emotion_descript}</CommonText>
     </EmotionBox>
   );
 };
 const EmotionBox = styled.li`
+  /* 390픽셀 이상 600픽셀 이하 */
+  @media (min-width: 390px) and (max-width: 600px) {
+    width: 100%;
+    margin: 0 1.5%;
+    padding: 3%;
+  }
+  /* 600픽셀 이상 */
+  @media (min-width: 600px) {
+    width: 110px;
+  }
   cursor: pointer;
-
-  width: 110px;
-  height: 120px;
+  border: 3px solid ${(props) => props.theme.palette["border"]};
   border-radius: 15px;
 
   display: flex;
