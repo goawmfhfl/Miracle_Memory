@@ -11,8 +11,8 @@ const HomeEmotionBox = ({ onClick, emotion }) => {
 
 const Wrapper = styled.div`
   cursor: pointer;
-  min-width: 100px;
-  height: 80px;
+  width: 20%;
+  height: 60px;
 
   box-sizing: content-box;
   padding: 5px;

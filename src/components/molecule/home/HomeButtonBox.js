@@ -10,7 +10,13 @@ const HomeButtonBox = ({ onClick }) => {
 };
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
-  min-width: 70px;
+  width: 20%;
+
+  & > button {
+    padding: 0px;
+  }
 `;
+
 export default HomeButtonBox;

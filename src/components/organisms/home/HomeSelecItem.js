@@ -37,9 +37,12 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: space-between;
 `;
-const LeftCol = styled.div``;
+const LeftCol = styled.div`
+  display: flex;
+  width: 50%;
+`;
 const RightCol = styled.div`
-  flex-grow: 1;
+  width: 50%;
   & > button {
     width: 100%;
   }

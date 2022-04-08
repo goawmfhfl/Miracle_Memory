@@ -31,6 +31,7 @@ to{
 `;
 
 const MomoItem = styled.li`
+  width: 100%;
   margin-bottom: 10px;
   padding: 10px;
   display: flex;
@@ -52,6 +53,9 @@ const MomoItem = styled.li`
     border: 1px solid rgba(163, 163, 163, 0.35);
     color: #fff;
     span {
+      color: #fff;
+    }
+    button {
       color: #fff;
     }
   }

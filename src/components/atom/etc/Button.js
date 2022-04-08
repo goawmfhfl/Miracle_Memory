@@ -19,13 +19,12 @@ const StyledButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 15px;
+  font-size: 15px;
 
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-
-  font-size: 18px;
 
   white-space: nowrap;
   font-family: "Amsterdam";
@@ -47,7 +46,7 @@ const StyledButton = styled.button`
     color: #fff;
   }
   &.none {
-    background-color: #fff;
+    background-color: none;
   }
 `;
 

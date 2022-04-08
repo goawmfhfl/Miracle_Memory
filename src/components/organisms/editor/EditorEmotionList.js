@@ -18,10 +18,17 @@ const EditorEmotionList = ({ emotion, onClick }) => {
     </Wrapper>
   );
 };
+
 const Wrapper = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  gap: 2%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 2%;
+  }
 `;
 
 export default EditorEmotionList;

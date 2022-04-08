@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   white-space: nowrap;
 `;
 const StyledSubTitle = styled(SubTitle)`
+  font-size: 16px;
   margin-bottom: 15px;
 `;
 export default GalleryContentBox;
