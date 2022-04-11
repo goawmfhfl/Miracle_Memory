@@ -14,24 +14,26 @@ const CommonHeader = ({ headText, leftChild, rightChild }) => {
   );
 };
 
-// 89px header
-// 75px
-// height: calc(100% - 164px);
 const MainHeader = styled.header`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+
   padding-top: 20px;
   padding-bottom: 20px;
-  /* margin-bottom: 20px; */
-  border-bottom: 1px solid ${(props) => props.theme.palette["border"]};
 
+  width: 100%;
+  border-bottom: 1px solid ${(props) => props.theme.palette["border"]};
   display: flex;
   align-items: center;
 
   & > div {
     display: flex;
+  }
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 `;
 const LeftBtn = styled.div`

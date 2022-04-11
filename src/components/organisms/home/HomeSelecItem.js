@@ -32,10 +32,14 @@ const HomeSelectItem = ({ sortType, setSortType, filter, setFilter }) => {
 };
 
 const Wrapper = styled.section`
-  margin-top: 20px;
-
   display: flex;
   justify-content: space-between;
+
+  margin-top: 20px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    margin-top: 0px;
+  }
 `;
 const LeftCol = styled.div`
   display: flex;

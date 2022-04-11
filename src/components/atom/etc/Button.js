@@ -19,7 +19,11 @@ const StyledButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 15px;
-  font-size: 15px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    font-size: 15px;
+  }
+  font-size: 22px;
 
   padding-top: 10px;
   padding-bottom: 10px;

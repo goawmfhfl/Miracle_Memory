@@ -14,7 +14,6 @@ const HomeAlbumItem = ({ gallery, onClick }) => {
 
 const Wrapper = styled.section`
   display: flex;
-  justify-content: space-between;
   align-items: center;
 `;
 
