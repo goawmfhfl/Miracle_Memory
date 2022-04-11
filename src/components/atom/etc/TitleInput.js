@@ -27,5 +27,10 @@ const Input = styled.input.attrs({
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 
   padding: 20px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    padding: 15px;
+    font-size: 16px;
+  }
 `;
 export default TitleInput;

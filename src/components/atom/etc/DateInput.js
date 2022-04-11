@@ -20,5 +20,13 @@ const Input = styled.input.attrs({ type: "date" })`
 
   font-family: "Amsterdam";
   font-weight: bolder;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
+  }
 `;
 export default DateInput;

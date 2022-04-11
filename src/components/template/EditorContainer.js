@@ -132,6 +132,10 @@ const Article = styled.article`
     margin-bottom: 40px;
   }
   @media (min-width: 360px) and (max-width: 600px) {
+    & > section {
+      margin-bottom: 30px;
+    }
+
     & > section:nth-last-child(2) {
       margin-bottom: 15px;
     }

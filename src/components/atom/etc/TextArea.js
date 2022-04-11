@@ -27,5 +27,9 @@ const InputArea = styled.textarea.attrs({
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 
   padding: 20px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    min-height: 130px;
+  }
 `;
 export default TextArea;

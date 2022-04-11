@@ -11,7 +11,7 @@ const New = () => {
   return (
     <>
       <EditorContainer />
-      {/* <CommonNavigation /> */}
+      <CommonNavigation />
     </>
   );
 };

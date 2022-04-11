@@ -21,10 +21,11 @@ const EditorEmotionBox = ({
   );
 };
 const EmotionBox = styled.li`
-  @media (min-width: 390px) and (max-width: 600px) {
+  @media (min-width: 360px) and (max-width: 600px) {
     width: 100%;
+    padding: 10px;
     margin: 0 1.5%;
-    padding: 3%;
+    font-size: 10px;
   }
   @media (min-width: 600px) {
     width: 110px;

@@ -7,10 +7,10 @@ const EditorEmotionImg = ({ img }) => {
 const EmotionImg = styled.img.attrs({
   alt: "이모션 이미지",
 })`
-  @media (min-width: 390px) and (max-width: 600px) {
-    width: 38px;
-    height: 38px;
-    margin-bottom: 10px;
+  @media (min-width: 360px) and (max-width: 600px) {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
   }
   @media (min-width: 600px) {
     width: 54px;
