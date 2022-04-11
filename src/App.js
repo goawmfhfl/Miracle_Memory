@@ -9,6 +9,7 @@ import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import New from "./pages/New";
+import Todo from "./pages/Todo";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -48,6 +49,7 @@ const App = () => {
             <Route path="/new" element={<New />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/todo" element={<Todo />} />
           </Routes>
         </div>
       </ThemeProvider>
