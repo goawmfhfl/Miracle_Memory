@@ -16,12 +16,12 @@ export const createTodos = (todos) => ({
   },
 });
 
-export const DeleteTodos = (targetId) => ({
+export const removeTodos = (targetId) => ({
   type: TODOLIST_REMOVE,
   targetId,
 });
 
-export const EditTodos = (targetId, todos) => ({
+export const editTodos = (targetId, todos) => ({
   type: TODOLIST_UPDATE,
   data: {
     id: targetId,
