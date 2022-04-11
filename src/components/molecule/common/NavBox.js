@@ -1,15 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import NavLink from "../../atom/etc/NavLink";
+import NaviLink from "../../atom/etc/NaviLink";
 
-const NavBox = ({ to, className }) => {
+const NavBox = ({ to, className, text }) => {
   return (
     <Wrapper>
-      <NavLink />
+      <NaviLink to={to} className={className}>
+        {text}
+      </NaviLink>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.li``;
+const Wrapper = styled.li`
+  width: 84px;
+  padding: 10px;
+`;
 
 export default NavBox;

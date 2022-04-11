@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
 
 /* App은 전체적인 width와 heigh 값을 관장한다. */
     .App {
+    position:relative;
     min-height:100vh;
     padding-left: 20px;
     padding-right: 20px;
@@ -48,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
         cursor: pointer;
         color:inherit;
     }
-    
+
     button {
         border: none;
         cursor: pointer;

@@ -4,6 +4,7 @@ import { getMonthDate } from "../util/date";
 import Icon from "../components/atom/icon/Icon";
 import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
+import CommonNavigation from "../components/organisms/common/CommonNavigation";
 import HomeSplashItem from "../components/organisms/home/HomeSplashItem";
 import HomeContainer from "../components/template/HomeContainer";
 const Home = ({ loading, visible }) => {
@@ -65,6 +66,7 @@ const Home = ({ loading, visible }) => {
             }
           />
           <HomeContainer MonthData={data} />
+          <CommonNavigation />
         </>
       )}
     </>
