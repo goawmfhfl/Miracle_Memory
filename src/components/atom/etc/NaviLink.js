@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const NaviLink = styled(NavLink)`
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   color: ${(props) => props.theme.palette["subText"]};
   padding: 12px 0 6px;
   text-align: center;
@@ -13,8 +13,8 @@ const NaviLink = styled(NavLink)`
     content: "";
     display: block;
     margin: 0 auto;
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     margin-bottom: 6px;
     background: no-repeat center / contain;
   }
@@ -24,7 +24,7 @@ const NaviLink = styled(NavLink)`
 &.upload::before {
     background-image: url("/assets/icon/nav-edit.svg")
     }
-&.information::before {
+&.todo::before {
     background-image: url("/assets/icon/nav-message-circle.svg")
     }
   }
@@ -33,7 +33,7 @@ const NaviLink = styled(NavLink)`
     &.home::before {
         background-image: url("/assets/icon/nav-home-fill.svg")
     }
-    &.information::before {
+    &.todo::before {
         background-image: url("/assets/icon/nav-message-circle-fill.svg")
     }
     

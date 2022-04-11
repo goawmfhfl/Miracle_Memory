@@ -7,7 +7,7 @@ const CommonNavigation = () => {
     <Wrapper>
       <NavBox to={"/"} className={"home"} text={"홈"} />
       <NavBox to={"/new"} className={"upload"} text={"작성"} />
-      <NavBox to={"/todo"} className={"information"} text={"할 일"} />
+      <NavBox to={"/todo"} className={"todo"} text={"할 일"} />
     </Wrapper>
   );
 };

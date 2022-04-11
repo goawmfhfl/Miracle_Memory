@@ -23,7 +23,7 @@ const InputArea = styled.textarea.attrs({
 
   border: none;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.palette["border"]};
+  background-color: ${(props) => props.theme.palette["box"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 
   padding: 20px;

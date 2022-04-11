@@ -31,7 +31,7 @@ const EmotionBox = styled.li`
     height: 120px;
   }
   cursor: pointer;
-  border: 3px solid ${(props) => props.theme.palette["border"]};
+  border: 3px solid ${(props) => props.theme.palette["box"]};
   border-radius: 15px;
 
   display: flex;
@@ -40,7 +40,7 @@ const EmotionBox = styled.li`
   align-items: center;
 
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
-  background-color: ${(props) => props.theme.palette["border"]};
+  background-color: ${(props) => props.theme.palette["box"]};
 
   &.on_1 {
     border: 3px solid ${(props) => props.theme.palette["main"]};

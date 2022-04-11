@@ -14,7 +14,7 @@ const NavBox = ({ to, className, text }) => {
 
 const Wrapper = styled.li`
   width: 84px;
-  padding: 10px;
+  padding: 6px;
 `;
 
 export default NavBox;
