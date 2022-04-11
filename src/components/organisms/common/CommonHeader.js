@@ -13,10 +13,18 @@ const CommonHeader = ({ headText, leftChild, rightChild }) => {
     </MainHeader>
   );
 };
+
+// 89px header
+// 75px
+// height: calc(100% - 164px);
 const MainHeader = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   border-bottom: 1px solid ${(props) => props.theme.palette["border"]};
 
   display: flex;

@@ -26,6 +26,8 @@ const GlobalStyles = createGlobalStyle`
     min-height:100vh;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top:90px;
+    padding-bottom:85px;
     }
 /* 650px 이상이 되어버리면 크기를 650px로 정하겠다. */
     @media (min-width: 650px) {

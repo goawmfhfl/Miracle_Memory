@@ -54,7 +54,7 @@ const DetailTemplate = () => {
           }
         ></CommonHeader>
         <DetailContainer detailData={detailData} />
-        <CommonNavigation />
+        {/* <CommonNavigation /> */}
       </>
     );
   }

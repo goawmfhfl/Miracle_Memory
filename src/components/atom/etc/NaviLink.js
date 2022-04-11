@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const NaviLink = styled(NavLink)`
   display: block;
-  font-size: 16px;
-  color: ${(props) => props.theme.palette["subText"]};
+  font-family: "MaruBuri";
+  font-size: 12px;
   padding: 12px 0 6px;
   text-align: center;
   cursor: pointer;
@@ -15,7 +15,7 @@ const NaviLink = styled(NavLink)`
     margin: 0 auto;
     width: 24px;
     height: 24px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     background: no-repeat center / contain;
   }
 &.home::before {
