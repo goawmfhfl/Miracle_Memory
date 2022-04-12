@@ -1,6 +1,9 @@
 import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTodos } from "../../../module/todoListReducer";
+import styled from "styled-components";
+import TitleInput from "../../atom/etc/TitleInput";
+import Button from "../../atom/etc/Button";
 
 const TodoEditorItem = () => {
   const dispatch = useDispatch();
@@ -21,13 +24,24 @@ const TodoEditorItem = () => {
   };
 
   return (
-    <>
-      <h2>오늘의 일기</h2>
-      <div>
-        <input ref={todosRef} value={todos} onChange={handleChangeValue} />
-        <button onClick={handleSubmit}>입력 버튼</button>
-      </div>
-    </>
+    <Wrapper>
+      <ToDoInput
+        titleRef={todosRef}
+        title={todos}
+        onChange={handleChangeValue}
+      />
+      <ToDoButton onClick={handleSubmit} text={"입력"} type={"positive"} />
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.section`
+  width: 100%;
+  display: flex;
+`;
+
+const ToDoInput = styled(TitleInput)`
+  width: 50%;
+`;
+const ToDoButton = styled(Button)``;
 export default TodoEditorItem;

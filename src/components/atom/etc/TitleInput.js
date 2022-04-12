@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
-const TitleInput = ({ title, titleRef, onChange }) => {
-  return (
-    <Input
-      ref={titleRef}
-      value={title}
-      onChange={(e) => onChange(e.target.value)}
-    />
-  );
-};
-
-const Input = styled.input.attrs({
-  placeholder: "미라클 모닝 제목을 입력해주세요",
-})`
+// "미라클 모닝 제목을 입력해주세요",
+const TitleInput = styled.input.attrs(
+  ({ title, titleRef, onChange, placeholder }) => ({
+    ref: titleRef,
+    value: title,
+    onChange: (e) => {
+      onChange(e.target.value);
+    },
+    placeholder: placeholder,
+  })
+)`
   font-family: "Amsterdam";
   font-weight: bolder;
   font-size: 20px;
