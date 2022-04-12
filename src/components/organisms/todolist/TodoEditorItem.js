@@ -33,7 +33,9 @@ const TodoEditorItem = () => {
         />
       </LeftCol>
       <RightCol>
-        <Button onClick={handleSubmit} text={"입력"} type={"positive"} />
+        <Button onClick={handleSubmit} type={"positive"}>
+          입력
+        </Button>
       </RightCol>
     </Wrapper>
   );

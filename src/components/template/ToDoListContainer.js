@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import TodoEditorItem from "../organisms/todolist/TodoEditorItem";
+import TodoTitle from "../organisms/todolist/TodoTitle";
 import TodoList from "../organisms/todolist/TodoList";
+import TodoEditorItem from "../organisms/todolist/TodoEditorItem";
 
 const ToDoListContainer = () => {
   return (
     <Article>
+      <TodoTitle />
       <TodoEditorItem />
       <TodoList />
     </Article>

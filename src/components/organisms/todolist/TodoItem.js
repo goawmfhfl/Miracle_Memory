@@ -1,6 +1,9 @@
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
+import styled, { keyframes } from "styled-components";
 import { removeTodos, editTodos } from "../../../module/todoListReducer";
+import ToDoIconBox from "../../molecule/todo/ToDoIconBox";
+import TextArea from "../../atom/etc/TextArea";
 
 const TodoItem = ({ id, todoItem }) => {
   const dispatch = useDispatch();
@@ -29,29 +32,108 @@ const TodoItem = ({ id, todoItem }) => {
     }
   };
 
+  const handleLocalContent = (value) => {
+    setLocalContent(value);
+  };
+
   return (
-    <div>
+    <Wrapper>
+      <LeftCol>
+        {isEdit ? (
+          <StyledTextArea
+            reference={localContentInput}
+            content={localContent}
+            onChange={handleLocalContent}
+          />
+        ) : (
+          <span>{todoItem}</span>
+        )}
+      </LeftCol>
       {isEdit ? (
-        <textarea
-          ref={localContentInput}
-          value={localContent}
-          onChange={(e) => setLocalContent(e.target.value)}
-        />
+        <RightCol>
+          <ToDoIconBox
+            color={"#000"}
+            icon={process.env.PUBLIC_URL + `/assets/icon/cross.svg`}
+            onClick={handleQuitEdit}
+            mr={10}
+          ></ToDoIconBox>
+          <ToDoIconBox
+            color={(props) => props.theme.palette["main"]}
+            icon={process.env.PUBLIC_URL + `/assets/icon/checkmark.svg`}
+            onClick={handleEdit}
+          ></ToDoIconBox>
+        </RightCol>
       ) : (
-        <span>{todoItem}</span>
+        <RightCol>
+          <ToDoIconBox
+            color={(props) => props.theme.palette["main"]}
+            icon={process.env.PUBLIC_URL + `/assets/icon/edit.svg`}
+            mr={10}
+            onClick={toggleIsEdit}
+          ></ToDoIconBox>
+          <ToDoIconBox
+            color={"#000"}
+            icon={process.env.PUBLIC_URL + `/assets/icon/delete.svg`}
+            onClick={() => handleRemove(id)}
+          ></ToDoIconBox>
+        </RightCol>
       )}
-      {isEdit ? (
-        <>
-          <button onClick={handleQuitEdit}>수정 취소</button>
-          <button onClick={handleEdit}>수정 완료</button>
-        </>
-      ) : (
-        <>
-          <button onClick={handleRemove}>삭제하기</button>
-          <button onClick={toggleIsEdit}>수정하기</button>
-        </>
-      )}
-    </div>
+    </Wrapper>
   );
 };
+
+const fadeIn = keyframes`
+from{
+  opacity:0
+}
+to{
+  opacity:1
+}
+`;
+
+const Wrapper = styled.li`
+  width: 100%;
+  padding: 20px 18px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #ffffff;
+  border-radius: 15px;
+  border: 1px solid #f4f4f4;
+  box-shadow: ${(props) => props.theme.shadow["cardShadow"]};
+
+  transition: 0.5s;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-name: ${fadeIn};
+  animation-fill-mode: forwards;
+
+  /* &:hover {
+    background-color: ${(props) => props.theme.palette["main"]};
+    border: 1px solid rgba(163, 163, 163, 0.35);
+    color: #fff;
+    span {
+      color: #fff;
+    }
+    button {
+      color: #fff;
+    }
+  } */
+`;
+
+const LeftCol = styled.div`
+  flex-grow: 1;
+  margin-right: 15px;
+`;
+const RightCol = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const StyledTextArea = styled(TextArea)`
+  min-height: 50px;
+  padding: 10px;
+`;
 export default TodoItem;
