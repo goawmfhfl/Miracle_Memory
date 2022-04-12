@@ -16,6 +16,8 @@ Button.defaultProps = {
 };
 
 const StyledButton = styled.button`
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border: none;
   border-radius: 15px;

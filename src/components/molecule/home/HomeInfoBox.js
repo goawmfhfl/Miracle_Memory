@@ -7,7 +7,7 @@ import CommonText from "../../atom/text/CommonText";
 const HomeInfoBox = ({ onClick, date, title }) => {
   return (
     <Wrapper onClick={onClick}>
-      <StyledSubTitle>{title}</StyledSubTitle>
+      <StyledSubTitle className="nowrap">{title}</StyledSubTitle>
       <CommonText size={15} mt={5} color={"#A8A8A8"}>
         {getStringDate(date).dataString()}
       </CommonText>
@@ -20,11 +20,14 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   width: 60%;
+
+  @media (min-width: 360px) and (max-width: 450px) {
+    padding-left: 10px;
+  }
 `;
 const StyledSubTitle = styled(SubTitle)`
-  font-size: 14px;
+  font-size: 13px;
 `;
 
 export default HomeInfoBox;

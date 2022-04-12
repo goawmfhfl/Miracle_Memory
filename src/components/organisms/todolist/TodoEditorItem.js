@@ -10,8 +10,8 @@ const TodoEditorItem = () => {
   const [todos, setTodos] = useState("");
   const todosRef = useRef();
 
-  const handleChangeValue = (e) => {
-    setTodos(e.target.value);
+  const handleChangeValue = (value) => {
+    setTodos(value);
   };
   const handleSubmit = () => {
     if (todos.length < 1) {
@@ -25,12 +25,16 @@ const TodoEditorItem = () => {
 
   return (
     <Wrapper>
-      <ToDoInput
-        titleRef={todosRef}
-        title={todos}
-        onChange={handleChangeValue}
-      />
-      <ToDoButton onClick={handleSubmit} text={"입력"} type={"positive"} />
+      <LeftCol>
+        <TitleInput
+          titleRef={todosRef}
+          title={todos}
+          onChange={handleChangeValue}
+        />
+      </LeftCol>
+      <RightCol>
+        <Button onClick={handleSubmit} text={"입력"} type={"positive"} />
+      </RightCol>
     </Wrapper>
   );
 };
@@ -38,10 +42,12 @@ const TodoEditorItem = () => {
 const Wrapper = styled.section`
   width: 100%;
   display: flex;
+  justify-content: space-between;
 `;
+const LeftCol = styled.div`
+  flex-grow: 1;
+  margin-right: 15px;
+`;
+const RightCol = styled.div``;
 
-const ToDoInput = styled(TitleInput)`
-  width: 50%;
-`;
-const ToDoButton = styled(Button)``;
 export default TodoEditorItem;
