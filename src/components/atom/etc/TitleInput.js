@@ -1,6 +1,4 @@
 import styled from "styled-components";
-
-// "미라클 모닝 제목을 입력해주세요",
 const TitleInput = styled.input.attrs(
   ({ title, titleRef, onChange, placeholder }) => ({
     ref: titleRef,

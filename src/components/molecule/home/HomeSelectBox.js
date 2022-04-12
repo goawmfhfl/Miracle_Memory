@@ -6,7 +6,9 @@ const HomeSelectBox = ({ value, onChange, optionList }) => {
     <SelectBox value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList &&
         optionList.map((list, index) => (
-          <Option key={index} value={list.value} name={list.name} />
+          <Option key={index} value={list.value}>
+            {list.name}
+          </Option>
         ))}
     </SelectBox>
   );
