@@ -1,21 +1,9 @@
 import styled from "styled-components";
 
-const Button = ({ text, type, onClick }) => {
-  const btnType = ["positive", "negative", "none"].includes(type)
-    ? type
-    : "default";
-  return (
-    <StyledButton className={btnType} onClick={onClick}>
-      {text}
-    </StyledButton>
-  );
-};
-
-Button.defaultProps = {
-  type: "default",
-};
-
-const StyledButton = styled.button`
+const Button = styled.button.attrs(({ type, onClick }) => ({
+  className: type,
+  onClick: onClick,
+}))`
   width: 100%;
   height: 100%;
   cursor: pointer;
