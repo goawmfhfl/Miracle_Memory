@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createTodos } from "../../../module/todoListReducer";
 
-const TodoEditor = () => {
+const TodoEditorItem = () => {
   const dispatch = useDispatch();
   const [todos, setTodos] = useState("");
   const todosRef = useRef();
@@ -30,4 +30,4 @@ const TodoEditor = () => {
     </>
   );
 };
-export default TodoEditor;
+export default TodoEditorItem;
