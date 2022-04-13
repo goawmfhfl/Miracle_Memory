@@ -25,18 +25,21 @@ const NaviLink = styled(NavLink)`
     background-image: url("/assets/icon/nav-edit.svg")
     }
 &.todo::before {
-    background-image: url("/assets/icon/nav-message-circle.svg")
+    background-image: url("/assets/icon/nav-check.svg")
     }
   }
 
   &.active {
+    color:${(props) => props.theme.palette["main"]};
     &.home::before {
-        background-image: url("/assets/icon/nav-home-fill.svg")
+        background-image: url("/assets/icon/nav-home-fill.svg");
+    }
+    &.upload::before {
+        background-image: url("/assets/icon/nav-edit-fill.svg")
     }
     &.todo::before {
-        background-image: url("/assets/icon/nav-message-circle-fill.svg")
+        background-image: url("/assets/icon/nav-check-fill.svg")
     }
     
 `;
-
 export default NaviLink;

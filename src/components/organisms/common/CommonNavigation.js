@@ -15,8 +15,7 @@ const CommonNavigation = () => {
 const Wrapper = styled.ul`
   display: flex;
   justify-content: space-between;
-  position: fixed;
-
+  position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
