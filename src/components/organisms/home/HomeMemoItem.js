@@ -17,7 +17,7 @@ const HomeMemoItem = ({ emotion, id, date, title }) => {
     <MomoItem>
       <HomeEmotionBox onClick={goDetail} emotion={emotion} />
       <HomeInfoBox onClick={goDetail} date={date} title={title} />
-      <HomeButtonBox text={"수정하기"} onClick={goEdit} />
+      <HomeButtonBox onClick={goEdit} />
     </MomoItem>
   );
 };

@@ -25,7 +25,9 @@ const HomeSelectItem = ({ sortType, setSortType, filter, setFilter }) => {
         />
       </LeftCol>
       <RightCol>
-        <Button type={"positive"} text={"새로운 기록 남기기"} onClick={goNew} />
+        <Button type={"positive"} onClick={goNew}>
+          새로운 기록 남기기
+        </Button>
       </RightCol>
     </Wrapper>
   );

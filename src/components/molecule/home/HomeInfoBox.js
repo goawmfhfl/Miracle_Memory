@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
+  width: 50%;
 
   @media (min-width: 360px) and (max-width: 450px) {
     padding-left: 10px;

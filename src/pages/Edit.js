@@ -30,7 +30,7 @@ const Edit = () => {
   return (
     <>
       {editData && <EditorContainer isEdit={true} editData={editData} />}
-      {/* <CommonNavigation /> */}
+      <CommonNavigation />
     </>
   );
 };
