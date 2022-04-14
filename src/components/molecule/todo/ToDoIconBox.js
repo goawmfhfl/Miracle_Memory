@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${(props) => props.color || props.theme.palette["box"]};
+  background-color: ${(props) => props.color || props.theme.palette["main"]};
   margin-right: ${(props) => `${props.mr && props.mr}px`};
   padding: 5px;
   border-radius: 10px;

@@ -2,7 +2,9 @@ import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import { removeTodos, editTodos } from "../../../module/todoListReducer";
-import ToDoIconBox from "../../molecule/todo/ToDoIconBox";
+import ToDoIconBox from "../../molecule/todo/TodoIconBox";
+import TodoCheckBox from "../../molecule/todo/TodoCheckBox";
+import TodoInputBox from "../../molecule/todo/TodoTextBox";
 import TextArea from "../../atom/etc/TextArea";
 
 const TodoItem = ({ id, todoItem }) => {
@@ -36,19 +38,29 @@ const TodoItem = ({ id, todoItem }) => {
     setLocalContent(value);
   };
 
+  const [checked, setChecked] = useState(false);
+  const checkedItemHandler = (isChecked) => {
+    setChecked(isChecked);
+  };
+
   return (
     <Wrapper>
-      <LeftCol>
-        {isEdit ? (
-          <StyledTextArea
-            reference={localContentInput}
-            content={localContent}
-            onChange={handleLocalContent}
-          />
-        ) : (
-          <span>{todoItem}</span>
-        )}
-      </LeftCol>
+      {isEdit ? (
+        <StyledTextArea
+          reference={localContentInput}
+          content={localContent}
+          onChange={handleLocalContent}
+        />
+      ) : (
+        <>
+          <LeftCol>
+            <TodoCheckBox checkedItemHandler={checkedItemHandler} />
+          </LeftCol>
+          <CenterCol>
+            <TodoInputBox InputValue={todoItem} checked={checked} />
+          </CenterCol>
+        </>
+      )}
       {isEdit ? (
         <RightCol>
           <ToDoIconBox
@@ -58,7 +70,6 @@ const TodoItem = ({ id, todoItem }) => {
             mr={10}
           ></ToDoIconBox>
           <ToDoIconBox
-            color={(props) => props.theme.palette["main"]}
             icon={process.env.PUBLIC_URL + `/assets/icon/checkmark.svg`}
             onClick={handleEdit}
           ></ToDoIconBox>
@@ -66,7 +77,6 @@ const TodoItem = ({ id, todoItem }) => {
       ) : (
         <RightCol>
           <ToDoIconBox
-            color={(props) => props.theme.palette["main"]}
             icon={process.env.PUBLIC_URL + `/assets/icon/edit.svg`}
             mr={10}
             onClick={toggleIsEdit}
@@ -81,7 +91,6 @@ const TodoItem = ({ id, todoItem }) => {
     </Wrapper>
   );
 };
-
 const fadeIn = keyframes`
 from{
   opacity:0
@@ -90,7 +99,6 @@ to{
   opacity:1
 }
 `;
-
 const Wrapper = styled.li`
   width: 100%;
   padding: 20px 18px;
@@ -109,23 +117,15 @@ const Wrapper = styled.li`
   animation-timing-function: ease-out;
   animation-name: ${fadeIn};
   animation-fill-mode: forwards;
-
-  /* &:hover {
-    background-color: ${(props) => props.theme.palette["main"]};
-    border: 1px solid rgba(163, 163, 163, 0.35);
-    color: #fff;
-    span {
-      color: #fff;
-    }
-    button {
-      color: #fff;
-    }
-  } */
 `;
 
 const LeftCol = styled.div`
+  /* padding-top: 10px; */
+`;
+const CenterCol = styled.div`
   flex-grow: 1;
-  margin-right: 15px;
+  justify-content: flex-start;
+  padding-left: 15px;
 `;
 const RightCol = styled.div`
   display: flex;
@@ -134,6 +134,8 @@ const RightCol = styled.div`
 
 const StyledTextArea = styled(TextArea)`
   min-height: 50px;
+  flex-grow: 1;
+  margin-right: 15px;
   padding: 10px;
 `;
 export default TodoItem;
