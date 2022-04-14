@@ -15,7 +15,7 @@ const TodoItem = ({ id, todoItem }) => {
   const toggleIsEdit = () => setIsEdit(!isEdit);
 
   const handleRemove = (targetId) => {
-    if (window.confirm(`${targetId} 번째 삭제하실껀가요?`)) {
+    if (window.confirm("삭제하실껀가요?")) {
       dispatch(removeTodos(targetId));
     }
   };
@@ -119,9 +119,7 @@ const Wrapper = styled.li`
   animation-fill-mode: forwards;
 `;
 
-const LeftCol = styled.div`
-  /* padding-top: 10px; */
-`;
+const LeftCol = styled.div``;
 const CenterCol = styled.div`
   flex-grow: 1;
   justify-content: flex-start;

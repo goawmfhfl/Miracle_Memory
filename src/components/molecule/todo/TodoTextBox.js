@@ -14,7 +14,8 @@ const TodoInputBox = ({ InputValue, checked }) => {
 const InputBoxText = styled(CommonText)`
   font-size: 18px;
   &.underline {
-    text-decoration: underline;
+    text-decoration-line: line-through;
+    color: ${(props) => props.theme.palette["border"]};
   }
 `;
 

@@ -6,32 +6,16 @@ import TodoWeatherBox from "../../molecule/todo/TodoWeatherBox";
 const TodoWeatherItem = () => {
   return (
     <Wrapper>
-      <LeftCol>
-        <TodoTimeBox />
-      </LeftCol>
-      <RightCol>
-        <TodoWeatherBox />
-      </RightCol>
+      <TodoTimeBox />
+      <TodoWeatherBox />
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
-
+  justify-content: space-around;
   width: 100%;
-  padding: 15px;
-
-  background-color: ${(props) => props.theme.palette["box"]};
-
-  & > div {
-    display: flex;
-  }
-`;
-const LeftCol = styled.div`
-  width: 50%;
-`;
-const RightCol = styled.div`
-  width: 50%;
+  margin-top: 30px;
 `;
 export default TodoWeatherItem;
