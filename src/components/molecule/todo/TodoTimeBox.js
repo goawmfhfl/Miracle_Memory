@@ -1,12 +1,17 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
 import CommonText from "../../atom/text/CommonText";
-
+import { getCurTime } from "../../../util/date";
+import styled from "styled-components";
 const TodoTimeBox = () => {
   return (
     <Wrapper>
-      <CommonText>1월 4일 목요일</CommonText>
-      <CommonText> 10시 33분</CommonText>
+      <FirstText>
+        {getCurTime().curMonths}월 {getCurTime().curDate}일{" "}
+        {getCurTime().curDays}
+      </FirstText>
+      <SecondText>
+        {getCurTime().curHour}시 {getCurTime().curMinutes}분
+      </SecondText>
     </Wrapper>
   );
 };
@@ -19,7 +24,26 @@ const Wrapper = styled.div`
 
   padding: 20px;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.palette["box"]};
+  background-color: ${(props) => props.theme.palette["main"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
+`;
+
+const FirstText = styled(CommonText)`
+  font-size: 27px;
+  color: #fff;
+  font-weight: bolder;
+  margin-bottom: 10px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    font-size: 19px;
+  }
+`;
+const SecondText = styled(CommonText)`
+  color: #fff;
+  font-size: 24px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    font-size: 19px;
+  }
 `;
 export default TodoTimeBox;
