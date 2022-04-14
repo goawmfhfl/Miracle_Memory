@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { initalData } from "./module/memoryReducer";
+import { getPosition } from "./util/weather";
 import theme from "./styles/theme";
 import GlobalStyles from "./styles/GlobalStyles";
 import Detail from "./pages/Detail";
@@ -15,6 +16,11 @@ const App = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    getPosition();
+  }, []);
+
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("memory"));
     dispatch(initalData(localData));
