@@ -3,46 +3,42 @@ import styled from "styled-components";
 import axios from "axios";
 import CommonText from "../../atom/text/CommonText";
 import Icon from "../../atom/icon/Icon";
+import usePromise from "../../../hooks/usePromise";
 
 const TodoWeatherBox = () => {
-  const [data, setData] = useState({
-    temp_min: 0,
-    temp_max: 0,
-    temp_icon: "",
-    descript: "",
-  });
-
-  useEffect(() => {
-    if (localStorage.getItem("location")) {
-      const location = JSON.parse(localStorage.getItem("location"));
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_OPENWHEATER_API}&units=metric`
-        )
-        .then((response) => {
-          setData({
-            temp_min: response.data.main.temp_min,
-            temp_max: response.data.main.temp_max,
-            icon: response.data.weather[0].icon,
-            descript: response.data.weather[0].description,
-          });
-        });
-    } else {
-      return;
-    }
+  const [loading, response, error] = usePromise(() => {
+    const location = JSON.parse(localStorage.getItem("location"));
+    return axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_OPENWHEATER_API}&units=metric`
+    );
   }, []);
+
+  if (loading) {
+    return <>데이터를 불러오는 중입니다</>;
+  }
+
+  if (!response) {
+    return null;
+  }
+
+  if (error) {
+    return <>에러가 발생했습니다.</>;
+  }
+
+  const { temp_max, temp_min } = response?.data?.main;
+  const { icon, main } = response?.data?.weather[0];
 
   return (
     <Wrapper>
       <FirstChild>
         <WeatherIcon
-          icon={`http://openweathermap.org/img/wn/${data.icon}@2x.png`}
+          icon={`http://openweathermap.org/img/wn/${icon}@2x.png`}
         ></WeatherIcon>
       </FirstChild>
       <SecondChild>
-        <FirstText className="nowrap">{data.descript}</FirstText>
-        <SecondText>최저 : {data.temp_min}</SecondText>
-        <ThirdText>최고 : {data.temp_max}</ThirdText>
+        <FirstText className="nowrap">{main}</FirstText>
+        <SecondText>최저 : {temp_min}</SecondText>
+        <ThirdText>최고 : {temp_max}</ThirdText>
       </SecondChild>
     </Wrapper>
   );
