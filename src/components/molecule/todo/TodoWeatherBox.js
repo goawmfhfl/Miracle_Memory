@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import CommonText from "../../atom/text/CommonText";
@@ -25,8 +25,8 @@ const TodoWeatherBox = () => {
     return <>에러가 발생했습니다.</>;
   }
 
-  const { temp_max, temp_min } = response?.data?.main;
-  const { icon, main } = response?.data?.weather[0];
+  const { temp_max, temp_min } = response.data.main;
+  const { icon, main } = response.data.weather[0];
 
   return (
     <Wrapper>
