@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const usePromise = (promiseCreator) => {
+const usePromise = (promiseCreator, deps) => {
   const [loading, setLoading] = useState(false);
   const [resolved, setResolved] = useState(null);
   const [error, setError] = useState(null);
@@ -17,7 +17,8 @@ const usePromise = (promiseCreator) => {
       setLoading(false);
     };
     process();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 
   return [loading, resolved, error];
 };
