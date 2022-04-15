@@ -17,7 +17,7 @@ const TodoWeatherBox = () => {
       const location = JSON.parse(localStorage.getItem("location"));
       axios
         .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=6720dd6382b0a7536a9ab1184aed41a1&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_OPENWHEATER_API}&units=metric`
         )
         .then((response) => {
           setData({
@@ -40,7 +40,7 @@ const TodoWeatherBox = () => {
         ></WeatherIcon>
       </FirstChild>
       <SecondChild>
-        <FirstText>{data.descript}</FirstText>
+        <FirstText className="nowrap">{data.descript}</FirstText>
         <SecondText>최저 : {data.temp_min}</SecondText>
         <ThirdText>최고 : {data.temp_max}</ThirdText>
       </SecondChild>
@@ -77,7 +77,7 @@ const FirstChild = styled.div``;
 const SecondChild = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   & > span {
     margin-bottom: 5px;
   }
