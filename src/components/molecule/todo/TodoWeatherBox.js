@@ -11,7 +11,7 @@ const TodoWeatherBox = () => {
     return axios.get(
       `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_OPENWHEATER_API}&units=metric`
     );
-  }, []);
+  });
 
   if (loading) {
     return <>데이터를 불러오는 중입니다</>;
