@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const usePromise = (promiseCreator, deps) => {
+const usePromise = (promiseCreator) => {
   const [loading, setLoading] = useState(false);
   const [resolved, setResolved] = useState(null);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ const usePromise = (promiseCreator, deps) => {
       setLoading(false);
     };
     process();
-  }, deps);
+  });
 
   return [loading, resolved, error];
 };
