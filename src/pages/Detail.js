@@ -5,6 +5,8 @@ import { getStringDate } from "../util/date";
 import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
 import DetailContainer from "../components/template/DetailContainer";
+import CommonNavigation from "../components/organisms/common/CommonNavigation";
+import Icon from "../components/atom/icon/Icon";
 
 const DetailTemplate = () => {
   const navigate = useNavigate();
@@ -42,18 +44,23 @@ const DetailTemplate = () => {
     return <div>로딩중입니다...</div>;
   } else {
     return (
-      <div>
+      <>
         <CommonHeader
           headText={`${getStringDate(detailData.date).dataString()} 기록`}
           leftChild={
-            <Button text={"< 뒤로가기"} type={"none"} onClick={goBack} />
+            <Button type={"default"} onClick={goBack}>
+              &lt; 뒤로가기
+            </Button>
           }
           rightChild={
-            <Button text={"수정하기"} type={"positive"} onClick={goEdit} />
+            <Button type={"positive"} onClick={goEdit}>
+              수정하기
+            </Button>
           }
         ></CommonHeader>
         <DetailContainer detailData={detailData} />
-      </div>
+        <CommonNavigation />
+      </>
     );
   }
 };

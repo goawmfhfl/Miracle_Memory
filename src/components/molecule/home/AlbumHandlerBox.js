@@ -39,7 +39,6 @@ const Wrapper = styled.div`
 const ListIcon = styled(Icon)`
   width: 30px;
   height: 30px;
-  margin-right: 10px;
 `;
 const AlbumIcon = styled(Icon)`
   width: 30px;
@@ -51,13 +50,14 @@ const LeftButton = styled.button.attrs({ type: "button" })`
   background-color: inherit;
   width: 26px;
   height: 26px;
-  margin-right: 5px;
+  margin-right: 7px;
 `;
 const RightButton = styled.button.attrs({ type: "button" })`
   border: none;
   background-color: inherit;
   width: 26px;
   height: 26px;
+  margin-right: 7px;
 `;
 
 export default AlbumHandlerBox;

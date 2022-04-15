@@ -49,3 +49,35 @@ export const getMonthDate = (curDate, setData, diaryList) => {
   };
   return { increaseMonth, decreaseMonth, changeMonthDate, headText };
 };
+
+export const getTime = () => {
+  return {
+    years: new Date().getFullYear(),
+    days: new Date().getDay(),
+    date: new Date().getDate(),
+    months: new Date().getMonth(),
+    hours: new Date().getHours(),
+    minutes: new Date().getMinutes(),
+    miliSeconds: new Date().getMilliseconds(),
+  };
+};
+
+export const getCurTime = () => {
+  const WEEKDAY = [
+    "일요일",
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일",
+  ];
+  return {
+    curYear: getTime().years,
+    curDays: WEEKDAY[getTime().days],
+    curDate: getTime().date,
+    curMonths: getTime().months + 1,
+    curHour: String(getTime().hours).padStart(2, "0"),
+    curMinutes: String(getTime().minutes).padStart(2, "0"),
+  };
+};

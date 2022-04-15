@@ -7,23 +7,31 @@ const CommonHeader = ({ headText, leftChild, rightChild }) => {
     <MainHeader>
       <LeftBtn>{leftChild}</LeftBtn>
       <HeadText>
-        <Title text={headText} />
+        <Title>{headText}</Title>
       </HeadText>
       <RightBtn>{rightChild}</RightBtn>
     </MainHeader>
   );
 };
-const MainHeader = styled.header`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid ${(props) => props.theme.palette["border"]};
 
+const MainHeader = styled.header`
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 20px 10px;
+
+  width: 100%;
+  border-bottom: 1px solid ${(props) => props.theme.palette["border"]};
   display: flex;
   align-items: center;
 
   & > div {
     display: flex;
+  }
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    padding: 10px 5px;
   }
 `;
 const LeftBtn = styled.div`

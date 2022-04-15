@@ -14,7 +14,7 @@ const SubTitleBox = ({ text, icon, mb }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  font-weight: bold;
+  align-items: center;
   margin-bottom: ${(props) => `${props.mb}px` || "16px"};
 `;
 export default SubTitleBox;
