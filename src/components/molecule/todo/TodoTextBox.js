@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CommonText from "../../atom/text/CommonText";
-const TodoInputBox = ({ InputValue, checked }) => {
+const TodoTextBox = ({ InputValue, checked }) => {
   return (
     <Wrapper>
       <InputBoxText className={checked ? "underline" : ""}>
@@ -20,4 +20,4 @@ const InputBoxText = styled(CommonText)`
 `;
 
 const Wrapper = styled.div``;
-export default TodoInputBox;
+export default TodoTextBox;

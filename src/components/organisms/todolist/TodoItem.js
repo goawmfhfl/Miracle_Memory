@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { removeTodos, editTodos } from "../../../module/todoListReducer";
 import TodoIconBox from "../../molecule/todo/TodoIconBox";
 import TodoCheckBox from "../../molecule/todo/TodoCheckBox";
-import TodoInputBox from "../../molecule/todo/TodoTextBox";
+import TodoTextBox from "../../molecule/todo/TodoTextBox";
 import TextArea from "../../atom/etc/TextArea";
 
 const TodoItem = ({ id, todoItem }) => {
@@ -57,7 +57,7 @@ const TodoItem = ({ id, todoItem }) => {
             <TodoCheckBox checkedItemHandler={checkedItemHandler} />
           </LeftCol>
           <CenterCol>
-            <TodoInputBox InputValue={todoItem} checked={checked} />
+            <TodoTextBox InputValue={todoItem} checked={checked} />
           </CenterCol>
         </>
       )}
