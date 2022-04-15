@@ -1,3 +1,17 @@
+export const getWeekDayStr = () => {
+  return {
+    WEEKDAY: [
+      "일요일",
+      "월요일",
+      "화요일",
+      "수요일",
+      "목요일",
+      "금요일",
+      "토요일",
+    ],
+  };
+};
+
 export const getStringDate = (date) => {
   // 2022-03-28
   const ISOString = () => {
@@ -13,7 +27,7 @@ export const getStringDate = (date) => {
 };
 
 export const getMonthDate = (curDate, setData, diaryList) => {
-  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
+  const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월 `;
 
   const increaseMonth = () => {
     setData(
@@ -47,7 +61,12 @@ export const getMonthDate = (curDate, setData, diaryList) => {
       diaryList.filter((list) => firstDay <= list.date && list.date <= lastDay)
     );
   };
-  return { increaseMonth, decreaseMonth, changeMonthDate, headText };
+  return {
+    increaseMonth,
+    decreaseMonth,
+    changeMonthDate,
+    headText,
+  };
 };
 
 export const getTime = () => {
@@ -63,18 +82,9 @@ export const getTime = () => {
 };
 
 export const getCurTime = () => {
-  const WEEKDAY = [
-    "일요일",
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요일",
-  ];
   return {
     curYear: getTime().years,
-    curDays: WEEKDAY[getTime().days],
+    curDays: getWeekDayStr().WEEKDAY[getTime().days],
     curDate: getTime().date,
     curMonths: getTime().months + 1,
     curHour: String(getTime().hours).padStart(2, "0"),

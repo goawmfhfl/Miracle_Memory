@@ -18,7 +18,6 @@ const TodoEditorItem = () => {
       todosRef.current.focus();
       return;
     }
-    alert("저장성공");
     dispatch(createTodos(todos));
     setTodos("");
   };
