@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { initalData } from "./module/memoryReducer";
+import { initTodos } from "./module/todoListReducer";
 import { getPosition } from "./util/weather";
 import theme from "./styles/theme";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -25,6 +26,11 @@ const App = () => {
   useEffect(() => {
     const localData = JSON.parse(localStorage.getItem("memory"));
     dispatch(initalData(localData));
+  }, [dispatch]);
+
+  useEffect(() => {
+    const localData = JSON.parse(localStorage.getItem("todolist"));
+    dispatch(initTodos(localData));
   }, [dispatch]);
 
   useEffect(() => {

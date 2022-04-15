@@ -18,7 +18,7 @@ const TodoWeatherBox = () => {
     const getCoordsInfo = () => {
       if (localStorage.getItem("location")) {
         const location = JSON.parse(localStorage.getItem("location"));
-        const fetchedData = axios
+        axios
           .get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=6720dd6382b0a7536a9ab1184aed41a1&units=metric`
           )
