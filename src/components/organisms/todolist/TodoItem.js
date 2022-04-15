@@ -123,7 +123,7 @@ const LeftCol = styled.div``;
 const CenterCol = styled.div`
   flex-grow: 1;
   justify-content: flex-start;
-  padding-left: 15px;
+  padding-left: 20px;
 `;
 const RightCol = styled.div`
   display: flex;
