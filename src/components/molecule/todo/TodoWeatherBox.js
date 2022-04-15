@@ -59,13 +59,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
-
+  padding: 5px;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.palette["box"]};
+  background-color: ${(props) => props.theme.palette["main"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
   @media (min-width: 360px) and (max-width: 600px) {
-    flex-direction: column;
   }
 `;
 
@@ -73,6 +71,7 @@ const WeatherIcon = styled(Icon)`
   width: 80px;
   height: 80px;
   background-color: #fff;
+
   border-radius: 15px;
   @media (min-width: 360px) and (max-width: 600px) {
     width: 50px;
@@ -84,25 +83,33 @@ const FirstChild = styled.div``;
 const SecondChild = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  align-items: flex-start;
   & > span {
     margin-bottom: 5px;
   }
 `;
 
 const FirstText = styled(CommonText)`
+  color: #fff;
   font-size: 30px;
 
   @media (min-width: 360px) and (max-width: 600px) {
-    font-size: 25px;
+    font-size: 20px;
   }
 `;
 const SecondText = styled(CommonText)`
+  color: #fff;
   font-size: 18px;
+  @media (min-width: 360px) and (max-width: 600px) {
+    font-size: 13px;
+  }
 `;
 const ThirdText = styled(CommonText)`
+  color: #fff;
   font-size: 18px;
+  @media (min-width: 360px) and (max-width: 600px) {
+    font-size: 13px;
+  }
 `;
 
 export default TodoWeatherBox;

@@ -23,20 +23,17 @@ const TodoTimeBox = () => {
 const Wrapper = styled.div`
   width: 40%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
 
   border-radius: 15px;
-  background-color: ${(props) => props.theme.palette["main"]};
+  background-color: ${(props) => props.theme.palette["box"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 `;
 const FirstChild = styled.div`
   display: flex;
   align-items: center;
-  @media (min-width: 360px) and (max-width: 600px) {
-    flex-direction: column;
-  }
   & > span {
     margin-bottom: 10px;
   }
@@ -45,11 +42,14 @@ const SecondChild = styled.div``;
 
 const FirstText = styled(CommonText)`
   font-size: 25px;
-  color: #fff;
+  color: #000;
   font-weight: bolder;
 
   @media (min-width: 360px) and (max-width: 600px) {
-    font-size: 23px;
+    font-size: 18px;
+    &:nth-child(2) {
+      margin-left: 5px;
+    }
   }
   @media (min-width: 600px) {
     &:nth-child(2) {
@@ -59,11 +59,11 @@ const FirstText = styled(CommonText)`
 `;
 
 const SecondText = styled(CommonText)`
-  color: #fff;
+  color: #000;
   font-size: 25px;
   font-weight: bolder;
   @media (min-width: 360px) and (max-width: 600px) {
-    font-size: 23px;
+    font-size: 18px;
   }
 `;
 export default TodoTimeBox;
