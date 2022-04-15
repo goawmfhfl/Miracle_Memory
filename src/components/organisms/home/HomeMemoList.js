@@ -33,10 +33,10 @@ const MemoList = styled.ul`
   background-color: ${(props) => props.theme.palette["box"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
   overflow-y: auto;
-  height: 450px;
+  height: 425px;
 
   @media (min-width: 600px) {
-    height: 800px;
+    height: 600px;
   }
 `;
 
