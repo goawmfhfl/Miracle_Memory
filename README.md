@@ -43,7 +43,7 @@
 - [[ 미라클 메모리 ] 리덕스를 사용하여 상태로직 분리하기](https://www.notion.so/c387a191c4be4e14b14e9bc0f3069427)
 - [[ 미라클 메모리 ] UseContext를 사용하여 전역에서 데이터 공급하기](https://www.notion.so/c4edbca043774ed3a77948c815fb1af2)
 - [[ 미라클 메모리 ] 본격적으로 Reducer 환경 구축하기](https://www.notion.so/79b3899726994a048d5ffa94a256f41b)
-- [[ 미라클 메모리 ] new Date를 사용하여 날짜별 데이터 표시하기](https://www.notion.so/c26a0cbc94b14b428e98b1fb11642126)
+- [[미라클 메모리] new Date를 사용하여 날짜별 데이터 표시하기](https://www.notion.so/c26a0cbc94b14b428e98b1fb11642126)
 - [[ 미라클 메모리 ] 객체 깊은 복사하여 sort 구현하기](https://www.notion.so/5b429055afff499eb2e8d1097707f8c1)
 - [[ 미라클 메모리 ] 클로저 활용하여 Date값 관리하기](https://www.notion.so/3ac1e930dfc1481f94fdcdd9fc532267)
 - [[ 미라클 메모리 ] isSelected를 활용하여 스타일링하기](https://www.notion.so/830d474e9c8949cbad84365bd8933678)
@@ -60,6 +60,10 @@
 - [[ 리팩토링 ] lodash 라이브러리 사용하여 객체 깊은 복사하기](https://www.notion.so/70050ce9e636476e814cf61e1be30778)
 - [[ 리팩토링 ] Automic Design System](https://www.notion.so/8e581e2ab44341fc924ebe73976a8b6d)
 - [[ 리팩토링 ] Redux Ducks Patten](https://www.notion.so/dfc5be80e6334ab183966272eff47df2)
+- [[ 피드백 적용하기 ] 사용자 경험 향상을 위한 피드백 받기](https://herman94.notion.site/31-fc9c411a069045a7a1b10560ad0557e4)
+- [[ 피드백 적용하기 ] 임시변수 제거하기](https://www.notion.so/herman94/34-879ae7bc03d14514aef1af8ce74ba86f)
+- [[ 피드백 적용하기 ] 날씨 API 불러오기](https://www.notion.so/herman94/35-API-bdac9f4d50024790ad5f287afce5ccc7)
+- [[ 피드백 적용 완료 ] 피드백 반영하기](https://www.notion.so/herman94/36-abb75d5d69774b138a66a59c2bd76877)
 
 ### **[ 개발 이슈 ]**
 
