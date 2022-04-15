@@ -6,7 +6,6 @@ export const getPosition = () => {
       latitude,
       longitude,
     };
-
     localStorage.setItem("location", JSON.stringify(coordsObj));
   };
 

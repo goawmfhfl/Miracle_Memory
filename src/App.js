@@ -18,6 +18,7 @@ const App = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (localStorage.getItem("location")) return;
     getPosition();
   }, []);
 
