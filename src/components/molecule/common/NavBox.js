@@ -13,9 +13,12 @@ const NavBox = ({ to, className, text }) => {
 };
 
 const Wrapper = styled.li`
-  width: 84px;
+  @media (min-width: 360px) and (max-width: 600px) {
+    width: 60px;
+  }
 
   @media (min-width: 600px) {
+    width: 84px;
     padding: 6px;
   }
 `;

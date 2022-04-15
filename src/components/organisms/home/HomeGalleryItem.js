@@ -33,9 +33,10 @@ to{
 
 const GalleryItem = styled.li`
   padding: 10px;
-  width: 46%;
   margin-top: 2.5%;
   margin-left: 2.5%;
+  min-width: 100px;
+  min-height: 150px;
 
   display: flex;
   flex-direction: column;

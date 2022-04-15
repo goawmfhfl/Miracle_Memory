@@ -86,7 +86,7 @@ const EditorContainer = ({ isEdit, editData }) => {
       <CommonHeader
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
         leftChild={
-          <Button type={"none"} onClick={goBack}>
+          <Button type={"default"} onClick={goBack}>
             &lt; 뒤로가기
           </Button>
         }
@@ -140,6 +140,12 @@ const Article = styled.article`
 
     & > section:nth-last-child(2) {
       margin-bottom: 15px;
+    }
+  }
+
+  @media (min-width: 600px) {
+    & > section:nth-child(1) {
+      margin-top: 20px;
     }
   }
 `;

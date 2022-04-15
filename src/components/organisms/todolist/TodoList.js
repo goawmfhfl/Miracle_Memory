@@ -20,7 +20,7 @@ const Wrapper = styled.ul`
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 
   @media (min-width: 360px) and (max-width: 600px) {
-    height: 270px;
+    height: 330px;
   }
 
   @media (min-width: 600px) {

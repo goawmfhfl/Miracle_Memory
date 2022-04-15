@@ -7,7 +7,7 @@ const Title = styled.h1`
   font-family: "MaruBuri-Bold";
 
   @media (min-width: 360px) and (max-width: 600px) {
-    font-size: 18px;
+    font-size: 17px;
   }
 `;
 export default Title;

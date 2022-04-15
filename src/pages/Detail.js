@@ -48,7 +48,7 @@ const DetailTemplate = () => {
         <CommonHeader
           headText={`${getStringDate(detailData.date).dataString()} 기록`}
           leftChild={
-            <Button type={"none"} onClick={goBack}>
+            <Button type={"default"} onClick={goBack}>
               &lt; 뒤로가기
             </Button>
           }

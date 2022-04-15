@@ -19,8 +19,7 @@ const MainHeader = styled.header`
   top: 0;
   left: 0;
 
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px 10px;
 
   width: 100%;
   border-bottom: 1px solid ${(props) => props.theme.palette["border"]};
@@ -32,8 +31,7 @@ const MainHeader = styled.header`
   }
 
   @media (min-width: 360px) and (max-width: 600px) {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 5px;
   }
 `;
 const LeftBtn = styled.div`

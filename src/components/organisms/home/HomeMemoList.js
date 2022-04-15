@@ -22,10 +22,11 @@ const HomeMemoList = ({ gallery, filter, sortType, MonthData }) => {
 
 const MemoList = styled.ul`
   &.gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5%;
   }
-
   overflow-y: auto;
   padding: 10px;
   border-radius: 15px;
