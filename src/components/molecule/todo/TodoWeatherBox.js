@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import CommonText from "../../atom/text/CommonText";
@@ -6,12 +6,14 @@ import Icon from "../../atom/icon/Icon";
 import usePromise from "../../../hooks/usePromise";
 
 const TodoWeatherBox = () => {
+  const location = useMemo(() => {
+    JSON.parse(localStorage.getItem("location"));
+  }, []);
   const [loading, response, error] = usePromise(() => {
-    const location = JSON.parse(localStorage.getItem("location"));
     return axios.get(
       `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=${process.env.REACT_APP_OPENWHEATER_API}&units=metric`
     );
-  }, []);
+  }, location);
 
   if (loading) {
     return <>데이터를 불러오는 중입니다</>;

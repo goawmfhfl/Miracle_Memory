@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const usePromise = (promiseCreator, deps) => {
   const [loading, setLoading] = useState(false);
