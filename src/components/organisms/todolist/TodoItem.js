@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import styled, { keyframes } from "styled-components";
 import { removeTodos, editTodos } from "../../../module/todoListReducer";
-import ToDoIconBox from "../../molecule/todo/TodoIconBox";
+import TodoIconBox from "../../molecule/todo/TodoIconBox";
 import TodoCheckBox from "../../molecule/todo/TodoCheckBox";
 import TodoInputBox from "../../molecule/todo/TodoTextBox";
 import TextArea from "../../atom/etc/TextArea";
@@ -63,29 +63,29 @@ const TodoItem = ({ id, todoItem }) => {
       )}
       {isEdit ? (
         <RightCol>
-          <ToDoIconBox
+          <TodoIconBox
             color={"#000"}
             icon={process.env.PUBLIC_URL + `/assets/icon/cross.svg`}
             onClick={handleQuitEdit}
             mr={10}
-          ></ToDoIconBox>
-          <ToDoIconBox
+          ></TodoIconBox>
+          <TodoIconBox
             icon={process.env.PUBLIC_URL + `/assets/icon/checkmark.svg`}
             onClick={handleEdit}
-          ></ToDoIconBox>
+          ></TodoIconBox>
         </RightCol>
       ) : (
         <RightCol>
-          <ToDoIconBox
+          <TodoIconBox
             icon={process.env.PUBLIC_URL + `/assets/icon/edit.svg`}
             mr={10}
             onClick={toggleIsEdit}
-          ></ToDoIconBox>
-          <ToDoIconBox
+          ></TodoIconBox>
+          <TodoIconBox
             color={"#000"}
             icon={process.env.PUBLIC_URL + `/assets/icon/delete.svg`}
             onClick={() => handleRemove(id)}
-          ></ToDoIconBox>
+          ></TodoIconBox>
         </RightCol>
       )}
     </Wrapper>

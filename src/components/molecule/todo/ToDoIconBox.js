@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Icon from "../../atom/icon/Icon";
 
-const ToDoIconBox = ({ icon, color, mr, onClick }) => {
+const TodoIconBox = ({ icon, color, mr, onClick }) => {
   return (
     <Wrapper color={color} mr={mr} onClick={onClick}>
       <Icon icon={icon} />
@@ -22,4 +22,4 @@ const Wrapper = styled.div`
 
   cursor: pointer;
 `;
-export default ToDoIconBox;
+export default TodoIconBox;
