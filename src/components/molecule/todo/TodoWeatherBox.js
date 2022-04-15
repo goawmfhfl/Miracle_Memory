@@ -12,8 +12,6 @@ const TodoWeatherBox = () => {
     descript: "",
   });
 
-  console.log(data);
-
   useEffect(() => {
     const getCoordsInfo = () => {
       if (localStorage.getItem("location")) {
@@ -23,7 +21,6 @@ const TodoWeatherBox = () => {
             `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=6720dd6382b0a7536a9ab1184aed41a1&units=metric`
           )
           .then((response) => {
-            console.log(response);
             setData({
               temp_min: response.data.main.temp_min,
               temp_max: response.data.main.temp_max,

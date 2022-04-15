@@ -30,7 +30,6 @@ export const editTodos = (targetId, todos) => ({
 });
 
 const todoListReducer = (state = [], action) => {
-  console.log("state", state);
   let newState = [];
   switch (action.type) {
     case TODOLIST_INIT: {

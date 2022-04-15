@@ -5,7 +5,6 @@ import TodoItem from "./TodoItem";
 
 const TodoList = () => {
   const todos = useSelector(({ todoListReducer }) => todoListReducer);
-  console.log(todos);
 
   return (
     <Wrapper>
