@@ -21,17 +21,18 @@ const EditorEmotionBox = ({
   );
 };
 const EmotionBox = styled.li`
-  @media (min-width: 390px) and (max-width: 600px) {
+  @media (min-width: 360px) and (max-width: 600px) {
     width: 100%;
+    padding: 10px;
     margin: 0 1.5%;
-    padding: 3%;
+    font-size: 10px;
   }
   @media (min-width: 600px) {
     width: 110px;
     height: 120px;
   }
   cursor: pointer;
-  border: 3px solid ${(props) => props.theme.palette["border"]};
+  border: 3px solid ${(props) => props.theme.palette["box"]};
   border-radius: 15px;
 
   display: flex;
@@ -40,7 +41,7 @@ const EmotionBox = styled.li`
   align-items: center;
 
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
-  background-color: ${(props) => props.theme.palette["border"]};
+  background-color: ${(props) => props.theme.palette["box"]};
 
   &.on_1 {
     border: 3px solid ${(props) => props.theme.palette["main"]};

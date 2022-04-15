@@ -86,15 +86,15 @@ const EditorContainer = ({ isEdit, editData }) => {
       <CommonHeader
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
         leftChild={
-          <Button text={"< 뒤로가기"} type={"none"} onClick={goBack} />
+          <Button type={"default"} onClick={goBack}>
+            &lt; 뒤로가기
+          </Button>
         }
         rightChild={
           isEdit && (
-            <Button
-              text={"삭제하기"}
-              type={"negative"}
-              onClick={handleRemove}
-            />
+            <Button type={"negative"} onClick={handleRemove}>
+              삭제하기
+            </Button>
           )
         }
       />
@@ -114,13 +114,15 @@ const EditorContainer = ({ isEdit, editData }) => {
         <EditorControlBox
           handleSubmit={handleSubmit}
           goHome={goHome}
-          leftChild={<Button text={"취소하기"} onClick={goHome} />}
+          leftChild={
+            <LeftButton onClick={goHome} type="default">
+              취소하기
+            </LeftButton>
+          }
           rightChild={
-            <Button
-              text={"작성완료"}
-              type={"positive"}
-              onClick={handleSubmit}
-            />
+            <RightButton type={"positive"} onClick={handleSubmit}>
+              작성완료
+            </RightButton>
           }
         />
       </Article>
@@ -131,11 +133,28 @@ const Article = styled.article`
   & > section {
     margin-bottom: 40px;
   }
-  @media (min-width: 390px) and (max-width: 600px) {
+  @media (min-width: 360px) and (max-width: 600px) {
+    & > section {
+      margin-bottom: 30px;
+    }
+
     & > section:nth-last-child(2) {
       margin-bottom: 15px;
     }
   }
+
+  @media (min-width: 600px) {
+    & > section:nth-child(1) {
+      margin-top: 20px;
+    }
+  }
+`;
+
+const LeftButton = styled(Button)`
+  width: 45%;
+`;
+const RightButton = styled(Button)`
+  width: 45%;
 `;
 
 export default EditorContainer;

@@ -1,17 +1,13 @@
 import styled from "styled-components";
-const TextArea = ({ content, onChange, reference }) => {
-  return (
-    <InputArea
-      ref={reference}
-      value={content}
-      onChange={(e) => onChange(e.target.value)}
-    />
-  );
-};
 
-const InputArea = styled.textarea.attrs({
+const TextArea = styled.textarea.attrs(({ content, onChange, reference }) => ({
+  ref: reference,
+  value: content,
+  onChange: (e) => {
+    onChange(e.target.value);
+  },
   placeholder: "미라클 모닝을 기록해보세요",
-})`
+}))`
   font-family: "Amsterdam";
   font-weight: bolder;
   font-size: 20px;
@@ -23,9 +19,13 @@ const InputArea = styled.textarea.attrs({
 
   border: none;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.palette["border"]};
+  background-color: ${(props) => props.theme.palette["box"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
 
   padding: 20px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    min-height: 130px;
+  }
 `;
 export default TextArea;

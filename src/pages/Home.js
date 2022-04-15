@@ -4,6 +4,7 @@ import { getMonthDate } from "../util/date";
 import Icon from "../components/atom/icon/Icon";
 import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
+import CommonNavigation from "../components/organisms/common/CommonNavigation";
 import HomeSplashItem from "../components/organisms/home/HomeSplashItem";
 import HomeContainer from "../components/template/HomeContainer";
 const Home = ({ loading, visible }) => {
@@ -38,33 +39,26 @@ const Home = ({ loading, visible }) => {
           <CommonHeader
             headText={getMonthDate(curDate, setCurDate).headText}
             leftChild={
-              <Button
-                text={
-                  <Icon
-                    icon={
-                      process.env.PUBLIC_URL + `/assets/icon/chevron-left.svg`
-                    }
-                  />
-                }
-                type={"none"}
-                onClick={decreaseMonth}
-              />
+              <Button type={"none"} onClick={decreaseMonth}>
+                <Icon
+                  icon={
+                    process.env.PUBLIC_URL + `/assets/icon/chevron-left.svg`
+                  }
+                />
+              </Button>
             }
             rightChild={
-              <Button
-                text={
-                  <Icon
-                    icon={
-                      process.env.PUBLIC_URL + `/assets/icon/chevron-right.svg`
-                    }
-                  />
-                }
-                type={"none"}
-                onClick={increaseMonth}
-              />
+              <Button type={"none"} onClick={increaseMonth}>
+                <Icon
+                  icon={
+                    process.env.PUBLIC_URL + `/assets/icon/chevron-right.svg`
+                  }
+                />
+              </Button>
             }
           />
           <HomeContainer MonthData={data} />
+          <CommonNavigation />
         </>
       )}
     </>

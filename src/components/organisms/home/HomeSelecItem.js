@@ -25,17 +25,23 @@ const HomeSelectItem = ({ sortType, setSortType, filter, setFilter }) => {
         />
       </LeftCol>
       <RightCol>
-        <Button type={"positive"} text={"새로운 기록 남기기"} onClick={goNew} />
+        <Button type={"positive"} onClick={goNew}>
+          새로운 기록 남기기
+        </Button>
       </RightCol>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  margin-top: 20px;
-
   display: flex;
   justify-content: space-between;
+
+  margin-top: 20px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    margin-top: 0px;
+  }
 `;
 const LeftCol = styled.div`
   display: flex;

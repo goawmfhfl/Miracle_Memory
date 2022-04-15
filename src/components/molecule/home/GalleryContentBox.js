@@ -5,8 +5,8 @@ import CommonText from "../../atom/text/CommonText";
 
 const GalleryContentBox = ({ title, content, onClick }) => {
   return (
-    <Wrapper onClick={onClick}>
-      <StyledSubTitle>{title}</StyledSubTitle>
+    <Wrapper onClick={onClick} className="nowrap">
+      <StyledSubTitle className="nowrap">{title}</StyledSubTitle>
       <CommonText>{content}</CommonText>
     </Wrapper>
   );
@@ -15,10 +15,6 @@ const GalleryContentBox = ({ title, content, onClick }) => {
 const Wrapper = styled.div`
   cursor: pointer;
   margin-bottom: 10px;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 `;
 const StyledSubTitle = styled(SubTitle)`
   font-size: 16px;

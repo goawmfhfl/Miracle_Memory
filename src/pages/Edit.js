@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import EditorContainer from "../components/template/EditorContainer";
+import CommonNavigation from "../components/organisms/common/CommonNavigation";
 const Edit = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -27,7 +28,10 @@ const Edit = () => {
   }, []);
 
   return (
-    <>{editData && <EditorContainer isEdit={true} editData={editData} />}</>
+    <>
+      {editData && <EditorContainer isEdit={true} editData={editData} />}
+      <CommonNavigation />
+    </>
   );
 };
 export default Edit;

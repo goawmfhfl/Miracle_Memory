@@ -6,7 +6,9 @@ const HomeSelectBox = ({ value, onChange, optionList }) => {
     <SelectBox value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList &&
         optionList.map((list, index) => (
-          <Option key={index} value={list.value} name={list.name} />
+          <Option key={index} value={list.value}>
+            {list.name}
+          </Option>
         ))}
     </SelectBox>
   );
@@ -21,12 +23,16 @@ const SelectBox = styled.select`
 
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 15px;
+  padding-left: 15px;
 
   cursor: pointer;
   font-family: "Amsterdam";
   font-weight: bolder;
-  font-size: 14px;
+  font-size: 20px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    padding-left: 10px;
+    font-size: 14px;
+  }
 `;
 export default HomeSelectBox;

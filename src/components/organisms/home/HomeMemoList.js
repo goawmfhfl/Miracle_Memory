@@ -22,8 +22,21 @@ const HomeMemoList = ({ gallery, filter, sortType, MonthData }) => {
 
 const MemoList = styled.ul`
   &.gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5%;
+  }
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.palette["box"]};
+  box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
+  overflow-y: auto;
+  height: 425px;
+
+  @media (min-width: 600px) {
+    height: 600px;
   }
 `;
 

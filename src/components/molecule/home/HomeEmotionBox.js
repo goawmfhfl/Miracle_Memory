@@ -20,5 +20,9 @@ const Wrapper = styled.div`
 
   display: flex;
   justify-content: center;
+
+  @media (min-width: 600px) {
+    width: 15%;
+  }
 `;
 export default HomeEmotionBox;

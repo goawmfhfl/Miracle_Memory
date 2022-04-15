@@ -1,4 +1,7 @@
-const Option = ({ value, name }) => {
-  return <option value={value}>{name}</option>;
-};
+import styled from "styled-components";
+
+const Option = styled.option.attrs(({ value }) => ({
+  value: value,
+}))``;
+
 export default Option;

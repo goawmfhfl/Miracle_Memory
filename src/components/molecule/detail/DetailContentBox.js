@@ -12,7 +12,7 @@ const DetailContentBox = ({ content }) => {
 
 const Wrapper = styled.div`
   width: 100%;
-  background-color: ${(props) => props.theme.palette["border"]};
+  background-color: ${(props) => props.theme.palette["box"]};
   box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
   word-break: keep-all;
   overflow-wrap: break-word;

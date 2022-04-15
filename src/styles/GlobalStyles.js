@@ -13,43 +13,40 @@ const GlobalStyles = createGlobalStyle`
     justify-content: center;
     align-items: center;
     font-family: "Amsterdam";
-    
     }
-    /* @media(min-width:390px){ */
-/*  */
-    /* } */
-
-    @media (min-width: 650px) {
-    .App {
-    width: 640px;
-        }
-    }
-
-    @media (max-width: 650px) {
-    .App {
-    width: 100vw;
-        }
-    }
-
     #root {
     background-color: #fff;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 9px;
     }
 
     .App {
+    position:relative;
     min-height:100vh;
     padding-left: 20px;
     padding-right: 20px;
+    padding-top:90px;
+    padding-bottom:85px;
     }
+    @media (min-width: 650px) {
+    .App {
+    width: 640px;
+        }
+    }
+    @media (max-width: 650px) {
+    .App {
+    width: 100vw;
+        }
+    }
+    * {
+        box-sizing:border-box;
+    }
+
     a {
         text-decoration:none;
         cursor: pointer;
         color:inherit;
     }
-    * {
-        box-sizing:border-box;
-    }
- 
+
     button {
         border: none;
         cursor: pointer;
@@ -72,5 +69,11 @@ const GlobalStyles = createGlobalStyle`
 
     resize: none; 
     }
+    .nowrap{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+  
 `;
 export default GlobalStyles;

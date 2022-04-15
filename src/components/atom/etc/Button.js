@@ -1,25 +1,19 @@
 import styled from "styled-components";
 
-const Button = ({ text, type, onClick }) => {
-  const btnType = ["positive", "negative", "none"].includes(type)
-    ? type
-    : "default";
-  return (
-    <StyledButton className={btnType} onClick={onClick}>
-      {text}
-    </StyledButton>
-  );
-};
-
-Button.defaultProps = {
-  type: "default",
-};
-
-const StyledButton = styled.button`
+const Button = styled.button.attrs(({ type, onClick }) => ({
+  className: type,
+  onClick: onClick,
+}))`
+  width: 100%;
+  height: 100%;
   cursor: pointer;
   border: none;
   border-radius: 15px;
-  font-size: 15px;
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    font-size: 15px;
+  }
+  font-size: 22px;
 
   padding-top: 10px;
   padding-bottom: 10px;
@@ -31,7 +25,7 @@ const StyledButton = styled.button`
   font-weight: bolder;
 
   &.default {
-    background-color: ${(props) => props.theme.palette["border"]};
+    background-color: ${(props) => props.theme.palette["box"]};
     box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
     color: #000;
   }
