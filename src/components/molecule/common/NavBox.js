@@ -14,7 +14,10 @@ const NavBox = ({ to, className, text }) => {
 
 const Wrapper = styled.li`
   width: 84px;
-  padding: 6px;
+
+  @media (min-width: 600px) {
+    padding: 6px;
+  }
 `;
 
 export default NavBox;

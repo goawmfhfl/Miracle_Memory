@@ -12,7 +12,21 @@ const TodoList = () => {
     </Wrapper>
   );
 };
-const Wrapper = styled.section``;
+const Wrapper = styled.ul`
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.palette["box"]};
+  box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
+
+  @media (min-width: 360px) and (max-width: 600px) {
+    height: 270px;
+  }
+
+  @media (min-width: 600px) {
+    height: 670px;
+  }
+`;
 
 TodoList.defaultProps = {
   todos: [],

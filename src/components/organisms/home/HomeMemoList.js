@@ -25,6 +25,18 @@ const MemoList = styled.ul`
     display: flex;
     flex-wrap: wrap;
   }
+
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: ${(props) => props.theme.palette["box"]};
+  box-shadow: ${(props) => props.theme.shadow["boxShadow"]};
+  overflow-y: auto;
+  height: 450px;
+
+  @media (min-width: 600px) {
+    height: 800px;
+  }
 `;
 
 export default HomeMemoList;

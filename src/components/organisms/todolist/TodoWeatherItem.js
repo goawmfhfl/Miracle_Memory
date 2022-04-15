@@ -16,6 +16,5 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 30px;
 `;
 export default TodoWeatherItem;
