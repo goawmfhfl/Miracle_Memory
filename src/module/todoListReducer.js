@@ -3,9 +3,9 @@ const TODOLIST_CREATE = "TODOLIST_CREATE";
 const TODOLIST_REMOVE = "TODOLIST_REMOVE";
 const TODOLIST_UPDATE = "TODOLIST_UPDATE";
 
-export const initTodos = (todoList) => ({
+export const initTodos = (data) => ({
   type: TODOLIST_INIT,
-  data: todoList,
+  data: data,
 });
 
 export const createTodos = (todos) => ({
@@ -36,7 +36,12 @@ const todoListReducer = (state = [], action) => {
       return action.data;
     }
     case TODOLIST_CREATE: {
-      newState = [...state, action.data];
+      if (state === null) {
+        newState = [action.data];
+      } else {
+        newState = [...state, action.data];
+      }
+
       break;
     }
     case TODOLIST_REMOVE: {

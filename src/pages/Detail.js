@@ -6,7 +6,6 @@ import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
 import DetailContainer from "../components/template/DetailContainer";
 import CommonNavigation from "../components/organisms/common/CommonNavigation";
-import Icon from "../components/atom/icon/Icon";
 
 const DetailTemplate = () => {
   const navigate = useNavigate();

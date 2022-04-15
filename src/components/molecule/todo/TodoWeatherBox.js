@@ -12,30 +12,24 @@ const TodoWeatherBox = () => {
     descript: "",
   });
 
-  console.log(data);
-
   useEffect(() => {
-    const getCoordsInfo = () => {
-      if (localStorage.getItem("location")) {
-        const location = JSON.parse(localStorage.getItem("location"));
-        const fetchedData = axios
-          .get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=6720dd6382b0a7536a9ab1184aed41a1&units=metric`
-          )
-          .then((response) => {
-            console.log(response);
-            setData({
-              temp_min: response.data.main.temp_min,
-              temp_max: response.data.main.temp_max,
-              icon: response.data.weather[0].icon,
-              descript: response.data.weather[0].description,
-            });
+    if (localStorage.getItem("location")) {
+      const location = JSON.parse(localStorage.getItem("location"));
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=6720dd6382b0a7536a9ab1184aed41a1&units=metric`
+        )
+        .then((response) => {
+          setData({
+            temp_min: response.data.main.temp_min,
+            temp_max: response.data.main.temp_max,
+            icon: response.data.weather[0].icon,
+            descript: response.data.weather[0].description,
           });
-      } else {
-        return;
-      }
-    };
-    getCoordsInfo();
+        });
+    } else {
+      return;
+    }
   }, []);
 
   return (
