@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getStringDate } from "../util/date";
+import { getStringDate, getWeekDayStr } from "../util/date";
 import Button from "../components/atom/etc/Button";
 import CommonHeader from "../components/organisms/common/CommonHeader";
 import DetailContainer from "../components/template/DetailContainer";
@@ -45,7 +45,9 @@ const DetailTemplate = () => {
     return (
       <>
         <CommonHeader
-          headText={`${getStringDate(detailData.date).dataString()} 기록`}
+          headText={`${getStringDate(detailData.date).dataString()} ${
+            getWeekDayStr().WEEKDAY[new Date(detailData.date).getDay()]
+          }`}
           leftChild={
             <Button type={"default"} onClick={goBack}>
               &lt; 뒤로가기
