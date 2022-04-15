@@ -4,8 +4,6 @@ import axios from "axios";
 import CommonText from "../../atom/text/CommonText";
 import Icon from "../../atom/icon/Icon";
 import usePromise from "../../../hooks/usePromise";
-import dotenv from "dotenv";
-dotenv.config();
 
 const TodoWeatherBox = () => {
   const [loading, response, error] = usePromise(() => {
