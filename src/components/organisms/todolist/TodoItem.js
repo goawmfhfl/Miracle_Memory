@@ -15,9 +15,7 @@ const TodoItem = ({ id, todoItem }) => {
   const toggleIsEdit = () => setIsEdit(!isEdit);
 
   const handleRemove = (targetId) => {
-    if (window.confirm("삭제하실껀가요?")) {
-      dispatch(removeTodos(targetId));
-    }
+    dispatch(removeTodos(targetId));
   };
   const handleQuitEdit = () => {
     setIsEdit(false);
@@ -28,10 +26,8 @@ const TodoItem = ({ id, todoItem }) => {
     if (localContent.length < 1) {
       localContentInput.current.focus();
     }
-    if (window.confirm("수정하실건가요?")) {
-      dispatch(editTodos(id, localContent));
-      toggleIsEdit();
-    }
+    dispatch(editTodos(id, localContent));
+    toggleIsEdit();
   };
 
   const handleLocalContent = (value) => {
