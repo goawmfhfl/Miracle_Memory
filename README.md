@@ -346,95 +346,85 @@ Header Organism 컴포넌트라도 분리해서 State 끌어올리기를 통해�
 ## 결론
 
 결국에는 이런 디자인 시스템을 적용하기 위해서는 디자이너와 정말 많은 커뮤니케이션이 일어나야 할 것 같다는 생각이 들었다. 디자이너가 오로지 디자인의 관점으로만 레이아웃을 만들고 개발자가 UI를 만들어야 하는 상황이 온다면 개발자는 디자이너가 의도한대로 컴포넌트를 재 설계해야한다. 이 과정에서 최적화와 상태관리를 위하여 프로젝트 구조의 흐름을 깨뜨리는 상황이 발생할 수 있을 것 같다고 생각했다.
+
 <br>
 
-# 2. Redux Ducks Patten
+# 2. 사용자 경험 개선
 
-> What is Redux Ducks Patten
+## 반응형 웹 적용
 
-기존에 EarthMarket 프로젝트를 진행하면서 Action Type(액션 타입), Action Creator(액션 생성 함수), Reducer(리듀서)를 모두 하나의 파일로 관리하지 않고 따로따로 역할을 분리해서 사용했다. 기존 어스마켓의 프로젝트 규모가 큰 편이었기에 파일별로 역할을 나누었었다. 하지만 Redux Ducks패턴은 기존에 리덕스 모듈들을 파일별로 나누어 작성하는 것이 아닌 하나의 파일에 두어서 함께 관리하는 것이다
+> 사용자 의견
 
-```jsx
-// Constant
+- 👩🏻 사용자1,2   : IPhone 11 Pro에서는 레이아웃이 깨집니다.
 
-const MEMORY_INIT = "MEMORY_INIT";
-const MEMORY_CREATE = "MEMORY_CREATE";
-const MEMORY_REMOVE = "MEMORY_REMOVE";
-const MEMORY_UPDATE = "MEMORY_UPDATE";
+> 원인 분석
 
-// Action
+기존에 반응형 웹을 만들기 위해서 390px ~ 600px ViewPort를 고려하여 만들었음. 하지만 Ipone 11 Pro 모델 같은 경우에는 ViewPort가 375px 기준이기에 반응형 ViewPort의 기준을 변경하기로 결정했음.
 
-export const initalData = (data) => ({
-...
-});
+> 경험 개선
 
-export const onCreate = (date, content, emotion) => ({
-...
-});
+<div align='center' >
+<img src="https://user-images.githubusercontent.com/79143800/163753021-d6217177-7f04-4b3f-8616-8eeaefbd1079.jpeg" width="45%" height="700px" />
+<img src="https://user-images.githubusercontent.com/79143800/163754192-44d90a5a-8ecf-4c42-a6be-e675415468a8.png" width="45%" height="700px" />
+</div>
 
-export const onRemove = (targetId) => ({
-...
-});
+- (왼) 개선 전 (오) 개선 후
+- 360px ~ 600px 단위로 레이아웃 재구성
 
-export const onEdit = (targetId, date, content, emotion) => ({
-...
-});
+<br/>
 
-// Reducer
+## TodoList 기능 추가
 
-const memoryReducer = (state = {}, action) => {
-  let newState = [];
-  switch (action.type) {
-    case MEMORY_INIT: {
-...
-    }
-    case MEMORY_CREATE: {
-...
-    }
-    case MEMORY_REMOVE: {
-...
-    }
-    case MEMORY_UPDATE: {
-...
-    }
-    default:
-      return state;
-  }
-...
-  return newState;
-};
+> 사용자 의견
 
-export default memoryReducer;
-```
+- 🧑🏻 사용자3 : 아침 일기를 작성함과 동시에 아침에 해야할 일을 체크할 수 있는 투 두 리스트가 있으면 좋겠습니다. 또한 상세 페이지로 들어갈 경우 요일 정보가 나오지 않아서 불편합니다.
 
-Ducks 패턴 같은 경우에는 module이라는 폴더에서 Ducks 패턴으로 만들어진 파일을 관리한다. 그리고 store 로직을 index.js를 통해서 관리를 해주는데 나는 방식을 좀 다르게했다. 데이터가 실질적으로 관리가 되는 reducer함수는 store함수에서 관리되는게 좀 더 구분짓기 편하다고 여겨 index.js가 아닌 store.js파일을 만들어서 관리해주었다.
+> 경험 개선
 
-- Store.js
+<div align='center' >
+<img src="https://user-images.githubusercontent.com/79143800/163753438-9bb6932e-7401-45a4-8793-637a78735f59.png" width="29%" />
+<img src="https://user-images.githubusercontent.com/79143800/163753445-405c675c-bf7b-4333-aae3-dcf564abed39.png" width="50%" height="700px"/>
+</div>
 
-```jsx
-import { combineReducers } from "redux";
-import { createStore } from "redux";
-import memoryReducer from "./module/memoryReducer";
-import { composeWithDevTools } from "redux-devtools-extension";
+<br/>
 
-const reducer = combineReducers({
-  memoryReducer,
-});
+1. To do List 기능 추가
+2. 상세 페이지에 요일 정보 나타나게 업데이트
 
-const store = createStore(reducer, composeWithDevTools());
+<br/>
 
-export default store;
-```
+## 네비게이션 추가 및 빈 여백 UI 추가.
+
+> 사용자 의견
+
+- 🧑🏻 사용자4 : 앱 초기 화면을 보자마자 조금 어색한 느낌이 들었습니다. 어떻게 메모를 입력해야하나요?
+
+> 원인 분석
+
+네비게이션을 UI를 통해서 새로운 기록을 바로 남길 수 있는 기능을 더하면 좋을 것 같고 그리고 텅 빈 느낌보다는 메모가 가능한 공간이라는 UI를 더해주면 좋을 것 같다고 생각했음. 하단에 네비게이션 기능을 추가할 때 작성할 수 있는 버튼을 추가했으며 텅빈 공간이라는 느낌을 주기 위해서 빈 여백지 UI를 더했음.
+
+> 경험 개선
+
+<div align='center' >
+<img src="https://user-images.githubusercontent.com/79143800/163752954-92f43a88-e7d0-4e0a-967e-b6ead184dad1.png" width="45%" height="700px" />
+<img src="https://user-images.githubusercontent.com/79143800/163754195-7e878a23-86d0-42ec-b90e-65da78458c9a.png" width="45%" height="700px" />
+</div>
+
+<br>
+
+- (왼) 개선 전 (오) 개선 후
+- 여백 UI 추가
+- Navigation UI 추가
 
 <br>
 
 # 📲 프로젝트 실행 방법
 
+```
 🖥 코드 실행
 
-```
-  npm install
-  npm start
+npm install
+npm start
 ```
 
 <br/>
@@ -442,32 +432,36 @@ export default store;
 # 📁 프로젝트 구조
 
 ```
-📦src
- ┣ 📂components
- ┃ ┣ 📂atom
- ┃ ┃ ┣ 📂etc
- ┃ ┃ ┣ 📂icon
- ┃ ┃ ┣ 📂img
- ┃ ┃ ┣ 📂logo
- ┃ ┃ ┗ 📂text
- ┃ ┣ 📂molecule
- ┃ ┃ ┣ 📂common
- ┃ ┃ ┣ 📂detail
- ┃ ┃ ┣ 📂editor
- ┃ ┃ ┗ 📂home
- ┃ ┣ 📂organisms
- ┃ ┃ ┣ 📂common
- ┃ ┃ ┣ 📂detail
- ┃ ┃ ┣ 📂editor
- ┃ ┃ ┗ 📂home
- ┃ ┗ 📂template
- ┣ 📂module
- ┣ 📂pages
- ┣ 📂styles
- ┣ 📂util
- ┣ 📜App.js
- ┣ 📜index.js
- ┗ 📜store.js
+
+src
+ ┣ components
+ ┃ ┣ atom
+ ┃ ┃ ┣ etc
+ ┃ ┃ ┣ icon
+ ┃ ┃ ┣ img
+ ┃ ┃ ┣ logo
+ ┃ ┃ ┗ text
+ ┃ ┣ molecule
+ ┃ ┃ ┣ common
+ ┃ ┃ ┣ detail
+ ┃ ┃ ┣ editor
+ ┃ ┃ ┣ home
+ ┃ ┃ ┗ todo
+ ┃ ┣ organisms
+ ┃ ┃ ┣ common
+ ┃ ┃ ┣ detail
+ ┃ ┃ ┣ editor
+ ┃ ┃ ┣ home
+ ┃ ┃ ┗ todolist
+ ┃ ┗ template
+ ┣ hooks
+ ┣ module
+ ┣ pages
+ ┣ styles
+ ┣ util
+ ┣ App.js
+ ┣ index.js
+ ┗ store.js
 ```
 
 <br/>
@@ -475,6 +469,7 @@ export default store;
 # 💡 라이브러리
 
 ```
+
     "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -485,4 +480,5 @@ export default store;
     "redux-devtools-extension": "^2.13.9",
     "styled-components": "^5.3.3",
     "styled-reset": "^4.3.4",
+
 ```
